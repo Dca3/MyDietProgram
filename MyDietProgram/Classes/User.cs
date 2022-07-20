@@ -21,6 +21,10 @@ namespace MyDietProgram.Classes
 
         public string Email { get; set; }
 
+        public string Password { get; set; }
+
+        public bool ? IsAdmin { get; set; }
+
         public DailyActivity Activity { get; set; }
 
         public Goal Goal { get; set; }
