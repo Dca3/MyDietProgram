@@ -20,7 +20,7 @@ namespace MyDietProgram
             {
                 services.AddDbContext<Context>(options =>
                 {
-                    options.UseSqlServer("Server=DESKTOP-0SNC0DU;Database=MyDietDb_3;User Id = sa;Password=123");
+                    options.UseSqlServer("Server=.;Database=Diet;User Id = sa;Password=123");
                 });
             });
 
