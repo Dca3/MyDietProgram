@@ -1,6 +1,6 @@
 ﻿namespace MyDietProgram
 {
-    partial class LoginFom1
+    partial class LoginForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -34,6 +34,8 @@
             this.btnRegister = new MaterialSkin.Controls.MaterialButton();
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.btnMinimize = new MaterialSkin.Controls.MaterialButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtEmail
@@ -119,7 +121,7 @@
             this.btnClose.Depth = 0;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(464, -1);
+            this.btnClose.Location = new System.Drawing.Point(462, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -140,7 +142,7 @@
             this.btnMinimize.Depth = 0;
             this.btnMinimize.HighEmphasis = true;
             this.btnMinimize.Icon = null;
-            this.btnMinimize.Location = new System.Drawing.Point(416, -1);
+            this.btnMinimize.Location = new System.Drawing.Point(414, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimize.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnMinimize.Name = "btnMinimize";
@@ -152,21 +154,32 @@
             this.btnMinimize.UseAccentColor = false;
             this.btnMinimize.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.btnMinimize);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(510, 36);
+            this.panel1.TabIndex = 2;
+            // 
             // LoginFom1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 332);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.btnMinimize);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginFom1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,5 +193,6 @@
         private MaterialSkin.Controls.MaterialButton btnRegister;
         private MaterialSkin.Controls.MaterialButton btnClose;
         private MaterialSkin.Controls.MaterialButton btnMinimize;
+        private Panel panel1;
     }
 }
