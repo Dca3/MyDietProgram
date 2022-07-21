@@ -20,12 +20,22 @@ namespace MyDietProgram.Classes
         }
 
         public string sha256_hash(string pwd) { using (SHA256 hash = SHA256Managed.Create()) { return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(pwd)).Select(l => l.ToString("X2"))); } }
-        public void CreateUser(string UserMail, string Pwd)
+        public void CreateUser(string UserMail, string Pwd,int activity,int goal,int gender,double weight,double height,int age)
         {
             User user = new User();
 
             user.Email = UserMail;
             user.Password = sha256_hash(Pwd);
+            user.Activity =(DailyActivity) activity;
+            user.Goal = (Goal)goal;
+            user.Gender = (Gender)gender;
+            user.Weight=weight;
+            user.Height = height;   
+            user.Age = age;
+            user.CalculatedCalorie = CalculatedCalorie(weight, height, age, activity, gender, goal);
+
+
+
             db.SaveChanges();
         }
 
@@ -127,6 +137,74 @@ namespace MyDietProgram.Classes
 
 
         }
+
+        public double CalculatedCalorie(double weight, double height, int age,int activity,int gender,int goal)
+        {
+            double basalmetabolism = CountBasalMetabolism(weight,height,age,gender);
+            double essentialCalorie;
+            if (activity==0)
+            {
+               essentialCalorie=0.25 * basalmetabolism;
+            }
+            else if (activity==1)
+            {
+                 essentialCalorie =  0.50 * basalmetabolism;
+            }
+            else if (activity == 2)
+            {
+                 essentialCalorie = 0.75 * basalmetabolism;
+            }
+            else  
+            {
+                 essentialCalorie = 1 * basalmetabolism;
+            }
+
+            if (goal==0)
+            {
+                return essentialCalorie + 500;
+            }
+            else if (goal == 1)
+            {
+                return essentialCalorie - 500;
+            }
+            else
+            {
+                return essentialCalorie;
+            }
+
+
+
+            return 0;
+
+        }
+
+
+        private double CountBasalMetabolism(double weight,double height,int age,int gender)
+        {
+            if (gender == 0)
+            {
+            
+              double  basalMetabolismWoman = (10 * weight) + (6.25 * height) - (5 * age) - (161);
+
+                return basalMetabolismWoman;
+            }
+            else if(gender == 1)
+            {
+           
+               double basalMetabolismMan = (10 * weight) + (8.25 * height) - (5 * age) - (161);
+
+                return basalMetabolismMan;
+
+            }
+
+            return 0;
+            
+        }
+
+
+
+
+
 
     }
 }

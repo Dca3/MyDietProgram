@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyDietProgram.Classes;
 
@@ -11,9 +12,10 @@ using MyDietProgram.Classes;
 namespace MyDietProgram.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220721134922_migration3")]
+    partial class migration3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,9 +114,6 @@ namespace MyDietProgram.Migrations
 
                     b.Property<double>("CalculatedCalorie")
                         .HasColumnType("float");
-
-                    b.Property<int>("Deneme")
-                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()

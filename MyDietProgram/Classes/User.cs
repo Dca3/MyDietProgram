@@ -23,13 +23,19 @@ namespace MyDietProgram.Classes
 
         public string Password { get; set; }
 
-        public bool ? IsAdmin { get; set; }
+        public bool? IsAdmin { get; set; }
 
         public DailyActivity Activity { get; set; }
 
         public Goal Goal { get; set; }
 
-        
+        public int Age { get; set; }
+
+        public double CalculatedCalorie { get; set; }
+
+    
+
+
         public ICollection<Meal> Meals { get; set; }=new List<Meal>();
 
 

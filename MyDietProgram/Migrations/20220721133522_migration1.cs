@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyDietProgram.Migrations
 {
-    public partial class migrations1 : Migration
+    public partial class migration1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,8 +34,11 @@ namespace MyDietProgram.Migrations
                     Height = table.Column<double>(type: "float", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsAdmin = table.Column<bool>(type: "bit", nullable: true),
                     Activity = table.Column<int>(type: "int", nullable: false),
-                    Goal = table.Column<int>(type: "int", nullable: false)
+                    Goal = table.Column<int>(type: "int", nullable: false),
+                    CalculatedCalorie = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {

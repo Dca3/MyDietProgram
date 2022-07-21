@@ -12,8 +12,8 @@ using MyDietProgram.Classes;
 namespace MyDietProgram.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220720120208_migrations1")]
-    partial class migrations1
+    [Migration("20220721133522_migration1")]
+    partial class migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -112,6 +112,9 @@ namespace MyDietProgram.Migrations
                     b.Property<int>("Activity")
                         .HasColumnType("int");
 
+                    b.Property<double>("CalculatedCalorie")
+                        .HasColumnType("float");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -129,7 +132,14 @@ namespace MyDietProgram.Migrations
                     b.Property<double>("Height")
                         .HasColumnType("float");
 
+                    b.Property<bool?>("IsAdmin")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
