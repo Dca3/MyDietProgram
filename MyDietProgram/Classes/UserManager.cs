@@ -11,7 +11,7 @@ namespace MyDietProgram.Classes
     public class UserManager
     {
 
-        private Context db { get; set; }
+        public Context db { get; set; }
 
 
         public UserManager(Context db)
@@ -20,12 +20,14 @@ namespace MyDietProgram.Classes
         }
 
         public string sha256_hash(string pwd) { using (SHA256 hash = SHA256Managed.Create()) { return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(pwd)).Select(l => l.ToString("X2"))); } }
-        public void CreateUser(string UserMail, string Pwd,int activity,int goal,int gender,double weight,double height,int age)
+        public void CreateUser(string firstName, string lastName, string userMail, string pwd,int activity,int goal,int gender,double weight,double height,int age)
         {
             User user = new User();
 
-            user.Email = UserMail;
-            user.Password = sha256_hash(Pwd);
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.Email = userMail;
+            user.Password = sha256_hash(pwd);
             user.Activity =(DailyActivity) activity;
             user.Goal = (Goal)goal;
             user.Gender = (Gender)gender;
@@ -34,8 +36,7 @@ namespace MyDietProgram.Classes
             user.Age = age;
             user.CalculatedCalorie = CalculatedCalorie(weight, height, age, activity, gender, goal);
 
-
-
+            db.Users.Add(user);
             db.SaveChanges();
         }
 
@@ -106,7 +107,7 @@ namespace MyDietProgram.Classes
 
         }
 
-        public void GetUser(string email, string password)
+        public User GetUser(string email, string password)
         {
 
             if (email==null)
@@ -133,8 +134,8 @@ namespace MyDietProgram.Classes
             {
                 throw new Exception("Hatalı şifre girdiniz");
             }
-           
 
+            return user;
 
         }
 
