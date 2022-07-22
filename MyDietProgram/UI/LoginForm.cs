@@ -177,5 +177,10 @@ namespace MyDietProgram
         {
             LoadData();
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
