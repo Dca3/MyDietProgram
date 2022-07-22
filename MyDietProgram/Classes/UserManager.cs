@@ -203,9 +203,41 @@ namespace MyDietProgram.Classes
         }
 
 
+        public void CreateFood(string foodname,int calorie,Category category,int? amount,double? gram)
+        {
+            Food food = new Food();
+            food.Name = foodname;
+            food.Category = category;
+            food.Calorie = calorie;
+            food.Amount = amount;
+            food.Gram = gram;
+            db.Foods.Add(food);
+            db.SaveChanges();
+         
+
+           
+        }
+
+        public void CreateCategory(string category)
+        {
+
+           Category categoryis=new Category();
+            categoryis.Name=category;
+            db.Categories.Add(categoryis);
+            db.SaveChanges();
+           
+
+        }
 
 
+        public void CreateMeal(int mealname,DateTime time)
+        {
+            Meal meal = new Meal();
 
+            meal.Name = (MealName)mealname;
+            meal.Date = time;
+         
+        }
 
     }
 }

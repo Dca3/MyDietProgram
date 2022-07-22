@@ -73,5 +73,10 @@ namespace MyDietProgram
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
