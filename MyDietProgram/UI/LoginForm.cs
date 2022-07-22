@@ -12,14 +12,9 @@ namespace MyDietProgram
 
         public LoginForm(Context context)
         {
-            //this.db=context;
-            // db.Users.Add(new User() { FirstName = "doðan can", LastName = "Arýcý", Email = "dgncn33@gmail.com",Activity=DailyActivity.Less_Active,Goal=Goal.Gaining_Weigth,Weight=92,Height=192,Gender=Gender.Man });
-            // db.SaveChanges();
-
-            // var a = db.Users.FirstOrDefault();
-
             this.db = context;
             InitializeComponent();
+            LoadData();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -60,24 +55,127 @@ namespace MyDietProgram
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MainForm mainForm = new MainForm(db);
-            this.Hide();
-            mainForm.Show();
+            
 
-            //try
-            //{
-            //    string email = txtEmail.Text;
-            //    string password = txtPassword.Text;
-            //    UserManager userManager = new UserManager(db);
-            //    User user = userManager.GetUser(email, password);
-            //    if (user != null)
-            //    {
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            try
+            {
+                string email = txtEmail.Text;
+                string password = txtPassword.Text;
+                UserManager userManager = new UserManager(db);
+                User user = userManager.GetUser(email, password);
+                if (user != null)
+                {
+                    MainForm mainForm = new MainForm(db, user);
+                    this.Hide();
+                    mainForm.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void LoadData()
+        {
+            var categories = db.Categories.Select(c => c).ToList();
+
+            if (!db.Foods.Any())
+            {
+                db.Foods.AddRange(
+                    new Food() { 
+                        Name = "Ali nazik", 
+                        Category = categories.Where(c => c.Name == "Et").FirstOrDefault(), 
+                        Calorie = 536,
+                        AmountDescription = "1 porsiyon"
+                    },
+                    new Food() { 
+                        Name = "Ýskender",
+                        Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
+                        Calorie = 755,
+                        AmountDescription = "1 porsiyon"
+                    },
+
+                    new Food() { Name = "Hamburger",
+                        Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
+                        Calorie = 249,
+                        AmountDescription = "1 adet"
+                    },
+
+                    new Food() { Name = "Çoban salata",
+                        Category = categories.Where(c => c.Name == "Salata").FirstOrDefault(),
+                        Calorie = 120,
+                        AmountDescription = "1 porsiyon"
+                    },
+
+                    new Food() { Name = "Balýk",
+                        Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
+                        Calorie = 164,
+                        AmountDescription = "1 porsiyon"
+                    },
+
+                    new Food() { Name = "Kuru fasülye",
+                        Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
+                        Calorie = 146,
+                        AmountDescription = "1 porsiyon"
+                    },
+
+                    new Food() { Name = "Dondurma",
+                        Category = categories.Where(c => c.Name == "Tatlý").FirstOrDefault(),
+                        Calorie = 103,
+                        AmountDescription = "1 top"
+                    },
+
+                    new Food() { Name = "Pilav",
+                        Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
+                        Calorie = 359,
+                        AmountDescription = "1 porsiyon"
+                    },
+
+                    new Food() { Name = "Domates",
+                        Category = categories.Where(c => c.Name == "Sebze").FirstOrDefault(),
+                        Calorie = 19,
+                        AmountDescription = "1 adet"
+                    },
+
+                    new Food() {  Name = "Salatalýk",
+                        Category = categories.Where(c => c.Name == "Sebze").FirstOrDefault(),
+                        Calorie = 20,
+                        AmountDescription = "1 adet"
+                    },
+
+                    new Food() {  Name = "Elma",
+                        Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
+                        Calorie = 46,
+                        AmountDescription = "1 adet"
+                    },
+
+                    new Food() {  Name = "Armut",
+                        Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
+                        Calorie = 57,
+                        AmountDescription = "1 adet"
+                    },
+
+                    new Food() {  Name = "Muz",
+                        Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
+                        Calorie = 151,
+                        AmountDescription = "1 adet"
+                    },
+
+                    new Food() {  Name = "Yulaf",
+                        Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
+                        Calorie = 351,
+                        AmountDescription = "1 porsiyon"
+                    }
+                );
+
+                db.SaveChanges();
+            }
+        }
+
+        private void LoginForm_Shown(object sender,EventArgs e)
+        {
+            LoadData();
         }
     }
 }

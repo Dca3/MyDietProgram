@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyDietProgram.Classes
 {
+    [Index(nameof(Email), IsUnique = true)]
     public class User
     {
         public int UserId { get; set; }
@@ -18,7 +20,6 @@ namespace MyDietProgram.Classes
         public double Height { get; set; }
 
         public Gender Gender { get; set; }
-
         public string Email { get; set; }
 
         public string Password { get; set; }

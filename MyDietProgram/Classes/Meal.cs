@@ -12,14 +12,6 @@ namespace MyDietProgram.Classes
         public int Id { get; set; }
         public MealName Name { get; set; }
         public DateTime Date { get; set; }
-
-
-
         public ICollection<Food> Foods { get; set; } = new List<Food>();
-
-
-
-
-
     }
 }

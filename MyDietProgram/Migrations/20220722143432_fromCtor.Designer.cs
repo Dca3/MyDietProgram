@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyDietProgram.Classes;
 
@@ -11,9 +12,10 @@ using MyDietProgram.Classes;
 namespace MyDietProgram.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220722143432_fromCtor")]
+    partial class fromCtor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,66 +26,19 @@ namespace MyDietProgram.Migrations
 
             modelBuilder.Entity("MyDietProgram.Classes.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Et"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Sebze"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Meyve"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Salata"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Tatlı"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Unlu Mamül"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Bakliyat"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Meze"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Kuruyemiş"
-                        });
                 });
 
             modelBuilder.Entity("MyDietProgram.Classes.Food", b =>
@@ -97,15 +52,14 @@ namespace MyDietProgram.Migrations
                     b.Property<int?>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<string>("AmountDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Calorie")
                         .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
+
+                    b.Property<double?>("Gram")
+                        .HasColumnType("float");
 
                     b.Property<int?>("MealId")
                         .HasColumnType("int");
@@ -166,7 +120,7 @@ namespace MyDietProgram.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -196,9 +150,6 @@ namespace MyDietProgram.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("UserId");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
 
                     b.ToTable("Users");
                 });

@@ -60,18 +60,26 @@ namespace MyDietProgram
             int gender = rbFemale.Checked ? 0 : 1; //0 Female, 1 Male
             int goal = cbGoal.SelectedIndex;
 
-            userManager.CreateUser(
-                firstName,
-                lastName,
-                email,
-                password,
-                dailyActivity,
-                goal,
-                gender,
-                weight,
-                height,
-                age
-            );
+            try
+            {
+                userManager.CreateUser(
+                        firstName,
+                        lastName,
+                        email,
+                        password,
+                        dailyActivity,
+                        goal,
+                        gender,
+                        weight,
+                        height,
+                        age
+                    );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                //TODO Hata lduğunda db track temizle
+            }
         }
     }
 }

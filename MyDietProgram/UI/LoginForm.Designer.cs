@@ -46,14 +46,14 @@
             this.txtEmail.Depth = 0;
             this.txtEmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtEmail.LeadingIcon = null;
-            this.txtEmail.Location = new System.Drawing.Point(189, 93);
+            this.txtEmail.Location = new System.Drawing.Point(176, 87);
             this.txtEmail.MaxLength = 50;
             this.txtEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.txtEmail.Multiline = false;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(235, 50);
             this.txtEmail.TabIndex = 0;
-            this.txtEmail.Text = "";
+            this.txtEmail.Text = "admin@mail.com";
             this.txtEmail.TrailingIcon = null;
             this.txtEmail.UseAccent = false;
             // 
@@ -63,14 +63,14 @@
             this.txtPassword.Depth = 0;
             this.txtPassword.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtPassword.LeadingIcon = null;
-            this.txtPassword.Location = new System.Drawing.Point(189, 165);
+            this.txtPassword.Location = new System.Drawing.Point(176, 159);
             this.txtPassword.MaxLength = 50;
             this.txtPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtPassword.Multiline = false;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(235, 50);
             this.txtPassword.TabIndex = 0;
-            this.txtPassword.Text = "";
+            this.txtPassword.Text = "ADmin123*";
             this.txtPassword.TrailingIcon = null;
             this.txtPassword.UseAccent = false;
             // 
@@ -83,7 +83,7 @@
             this.btnLogin.Depth = 0;
             this.btnLogin.HighEmphasis = true;
             this.btnLogin.Icon = null;
-            this.btnLogin.Location = new System.Drawing.Point(203, 224);
+            this.btnLogin.Location = new System.Drawing.Point(176, 234);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogin.Name = "btnLogin";
@@ -105,7 +105,7 @@
             this.btnRegister.Depth = 0;
             this.btnRegister.HighEmphasis = true;
             this.btnRegister.Icon = null;
-            this.btnRegister.Location = new System.Drawing.Point(317, 224);
+            this.btnRegister.Location = new System.Drawing.Point(302, 234);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnRegister.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRegister.Name = "btnRegister";
@@ -182,8 +182,8 @@
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.materialLabel1.Location = new System.Drawing.Point(120, 109);
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(107, 103);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(45, 19);
@@ -194,8 +194,8 @@
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.materialLabel2.Location = new System.Drawing.Point(131, 182);
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(118, 176);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(34, 19);

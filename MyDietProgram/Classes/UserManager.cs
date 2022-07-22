@@ -83,11 +83,6 @@ namespace MyDietProgram.Classes
             {
                 MessageBox.Show("Girdiğiniz şifre en 2 özel karakter içermelidir");
             }
-
-
-
-
-
         }
 
 
@@ -172,11 +167,7 @@ namespace MyDietProgram.Classes
             {
                 return essentialCalorie;
             }
-
-
-
             return 0;
-
         }
 
 
