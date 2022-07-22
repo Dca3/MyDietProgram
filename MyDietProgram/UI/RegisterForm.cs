@@ -33,7 +33,7 @@ namespace MyDietProgram
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            CommonMethods.StartMoving(sender, e);
+            CommonMethods.StartMoving(e);
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -43,7 +43,7 @@ namespace MyDietProgram
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
-            CommonMethods.FinishMoving(sender, e);
+            CommonMethods.FinishMoving();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

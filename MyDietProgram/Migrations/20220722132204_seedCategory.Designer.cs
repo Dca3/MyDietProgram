@@ -12,8 +12,8 @@ using MyDietProgram.Classes;
 namespace MyDietProgram.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220721175622_DenemeOlmayanUser")]
-    partial class DenemeOlmayanUser
+    [Migration("20220722132204_seedCategory")]
+    partial class seedCategory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,53 @@ namespace MyDietProgram.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Et"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Sebze"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Meyve"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Salata"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Tatlı"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Unlu Mamül"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Bakliyat"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Meze"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Kuruyemiş"
+                        });
                 });
 
             modelBuilder.Entity("MyDietProgram.Classes.Food", b =>

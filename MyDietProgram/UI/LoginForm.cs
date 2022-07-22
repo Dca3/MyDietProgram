@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyDietProgram.Classes;
+using MyDietProgram.UI;
 
 namespace MyDietProgram
 {
@@ -44,7 +45,7 @@ namespace MyDietProgram
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            CommonMethods.StartMoving(sender, e);
+            CommonMethods.StartMoving(e);
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -54,24 +55,29 @@ namespace MyDietProgram
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
-            CommonMethods.FinishMoving(sender, e);
+            CommonMethods.FinishMoving();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string email = txtEmail.Text;
-                string password = txtPassword.Text;
-                UserManager userManager = new UserManager(db);
-                User user = userManager.GetUser(email, password);
-                if (user != null)
-                    MessageBox.Show(user.FirstName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            MainForm mainForm = new MainForm(db);
+            this.Hide();
+            mainForm.Show();
+
+            //try
+            //{
+            //    string email = txtEmail.Text;
+            //    string password = txtPassword.Text;
+            //    UserManager userManager = new UserManager(db);
+            //    User user = userManager.GetUser(email, password);
+            //    if (user != null)
+            //    {
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

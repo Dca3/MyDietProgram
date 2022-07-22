@@ -11,7 +11,7 @@ namespace MyDietProgram.Classes
         public static bool mouseDown { get; set; }
         public static Point lastLocation;
 
-        public static void StartMoving(object sender, MouseEventArgs e)
+        public static void StartMoving(MouseEventArgs e)
         {
             mouseDown = true;
             lastLocation = e.Location;
@@ -28,7 +28,7 @@ namespace MyDietProgram.Classes
             }
         }
 
-        public static void FinishMoving(object sender, MouseEventArgs e)
+        public static void FinishMoving()
         {
             mouseDown = false;
         }
