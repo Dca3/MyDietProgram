@@ -201,7 +201,6 @@ namespace MyDietProgram.Classes
             food.Category = category;
             food.Calorie = calorie;
             food.Amount = amount;
-            food.Gram = gram;
             db.Foods.Add(food);
             db.SaveChanges();
          
