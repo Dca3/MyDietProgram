@@ -11,6 +11,6 @@ namespace MyDietProgram.Classes
         Breakfast=0,
         Launch=1,
         Dinner=2,
-        
+        Collation=3
     }
 }

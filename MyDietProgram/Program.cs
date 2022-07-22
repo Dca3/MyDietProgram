@@ -31,7 +31,7 @@ namespace MyDietProgram
                 var services = serviceScope.ServiceProvider;
 
                 var context = services.GetRequiredService<Context>();
-                Application.Run(new RegisterForm(context));
+                Application.Run(new LoginForm(context));
 
             }
            
