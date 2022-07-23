@@ -64,7 +64,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1103, 36);
+            this.panel1.Size = new System.Drawing.Size(581, 36);
             this.panel1.TabIndex = 3;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -81,7 +81,7 @@
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.HighEmphasis = true;
             this.btnMinimize.Icon = null;
-            this.btnMinimize.Location = new System.Drawing.Point(1007, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(485, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimize.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnMinimize.Name = "btnMinimize";
@@ -105,7 +105,7 @@
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(1055, 0);
+            this.btnClose.Location = new System.Drawing.Point(533, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -464,7 +464,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1103, 824);
+            this.ClientSize = new System.Drawing.Size(581, 824);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.rbMale);
             this.Controls.Add(this.rbFemale);
