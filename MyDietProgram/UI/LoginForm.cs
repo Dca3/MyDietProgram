@@ -1,14 +1,13 @@
+using MaterialSkin.Controls;
 using Microsoft.EntityFrameworkCore;
 using MyDietProgram.Classes;
 using MyDietProgram.UI;
 
 namespace MyDietProgram
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : MaterialForm
     {
         Context db;
-        private bool mouseDown;
-        private Point lastLocation;
 
         public LoginForm(Context context)
         {
@@ -39,25 +38,8 @@ namespace MyDietProgram
             registerForm.ShowDialog();
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            CommonMethods.StartMoving(e);
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            CommonMethods.Move(this, e);
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            CommonMethods.FinishMoving();
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-
             try
             {
                 string email = txtEmail.Text;

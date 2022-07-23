@@ -9,18 +9,21 @@ namespace MyDietProgram.Classes
 {
     public class Food
     {
-        public int Id { get; set; }
+        public int FoodId { get; set; }
         public string Name { get; set; }
 
         public int Calorie { get; set; }
 
-        public int? Amount { get; set; }
+        public double? Amount { get; set; }
 
         public string AmountDescription { get; set; }
 
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+
+        public ICollection<Meal> Meals { get; set; }
 
         public override string ToString()
         {
