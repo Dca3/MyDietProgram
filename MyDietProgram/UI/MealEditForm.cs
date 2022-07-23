@@ -31,7 +31,7 @@ namespace MyDietProgram.UI
             Panel pnlContainer = new Panel();
             MaterialLabel lblFoodName = new MaterialLabel() { Text = food.Name.ToString() };
             MaterialTextBox txtAmount = new MaterialTextBox() { Text = food.Amount.ToString() };
-            MaterialButton btnDelete = new MaterialButton() { Text = "-" };
+            MaterialButton btnDelete = new MaterialButton() { Text = "SİL" };
 
             pnlContainer.Size = new Size(469, 83);
             pnlContainer.Location = new Point(20, 29);

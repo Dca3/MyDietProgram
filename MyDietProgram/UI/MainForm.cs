@@ -24,6 +24,7 @@ namespace MyDietProgram.UI
             this.user = user;
             InitializeComponent();
             FillElements();
+            dgvMeals.DataSource = user.Meals;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -69,8 +70,10 @@ namespace MyDietProgram.UI
             cbCategories.SelectedIndex = 0;
             cbFoods.SelectedIndex = 0;
 
-            lblWelcome.Text = $"Hoşgeldiniz, {user.FirstName} {user.LastName}";
+            this.Text = $"Hoşgeldiniz, {user.FirstName} {user.LastName}";
             lblUserCalculatedCalorie.Text = user.CalculatedCalorie.ToString() + " kcal";
+
+            ListMealsOfUser();
         }
 
         private void cbFoods_SelectedIndexChanged(object sender, EventArgs e)
@@ -168,6 +171,7 @@ namespace MyDietProgram.UI
             var btn = (MaterialButton)sender;
             int mealId = (int)btn.Parent.Tag;
             DeleteMealComponent(mealId);
+            DeleteMealFromDB(mealId);
         }
 
         private void DeleteMealComponent(int mealId)
@@ -184,7 +188,7 @@ namespace MyDietProgram.UI
                 meal.IsDeleted = true;
         }
 
-        private void DeleteFromDB(int mealId)
+        private void DeleteMealFromDB(int mealId)
         {
             Meal meal = user.Meals.Where(m => m.MealId == mealId).FirstOrDefault();
             if (meal != null)
@@ -201,14 +205,14 @@ namespace MyDietProgram.UI
             MealName mealName = (MealName)cbMeals.SelectedIndex;
             Food food = (Food)cbFoods.SelectedItem;
             food.Amount = Convert.ToDouble(txtAmount.Text);
-            Meal meal = user.Meals.Where(m => m.Name == mealName).FirstOrDefault();
+            Meal meal = user.Meals.FirstOrDefault(m => m.Name == mealName && m.Date.Date == dtpDate.Value.Date);
 
             if (meal == null)
             {
                 meal = new Meal()
                 {
                     Name = mealName,
-                    Date = dtpDate.Value,
+                    Date = dtpDate.Value.Date,
                 };
                 meal.Foods.Add(food);
                 user.Meals.Add(meal);
@@ -218,12 +222,47 @@ namespace MyDietProgram.UI
             }
             else
             {
-                meal.Foods.Add(food);
+                Food foodInMeal = meal.Foods.FirstOrDefault(f => f.Name == food.Name);
+                if (foodInMeal == null)
+                {
+                    meal.Foods.Add(food);
+                }
+                else
+                {
+
+                    ///Düzgün çalışmıyor
+                    ///
+
+
+
+
+                    foodInMeal.Amount += food.Amount;
+                }
                 DeleteMealComponent(meal.MealId);
                 CreateMealComponent(meal);
             }
-
             db.SaveChanges();
+        }
+
+        private void UpdateMealComponent(int mealId)
+        {
+
+        }
+
+        private void ListMealsOfUser()
+        {
+            List<Meal> meals = db.Meals.Where(m => m.UserId == 1).ToList();
+            
+            flpMeals.Controls.Clear();
+            
+            foreach (Meal meal in meals)
+                if (meal.Date.Date == dtpDate.Value.Date)
+                    CreateMealComponent(meal);
+        }
+
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
+        {
+            ListMealsOfUser();
         }
     }
 }

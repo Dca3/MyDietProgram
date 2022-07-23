@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblWelcome = new MaterialSkin.Controls.MaterialLabel();
-            this.lblUserCalculatedCalorie = new MaterialSkin.Controls.MaterialLabel();
             this.cbMeals = new MaterialSkin.Controls.MaterialComboBox();
             this.cbCategories = new MaterialSkin.Controls.MaterialComboBox();
             this.btnNewFood = new MaterialSkin.Controls.MaterialButton();
@@ -45,37 +43,10 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.flpMeals = new System.Windows.Forms.FlowLayoutPanel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblUserCalculatedCalorie = new System.Windows.Forms.Label();
+            this.dgvMeals = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMeals)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Depth = 0;
-            this.lblWelcome.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblWelcome.ForeColor = System.Drawing.Color.White;
-            this.lblWelcome.Location = new System.Drawing.Point(135, 35);
-            this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWelcome.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(184, 19);
-            this.lblWelcome.TabIndex = 5;
-            this.lblWelcome.Text = "Hoşgeldiniz, Lorem İpsum";
-            // 
-            // lblUserCalculatedCalorie
-            // 
-            this.lblUserCalculatedCalorie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUserCalculatedCalorie.AutoSize = true;
-            this.lblUserCalculatedCalorie.BackColor = System.Drawing.Color.Transparent;
-            this.lblUserCalculatedCalorie.Depth = 0;
-            this.lblUserCalculatedCalorie.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblUserCalculatedCalorie.ForeColor = System.Drawing.Color.White;
-            this.lblUserCalculatedCalorie.Location = new System.Drawing.Point(1194, 35);
-            this.lblUserCalculatedCalorie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUserCalculatedCalorie.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblUserCalculatedCalorie.Name = "lblUserCalculatedCalorie";
-            this.lblUserCalculatedCalorie.Size = new System.Drawing.Size(10, 19);
-            this.lblUserCalculatedCalorie.TabIndex = 6;
-            this.lblUserCalculatedCalorie.Text = "0";
             // 
             // cbMeals
             // 
@@ -292,6 +263,7 @@
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(362, 33);
             this.dtpDate.TabIndex = 12;
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
             // 
             // materialLabel1
             // 
@@ -308,9 +280,10 @@
             // 
             // flpMeals
             // 
-            this.flpMeals.Location = new System.Drawing.Point(708, 113);
+            this.flpMeals.AutoScroll = true;
+            this.flpMeals.Location = new System.Drawing.Point(694, 113);
             this.flpMeals.Name = "flpMeals";
-            this.flpMeals.Size = new System.Drawing.Size(550, 418);
+            this.flpMeals.Size = new System.Drawing.Size(580, 418);
             this.flpMeals.TabIndex = 13;
             // 
             // materialLabel9
@@ -326,11 +299,34 @@
             this.materialLabel9.TabIndex = 14;
             this.materialLabel9.Text = "Öğünler";
             // 
+            // lblUserCalculatedCalorie
+            // 
+            this.lblUserCalculatedCalorie.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserCalculatedCalorie.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUserCalculatedCalorie.ForeColor = System.Drawing.Color.White;
+            this.lblUserCalculatedCalorie.Location = new System.Drawing.Point(1065, 30);
+            this.lblUserCalculatedCalorie.Name = "lblUserCalculatedCalorie";
+            this.lblUserCalculatedCalorie.Size = new System.Drawing.Size(209, 30);
+            this.lblUserCalculatedCalorie.TabIndex = 15;
+            this.lblUserCalculatedCalorie.Text = "1000 kcal";
+            this.lblUserCalculatedCalorie.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dgvMeals
+            // 
+            this.dgvMeals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMeals.Location = new System.Drawing.Point(79, 551);
+            this.dgvMeals.Name = "dgvMeals";
+            this.dgvMeals.RowTemplate.Height = 25;
+            this.dgvMeals.Size = new System.Drawing.Size(1195, 280);
+            this.dgvMeals.TabIndex = 16;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1294, 582);
+            this.ClientSize = new System.Drawing.Size(1294, 850);
+            this.Controls.Add(this.dgvMeals);
+            this.Controls.Add(this.lblUserCalculatedCalorie);
             this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.flpMeals);
             this.Controls.Add(this.dtpDate);
@@ -346,21 +342,18 @@
             this.Controls.Add(this.cbMeals);
             this.Controls.Add(this.btnAddMeal);
             this.Controls.Add(this.btnNewFood);
-            this.Controls.Add(this.lblUserCalculatedCalorie);
-            this.Controls.Add(this.lblWelcome);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ANASAYFA";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMeals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialLabel lblWelcome;
-        private MaterialSkin.Controls.MaterialLabel lblUserCalculatedCalorie;
         private MaterialSkin.Controls.MaterialComboBox cbMeals;
         private MaterialSkin.Controls.MaterialComboBox cbCategories;
         private MaterialSkin.Controls.MaterialButton btnNewFood;
@@ -376,5 +369,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private FlowLayoutPanel flpMeals;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private Label lblUserCalculatedCalorie;
+        private DataGridView dgvMeals;
     }
 }
