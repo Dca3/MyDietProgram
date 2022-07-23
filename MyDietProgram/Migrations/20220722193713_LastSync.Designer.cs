@@ -12,8 +12,8 @@ using MyDietProgram.Classes;
 namespace MyDietProgram.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220722191507_emailConstraint")]
-    partial class emailConstraint
+    [Migration("20220722193713_LastSync")]
+    partial class LastSync
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

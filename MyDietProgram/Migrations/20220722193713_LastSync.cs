@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyDietProgram.Migrations
 {
-    public partial class migration1 : Migration
+    public partial class LastSync : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,11 +33,12 @@ namespace MyDietProgram.Migrations
                     Weight = table.Column<double>(type: "float", nullable: false),
                     Height = table.Column<double>(type: "float", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsAdmin = table.Column<bool>(type: "bit", nullable: true),
                     Activity = table.Column<int>(type: "int", nullable: false),
                     Goal = table.Column<int>(type: "int", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     CalculatedCalorie = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
@@ -72,9 +73,9 @@ namespace MyDietProgram.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gram = table.Column<double>(type: "float", nullable: true),
                     Calorie = table.Column<int>(type: "int", nullable: false),
                     Amount = table.Column<int>(type: "int", nullable: true),
+                    AmountDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     MealId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -94,6 +95,22 @@ namespace MyDietProgram.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Et" },
+                    { 2, "Sebze" },
+                    { 3, "Meyve" },
+                    { 4, "Salata" },
+                    { 5, "Tatlı" },
+                    { 6, "Unlu Mamül" },
+                    { 7, "Bakliyat" },
+                    { 8, "Meze" },
+                    { 9, "Kuruyemiş" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Foods_CategoryId",
                 table: "Foods",
@@ -108,6 +125,12 @@ namespace MyDietProgram.Migrations
                 name: "IX_Meals_UserId",
                 table: "Meals",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Email",
+                table: "Users",
+                column: "Email",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

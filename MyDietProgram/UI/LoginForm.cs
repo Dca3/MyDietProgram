@@ -34,6 +34,7 @@ namespace MyDietProgram
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            this.Hide();
             RegisterForm registerForm = new RegisterForm(db);
             registerForm.ShowDialog();
         }
