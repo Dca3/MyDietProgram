@@ -15,9 +15,11 @@ namespace MyDietProgram.UI
     public partial class MealEditForm : MaterialForm
     {
         Context db;
+        Meal meal;
         public MealEditForm(Context context, Meal meal)
         {
             db = context;
+            this.meal = meal;
             InitializeComponent();
 
             foreach (var item in meal.Foods)
@@ -35,6 +37,7 @@ namespace MyDietProgram.UI
 
             pnlContainer.Size = new Size(469, 83);
             pnlContainer.Location = new Point(20, 29);
+            pnlContainer.Tag = food;
 
             lblFoodName.Location = new Point(20, 29);
 
@@ -44,12 +47,23 @@ namespace MyDietProgram.UI
 
             btnDelete.Location = new Point(391, 19);
             btnDelete.UseAccentColor = true;
+            btnDelete.Click += BtnDelete_Click;
 
             pnlContainer.Controls.Add(lblFoodName);
             pnlContainer.Controls.Add(txtAmount);
             pnlContainer.Controls.Add(btnDelete);
 
             return pnlContainer;
+        }
+
+        private void BtnDelete_Click(object? sender, EventArgs e)
+        {
+            MaterialButton btn = (MaterialButton)sender;
+            Food food = (Food)btn.Parent.Tag;
+            meal.Foods.Remove(food);
+            db.SaveChanges();
+
+            btn.Parent.Visible = false;
         }
     }
 }

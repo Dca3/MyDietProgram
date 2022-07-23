@@ -264,5 +264,11 @@ namespace MyDietProgram.UI
         {
             ListMealsOfUser();
         }
+
+        private void btnNewFood_Click(object sender, EventArgs e)
+        {
+            NewFoodForm form = new NewFoodForm(db);
+            form.ShowDialog();
+        }
     }
 }

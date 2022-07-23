@@ -121,6 +121,7 @@
             this.btnNewFood.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnNewFood.UseAccentColor = false;
             this.btnNewFood.UseVisualStyleBackColor = true;
+            this.btnNewFood.Click += new System.EventHandler(this.btnNewFood_Click);
             // 
             // cbFoods
             // 
@@ -178,9 +179,9 @@
             this.lblTotalCalorie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalCalorie.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalCalorie.Name = "lblTotalCalorie";
-            this.lblTotalCalorie.Size = new System.Drawing.Size(45, 24);
+            this.lblTotalCalorie.Size = new System.Drawing.Size(53, 24);
             this.lblTotalCalorie.TabIndex = 9;
-            this.lblTotalCalorie.Text = "0000";
+            this.lblTotalCalorie.Text = "0 kcal";
             // 
             // btnAddMeal
             // 
