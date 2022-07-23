@@ -64,7 +64,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(573, 36);
+            this.panel1.Size = new System.Drawing.Size(1103, 36);
             this.panel1.TabIndex = 3;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -81,7 +81,7 @@
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.HighEmphasis = true;
             this.btnMinimize.Icon = null;
-            this.btnMinimize.Location = new System.Drawing.Point(477, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(1007, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimize.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnMinimize.Name = "btnMinimize";
@@ -105,7 +105,7 @@
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(525, 0);
+            this.btnClose.Location = new System.Drawing.Point(1055, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -168,6 +168,7 @@
             this.txtAge.Text = "";
             this.txtAge.TrailingIcon = null;
             this.txtAge.UseAccent = false;
+            this.txtAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAge_KeyPress);
             // 
             // txtWeight
             // 
@@ -185,6 +186,7 @@
             this.txtWeight.Text = "";
             this.txtWeight.TrailingIcon = null;
             this.txtWeight.UseAccent = false;
+            this.txtWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWeight_KeyPress);
             // 
             // txtHeight
             // 
@@ -202,6 +204,7 @@
             this.txtHeight.Text = "";
             this.txtHeight.TrailingIcon = null;
             this.txtHeight.UseAccent = false;
+            this.txtHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHeight_KeyPress);
             // 
             // materialLabel1
             // 
@@ -461,7 +464,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 824);
+            this.ClientSize = new System.Drawing.Size(1103, 824);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.rbMale);
             this.Controls.Add(this.rbFemale);
@@ -489,6 +492,7 @@
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForm";
+            this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -20,7 +20,7 @@ namespace MyDietProgram.Classes
         }
 
         public string sha256_hash(string pwd) { using (SHA256 hash = SHA256Managed.Create()) { return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(pwd)).Select(l => l.ToString("X2"))); } }
-        public void CreateUser(string firstName, string lastName, string userMail, string pwd,int activity,int goal,int gender,double weight,double height,int age)
+        public void CreateUser(string firstName, string lastName, string userMail, string pwd, int activity, int goal, int gender, double weight, double height, int age)
         {
             User user = new User();
 
@@ -28,11 +28,11 @@ namespace MyDietProgram.Classes
             user.LastName = lastName;
             user.Email = userMail;
             user.Password = sha256_hash(pwd);
-            user.Activity =(DailyActivity) activity;
+            user.Activity = (DailyActivity)activity;
             user.Goal = (Goal)goal;
             user.Gender = (Gender)gender;
-            user.Weight=weight;
-            user.Height = height;   
+            user.Weight = weight;
+            user.Height = height;
             user.Age = age;
             user.CalculatedCalorie = CalculatedCalorie(weight, height, age, activity, gender, goal);
 
@@ -40,53 +40,74 @@ namespace MyDietProgram.Classes
             db.SaveChanges();
         }
 
-        public void CheckedPassword(string password)
+        public string CheckedPassword(string password)
         {
-            var isUpperCaseConfirmed = false;
-            var upperCaseCount = 0;
-            var lowerCaseCount = 0;
-            var specialSymbolCount = 0;
 
-            foreach (var pw in password.ToCharArray())
+            //Regex sampleRegex = new Regex(@"(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{2,})$");//isStrongPassword
+            //bool isStrongPassword = sampleRegex.IsMatch(password);
+            //Ayrı MEtod Yazıldı Bunun İçin İsvalid
+            //Rules ,Test İçin Bu değerleri 1 E çektim Sonrasında Rule Koyabılırız
+            int minUpper = 1;
+            int minLower = 1;
+            int minLength = 8;
+            int maxLength = 15;
+            int minNumber = 1;
+            int minCharacter = 1;
+            string allowedSpecials = "@#/.!')-_?;,:";
+
+            char[] characters = password.ToCharArray();
+
+            int upper = 0;
+            int lower = 0;
+            int character = 0;
+            int number = 0;
+            int length = password.Length;
+            int illegalCharacters = 0;
+
+
+            
+            foreach (char enteredCharacters in characters)
             {
-                if (Char.IsUpper(pw))
+                if (char.IsUpper(enteredCharacters))
                 {
-                    upperCaseCount++;
+                    upper = upper + 1;
+                }
+                else if (char.IsLower(enteredCharacters))
+                {
+                    lower = lower + 1;
+                }
+                else if (char.IsNumber(enteredCharacters))
+                {
+                    number = number + 1;
+                }
+                else if (allowedSpecials.Contains(enteredCharacters.ToString()))
+                {
+                    character = character + 1;
+                }
+                else
+                {
+                    illegalCharacters = illegalCharacters + 1;
                 }
 
-                if (Char.IsLower(pw))
-                {
-                    lowerCaseCount++;
-                }
-
-                if (Char.IsSymbol(pw))
-                {
-                    specialSymbolCount++;
-                }
-            }
-            if (lowerCaseCount < 3)
-            {
-                MessageBox.Show("En az 3 küçük harf");
             }
 
-            if (upperCaseCount < 2)
+            if (upper < minUpper || lower < minLower || length < minLength || length > maxLength || illegalCharacters >= 1 || character < minCharacter || number<minNumber)
             {
-                MessageBox.Show("En az 2 büyük harf");
+                throw new Exception("Something's not right, your password does not meet the minimum security criteria");
+                
+            }
+            else
+            {
+                return password; 
             }
 
-            if (password.Trim().Length < 8)
-            {
-                MessageBox.Show("Girdiğiniz şifre 8 karakterin altında olamaz");
-            }
 
-            if (specialSymbolCount < 2)
-            {
-                MessageBox.Show("Girdiğiniz şifre en 2 özel karakter içermelidir");
-            }
+
+
         }
 
 
-        public void CheckedEmail(string email)
+        public string CheckedEmail(string email)
         {
             string theEmailPattern = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"
                                    + "@"
@@ -97,7 +118,10 @@ namespace MyDietProgram.Classes
             if (!isValid)
             {
                 throw new Exception("Girdiğiniz email geçersizdir");
+
             }
+            return email;
+
 
 
         }
@@ -105,7 +129,7 @@ namespace MyDietProgram.Classes
         public User GetUser(string email, string password)
         {
 
-            if (email==null)
+            if (email == null)
             {
                 throw new Exception("Email boş bırakılamaz");
             }
@@ -134,101 +158,171 @@ namespace MyDietProgram.Classes
 
         }
 
-        public double CalculatedCalorie(double weight, double height, int age,int activity,int gender,int goal)
+        public double CalculatedCalorie(double weight, double height, int age, int activity, int gender, int goal)
         {
-            double basalmetabolism = CountBasalMetabolism(weight,height,age,gender);
+            double basalmetabolism = CountBasalMetabolism(weight, height, age, gender);
             double essentialCalorie;
-            if (activity==0)
+            if (activity == 0 || goal==0)
             {
-               essentialCalorie=0.25 * basalmetabolism;
-            }
-            else if (activity==1)
-            {
-                 essentialCalorie =  0.50 * basalmetabolism;
-            }
-            else if (activity == 2)
-            {
-                 essentialCalorie = 0.75 * basalmetabolism;
-            }
-            else  
-            {
-                 essentialCalorie = 1 * basalmetabolism;
-            }
-
-            if (goal==0)
-            {
+                essentialCalorie = 0.25 * basalmetabolism;
                 return essentialCalorie + 500;
             }
-            else if (goal == 1)
+            else if (activity == 0 || goal==1)
             {
-                return essentialCalorie - 500;
+                essentialCalorie = 0.50 * basalmetabolism;
+                return essentialCalorie - 200;
+            }
+            else if (activity == 1 || goal == 0 )
+            {
+                essentialCalorie = 0.50 * basalmetabolism;
+                return essentialCalorie + 500;
+            }
+            else if (activity == 1 || goal == 1)
+            {
+                essentialCalorie = 0.50 * basalmetabolism;
+                return essentialCalorie - 200;
+            }
+            else if (activity == 2 || goal == 0)
+            {
+                essentialCalorie = 0.75 * basalmetabolism;
+                return essentialCalorie + 500;
+            }
+            else if (activity == 2 || goal == 1)
+            {
+                essentialCalorie = 0.75 * basalmetabolism;
+                return essentialCalorie - 200;
             }
             else
             {
-                return essentialCalorie;
+               return essentialCalorie = 1 * basalmetabolism;
             }
-            return 0;
+
+           
+           
         }
 
 
-        private double CountBasalMetabolism(double weight,double height,int age,int gender)
+        private double CountBasalMetabolism(double weight, double height, int age, int gender)
         {
             if (gender == 0)
             {
-            
-              double  basalMetabolismWoman = (10 * weight) + (6.25 * height) - (5 * age) - (161);
+
+                double basalMetabolismWoman = (10 * weight) + (6.25 * height) - (5 * age) - (161);
 
                 return basalMetabolismWoman;
             }
-            else if(gender == 1)
+            else if (gender == 1)
             {
-           
-               double basalMetabolismMan = (10 * weight) + (8.25 * height) - (5 * age) - (161);
+
+                double basalMetabolismMan = (10 * weight) + (8.25 * height) - (5 * age) - (161);
 
                 return basalMetabolismMan;
 
             }
 
             return 0;
-            
+
         }
 
 
-        public void CreateFood(string foodname,int calorie,Category category,int? amount,double? gram)
+        public void CreateFood(string foodname, int calorie, Category category, int? amount, double? gram)
         {
             Food food = new Food();
             food.Name = foodname;
             food.Category = category;
             food.Calorie = calorie;
             food.Amount = amount;
-            food.Gram = gram;
+
             db.Foods.Add(food);
             db.SaveChanges();
-         
 
-           
+
+
         }
 
         public void CreateCategory(string category)
         {
 
-           Category categoryis=new Category();
-            categoryis.Name=category;
+            Category categoryis = new Category();
+            categoryis.Name = category;
             db.Categories.Add(categoryis);
             db.SaveChanges();
-           
+
 
         }
 
 
-        public void CreateMeal(int mealname,DateTime time)
+        public void CreateMeal(int mealname, DateTime time)
         {
             Meal meal = new Meal();
 
             meal.Name = (MealName)mealname;
             meal.Date = time;
-         
+
         }
+
+
+        public void CheckIsNumber(string value, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+            // only allow one decimal point
+            if ((e.KeyChar == ',') && value.IndexOf(',') > -1)
+            {
+                e.Handled = true;
+            }
+
+
+        }
+
+        public void CheckIsWholeNumber(string value, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+
+
+        }
+
+        public bool ValidatePassword(string password)
+        {
+            const int MINLENGTH = 8;
+
+
+            if (password == null) throw new ArgumentNullException();
+
+            bool meetsLengthRequirements = password.Length >= MINLENGTH;
+            bool hasUpperCaseLetter = false;
+            bool hasLowerCaseLetter = false;
+            bool hasDecimalDigit = false;
+            bool hasSymbolDigit = false;
+            string specialChar = @"*|!#$%&/()=?»«@£§€{}.-;'<>,";
+
+            if (meetsLengthRequirements)
+            {
+                foreach (char c in password)
+                {
+                    if (char.IsUpper(c)) hasUpperCaseLetter = true;
+                    else if (char.IsLower(c)) hasLowerCaseLetter = true;
+                    else if (char.IsDigit(c)) hasDecimalDigit = true;
+                    else if (specialChar.Contains(c)) hasSymbolDigit = true;
+                }
+            }
+
+            bool isValid = meetsLengthRequirements
+                        && hasUpperCaseLetter
+                        && hasLowerCaseLetter
+                        && hasDecimalDigit
+                        && hasSymbolDigit
+                        ;
+            return isValid;
+        }
+
 
     }
 }
