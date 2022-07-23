@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyDietProgram.UI
 {
@@ -230,12 +231,6 @@ namespace MyDietProgram.UI
                 else
                 {
 
-                    ///Düzgün çalışmıyor
-                    ///
-
-
-
-
                     foodInMeal.Amount += food.Amount;
                 }
                 DeleteMealComponent(meal.MealId);
@@ -251,8 +246,12 @@ namespace MyDietProgram.UI
 
         private void ListMealsOfUser()
         {
-            List<Meal> meals = db.Meals.Where(m => m.UserId == 1).ToList();
-            
+            var a = db.Meals.Include(x => x.Foods).ToList();
+            var b = db.Foods.ToList();
+            List<Meal> meals = db.Meals.Where(m => m.UserId == 1 && m.IsDeleted == false).ToList();
+            foreach (var meal in meals)
+            {
+            }
             flpMeals.Controls.Clear();
             
             foreach (Meal meal in meals)

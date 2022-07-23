@@ -110,7 +110,7 @@
             this.btnNewFood.Depth = 0;
             this.btnNewFood.HighEmphasis = true;
             this.btnNewFood.Icon = null;
-            this.btnNewFood.Location = new System.Drawing.Point(559, 300);
+            this.btnNewFood.Location = new System.Drawing.Point(559, 292);
             this.btnNewFood.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.btnNewFood.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnNewFood.Name = "btnNewFood";
