@@ -1,4 +1,5 @@
-﻿using MyDietProgram.Classes;
+﻿using MaterialSkin.Controls;
+using MyDietProgram.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MyDietProgram
 {
-    public partial class RegisterForm : Form
+    public partial class RegisterForm : MaterialForm
     {
         Context db;
         private readonly LoginForm _lgnfrm;

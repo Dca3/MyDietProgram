@@ -28,15 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMinimize = new MaterialSkin.Controls.MaterialButton();
-            this.btnClose = new MaterialSkin.Controls.MaterialButton();
-            this.lblWelcome = new MaterialSkin.Controls.MaterialLabel();
-            this.lblUserCalculatedCalorie = new MaterialSkin.Controls.MaterialLabel();
-            this.btnNewCategory = new MaterialSkin.Controls.MaterialButton();
             this.cbMeals = new MaterialSkin.Controls.MaterialComboBox();
             this.cbCategories = new MaterialSkin.Controls.MaterialComboBox();
-            this.btnNewMeal = new MaterialSkin.Controls.MaterialButton();
             this.btnNewFood = new MaterialSkin.Controls.MaterialButton();
             this.cbFoods = new MaterialSkin.Controls.MaterialComboBox();
             this.txtAmount = new MaterialSkin.Controls.MaterialTextBox();
@@ -46,120 +39,14 @@
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.panel1.SuspendLayout();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.flpMeals = new System.Windows.Forms.FlowLayoutPanel();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblUserCalculatedCalorie = new System.Windows.Forms.Label();
+            this.dgvMeals = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMeals)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.panel1.Controls.Add(this.btnMinimize);
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(789, 37);
-            this.panel1.TabIndex = 4;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
-            this.btnMinimize.AutoSize = false;
-            this.btnMinimize.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnMinimize.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnMinimize.Depth = 0;
-            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.HighEmphasis = true;
-            this.btnMinimize.Icon = null;
-            this.btnMinimize.Location = new System.Drawing.Point(695, 0);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMinimize.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnMinimize.Size = new System.Drawing.Size(47, 37);
-            this.btnMinimize.TabIndex = 2;
-            this.btnMinimize.Text = "_";
-            this.btnMinimize.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnMinimize.UseAccentColor = false;
-            this.btnMinimize.UseVisualStyleBackColor = true;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
-            this.btnClose.AutoSize = false;
-            this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnClose.Depth = 0;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.HighEmphasis = true;
-            this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(742, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(0);
-            this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnClose.Name = "btnClose";
-            this.btnClose.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnClose.Size = new System.Drawing.Size(47, 37);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "X";
-            this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnClose.UseAccentColor = false;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Depth = 0;
-            this.lblWelcome.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblWelcome.Location = new System.Drawing.Point(562, 52);
-            this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblWelcome.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(184, 19);
-            this.lblWelcome.TabIndex = 5;
-            this.lblWelcome.Text = "Hoşgeldiniz, Lorem İpsum";
-            // 
-            // lblUserCalculatedCalorie
-            // 
-            this.lblUserCalculatedCalorie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUserCalculatedCalorie.AutoSize = true;
-            this.lblUserCalculatedCalorie.Depth = 0;
-            this.lblUserCalculatedCalorie.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblUserCalculatedCalorie.Location = new System.Drawing.Point(689, 92);
-            this.lblUserCalculatedCalorie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUserCalculatedCalorie.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblUserCalculatedCalorie.Name = "lblUserCalculatedCalorie";
-            this.lblUserCalculatedCalorie.Size = new System.Drawing.Size(10, 19);
-            this.lblUserCalculatedCalorie.TabIndex = 6;
-            this.lblUserCalculatedCalorie.Text = "0";
-            // 
-            // btnNewCategory
-            // 
-            this.btnNewCategory.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
-            this.btnNewCategory.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnNewCategory.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnNewCategory.Depth = 0;
-            this.btnNewCategory.HighEmphasis = true;
-            this.btnNewCategory.Icon = null;
-            this.btnNewCategory.Location = new System.Drawing.Point(581, 235);
-            this.btnNewCategory.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-            this.btnNewCategory.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnNewCategory.Name = "btnNewCategory";
-            this.btnNewCategory.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnNewCategory.Size = new System.Drawing.Size(64, 36);
-            this.btnNewCategory.TabIndex = 7;
-            this.btnNewCategory.Text = "+";
-            this.btnNewCategory.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnNewCategory.UseAccentColor = false;
-            this.btnNewCategory.UseVisualStyleBackColor = true;
             // 
             // cbMeals
             // 
@@ -215,26 +102,6 @@
             this.cbCategories.UseAccent = false;
             this.cbCategories.SelectedIndexChanged += new System.EventHandler(this.cbCategories_SelectedIndexChanged);
             // 
-            // btnNewMeal
-            // 
-            this.btnNewMeal.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
-            this.btnNewMeal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnNewMeal.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnNewMeal.Depth = 0;
-            this.btnNewMeal.HighEmphasis = true;
-            this.btnNewMeal.Icon = null;
-            this.btnNewMeal.Location = new System.Drawing.Point(581, 172);
-            this.btnNewMeal.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-            this.btnNewMeal.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnNewMeal.Name = "btnNewMeal";
-            this.btnNewMeal.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnNewMeal.Size = new System.Drawing.Size(64, 36);
-            this.btnNewMeal.TabIndex = 7;
-            this.btnNewMeal.Text = "+";
-            this.btnNewMeal.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnNewMeal.UseAccentColor = false;
-            this.btnNewMeal.UseVisualStyleBackColor = true;
-            // 
             // btnNewFood
             // 
             this.btnNewFood.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
@@ -243,7 +110,7 @@
             this.btnNewFood.Depth = 0;
             this.btnNewFood.HighEmphasis = true;
             this.btnNewFood.Icon = null;
-            this.btnNewFood.Location = new System.Drawing.Point(581, 300);
+            this.btnNewFood.Location = new System.Drawing.Point(559, 300);
             this.btnNewFood.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.btnNewFood.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnNewFood.Name = "btnNewFood";
@@ -254,6 +121,7 @@
             this.btnNewFood.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnNewFood.UseAccentColor = false;
             this.btnNewFood.UseVisualStyleBackColor = true;
+            this.btnNewFood.Click += new System.EventHandler(this.btnNewFood_Click);
             // 
             // cbFoods
             // 
@@ -311,9 +179,9 @@
             this.lblTotalCalorie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalCalorie.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalCalorie.Name = "lblTotalCalorie";
-            this.lblTotalCalorie.Size = new System.Drawing.Size(45, 24);
+            this.lblTotalCalorie.Size = new System.Drawing.Size(53, 24);
             this.lblTotalCalorie.TabIndex = 9;
-            this.lblTotalCalorie.Text = "0000";
+            this.lblTotalCalorie.Text = "0 kcal";
             // 
             // btnAddMeal
             // 
@@ -334,6 +202,7 @@
             this.btnAddMeal.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnAddMeal.UseAccentColor = false;
             this.btnAddMeal.UseVisualStyleBackColor = true;
+            this.btnAddMeal.Click += new System.EventHandler(this.btnAddMeal_Click);
             // 
             // materialLabel2
             // 
@@ -387,24 +256,85 @@
             this.materialLabel6.TabIndex = 11;
             this.materialLabel6.Text = "Miktar";
             // 
-            // dateTimePicker1
+            // dtpDate
             // 
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.Control;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(190, 110);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(362, 33);
-            this.dateTimePicker1.TabIndex = 12;
+            this.dtpDate.CalendarMonthBackground = System.Drawing.SystemColors.Control;
+            this.dtpDate.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpDate.Location = new System.Drawing.Point(190, 110);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(362, 33);
+            this.dtpDate.TabIndex = 12;
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(116, 123);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(38, 19);
+            this.materialLabel1.TabIndex = 11;
+            this.materialLabel1.Text = "Tarih";
+            // 
+            // flpMeals
+            // 
+            this.flpMeals.AutoScroll = true;
+            this.flpMeals.Location = new System.Drawing.Point(694, 113);
+            this.flpMeals.Name = "flpMeals";
+            this.flpMeals.Size = new System.Drawing.Size(580, 418);
+            this.flpMeals.TabIndex = 13;
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel9.Location = new System.Drawing.Point(1174, 81);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(84, 29);
+            this.materialLabel9.TabIndex = 14;
+            this.materialLabel9.Text = "Öğünler";
+            // 
+            // lblUserCalculatedCalorie
+            // 
+            this.lblUserCalculatedCalorie.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserCalculatedCalorie.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUserCalculatedCalorie.ForeColor = System.Drawing.Color.White;
+            this.lblUserCalculatedCalorie.Location = new System.Drawing.Point(1065, 30);
+            this.lblUserCalculatedCalorie.Name = "lblUserCalculatedCalorie";
+            this.lblUserCalculatedCalorie.Size = new System.Drawing.Size(209, 30);
+            this.lblUserCalculatedCalorie.TabIndex = 15;
+            this.lblUserCalculatedCalorie.Text = "1000 kcal";
+            this.lblUserCalculatedCalorie.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dgvMeals
+            // 
+            this.dgvMeals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMeals.Location = new System.Drawing.Point(79, 551);
+            this.dgvMeals.Name = "dgvMeals";
+            this.dgvMeals.RowTemplate.Height = 25;
+            this.dgvMeals.Size = new System.Drawing.Size(1195, 280);
+            this.dgvMeals.TabIndex = 16;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 582);
-            this.Controls.Add(this.dateTimePicker1);
+            this.ClientSize = new System.Drawing.Size(1294, 850);
+            this.Controls.Add(this.dgvMeals);
+            this.Controls.Add(this.lblUserCalculatedCalorie);
+            this.Controls.Add(this.materialLabel9);
+            this.Controls.Add(this.flpMeals);
+            this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.materialLabel4);
+            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.lblTotalCalorie);
@@ -413,34 +343,20 @@
             this.Controls.Add(this.cbMeals);
             this.Controls.Add(this.btnAddMeal);
             this.Controls.Add(this.btnNewFood);
-            this.Controls.Add(this.btnNewMeal);
-            this.Controls.Add(this.btnNewCategory);
-            this.Controls.Add(this.lblUserCalculatedCalorie);
-            this.Controls.Add(this.lblWelcome);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            this.panel1.ResumeLayout(false);
+            this.Text = "ANASAYFA";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMeals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Panel panel1;
-        private MaterialSkin.Controls.MaterialButton btnMinimize;
-        private MaterialSkin.Controls.MaterialButton btnClose;
-        private MaterialSkin.Controls.MaterialLabel lblWelcome;
-        private MaterialSkin.Controls.MaterialLabel lblUserCalculatedCalorie;
-        private MaterialSkin.Controls.MaterialButton btnNewCategory;
         private MaterialSkin.Controls.MaterialComboBox cbMeals;
         private MaterialSkin.Controls.MaterialComboBox cbCategories;
-        private MaterialSkin.Controls.MaterialButton btnNewMeal;
         private MaterialSkin.Controls.MaterialButton btnNewFood;
         private MaterialSkin.Controls.MaterialComboBox cbFoods;
         private MaterialSkin.Controls.MaterialTextBox txtAmount;
@@ -450,6 +366,11 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpDate;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private FlowLayoutPanel flpMeals;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private Label lblUserCalculatedCalorie;
+        private DataGridView dgvMeals;
     }
 }

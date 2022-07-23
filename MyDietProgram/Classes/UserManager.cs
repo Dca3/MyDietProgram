@@ -10,10 +10,7 @@ namespace MyDietProgram.Classes
 {
     public class UserManager
     {
-
         public Context db { get; set; }
-
-
         public UserManager(Context db)
         {
             this.db = db;
@@ -100,10 +97,6 @@ namespace MyDietProgram.Classes
             {
                 return password; 
             }
-
-
-
-
         }
 
 
@@ -121,9 +114,6 @@ namespace MyDietProgram.Classes
 
             }
             return email;
-
-
-
         }
 
         public User GetUser(string email, string password)
@@ -146,8 +136,6 @@ namespace MyDietProgram.Classes
 
                 throw new Exception("Kullanıcı bulunamadı");
             }
-
-
 
             if (user.Password != sha256_hash(password))
             {
@@ -196,9 +184,6 @@ namespace MyDietProgram.Classes
             {
                return essentialCalorie = 1 * basalmetabolism;
             }
-
-           
-           
         }
 
 
@@ -219,9 +204,7 @@ namespace MyDietProgram.Classes
                 return basalMetabolismMan;
 
             }
-
             return 0;
-
         }
 
 
@@ -235,9 +218,6 @@ namespace MyDietProgram.Classes
 
             db.Foods.Add(food);
             db.SaveChanges();
-
-
-
         }
 
         public void CreateCategory(string category)
@@ -247,8 +227,6 @@ namespace MyDietProgram.Classes
             categoryis.Name = category;
             db.Categories.Add(categoryis);
             db.SaveChanges();
-
-
         }
 
 
@@ -258,7 +236,6 @@ namespace MyDietProgram.Classes
 
             meal.Name = (MealName)mealname;
             meal.Date = time;
-
         }
 
 
@@ -274,8 +251,6 @@ namespace MyDietProgram.Classes
             {
                 e.Handled = true;
             }
-
-
         }
 
         public void CheckIsWholeNumber(string value, KeyPressEventArgs e)
@@ -284,9 +259,6 @@ namespace MyDietProgram.Classes
             {
                 e.Handled = true;
             }
-
-
-
         }
 
         public bool ValidatePassword(string password)
