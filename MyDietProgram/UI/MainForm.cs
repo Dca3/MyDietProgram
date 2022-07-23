@@ -110,10 +110,5 @@ namespace MyDietProgram.UI
         {
             UpdateTotal();
         }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
