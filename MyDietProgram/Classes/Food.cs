@@ -22,6 +22,11 @@ namespace MyDietProgram.Classes
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
+        [ForeignKey("Meal")]
+        public int MealId { get; set; }
+
+        public Meal Meal { get; set; }
+
         public override string ToString()
         {
             return $"{Name} ({AmountDescription}, {Calorie} kcal)";
