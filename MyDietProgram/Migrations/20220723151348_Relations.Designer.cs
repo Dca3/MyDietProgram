@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyDietProgram.Classes;
 
@@ -11,9 +12,10 @@ using MyDietProgram.Classes;
 namespace MyDietProgram.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220723151348_Relations")]
+    partial class Relations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +23,6 @@ namespace MyDietProgram.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("FoodMeal", b =>
-                {
-                    b.Property<int>("FoodsFoodId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MealsMealId")
-                        .HasColumnType("int");
-
-                    b.HasKey("FoodsFoodId", "MealsMealId");
-
-                    b.HasIndex("MealsMealId");
-
-                    b.ToTable("FoodMeal");
-                });
 
             modelBuilder.Entity("MyDietProgram.Classes.Category", b =>
                 {
@@ -103,14 +90,14 @@ namespace MyDietProgram.Migrations
 
             modelBuilder.Entity("MyDietProgram.Classes.Food", b =>
                 {
-                    b.Property<int>("FoodId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FoodId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<double?>("Amount")
-                        .HasColumnType("float");
+                    b.Property<int?>("Amount")
+                        .HasColumnType("int");
 
                     b.Property<string>("AmountDescription")
                         .IsRequired()
@@ -122,38 +109,40 @@ namespace MyDietProgram.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int>("MealId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("FoodId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("MealId");
 
                     b.ToTable("Foods");
                 });
 
             modelBuilder.Entity("MyDietProgram.Classes.Meal", b =>
                 {
-                    b.Property<int>("MealId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MealId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Name")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("MealId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -216,26 +205,17 @@ namespace MyDietProgram.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("FoodMeal", b =>
-                {
-                    b.HasOne("MyDietProgram.Classes.Food", null)
-                        .WithMany()
-                        .HasForeignKey("FoodsFoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MyDietProgram.Classes.Meal", null)
-                        .WithMany()
-                        .HasForeignKey("MealsMealId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("MyDietProgram.Classes.Food", b =>
                 {
                     b.HasOne("MyDietProgram.Classes.Category", "Category")
                         .WithMany("Foods")
                         .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyDietProgram.Classes.Meal", "Meal")
+                        .WithMany("Foods")
+                        .HasForeignKey("MealId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -246,16 +226,17 @@ namespace MyDietProgram.Migrations
 
             modelBuilder.Entity("MyDietProgram.Classes.Meal", b =>
                 {
-                    b.HasOne("MyDietProgram.Classes.User", "User")
+                    b.HasOne("MyDietProgram.Classes.User", null)
                         .WithMany("Meals")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("MyDietProgram.Classes.Category", b =>
+                {
+                    b.Navigation("Foods");
+                });
+
+            modelBuilder.Entity("MyDietProgram.Classes.Meal", b =>
                 {
                     b.Navigation("Foods");
                 });
