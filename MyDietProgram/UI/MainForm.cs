@@ -25,7 +25,7 @@ namespace MyDietProgram.UI
             this.user = user;
             InitializeComponent();
             FillElements();
-            DailyReportForm daily = new DailyReportForm(db, user, dtpDate.Value.Date);
+            FoodStatisticsForm daily = new FoodStatisticsForm(db);
             daily.ShowDialog();
         }
 
@@ -260,6 +260,12 @@ namespace MyDietProgram.UI
         private void btnDaily_Click(object sender, EventArgs e)
         {
             DailyReportForm daily = new DailyReportForm(db, user, dtpDate.Value.Date);
+            daily.ShowDialog();
+        }
+
+        private void btnFoodStats_Click(object sender, EventArgs e)
+        {
+            FoodStatisticsForm daily = new FoodStatisticsForm(db);
             daily.ShowDialog();
         }
     }

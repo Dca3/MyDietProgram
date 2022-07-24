@@ -45,8 +45,8 @@
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.lblUserCalculatedCalorie = new System.Windows.Forms.Label();
             this.btnDaily = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            this.btnOverview = new MaterialSkin.Controls.MaterialButton();
+            this.btnFoodStats = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // cbMeals
@@ -334,55 +334,54 @@
             this.btnDaily.UseVisualStyleBackColor = true;
             this.btnDaily.Click += new System.EventHandler(this.btnDaily_Click);
             // 
-            // materialButton1
+            // btnOverview
             // 
-            this.materialButton1.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(964, 518);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.materialButton1.Size = new System.Drawing.Size(123, 36);
-            this.materialButton1.TabIndex = 16;
-            this.materialButton1.Text = "Kıyas Raporu";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
-            this.materialButton1.Click += new System.EventHandler(this.btnDaily_Click);
+            this.btnOverview.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
+            this.btnOverview.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnOverview.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnOverview.Depth = 0;
+            this.btnOverview.HighEmphasis = true;
+            this.btnOverview.Icon = null;
+            this.btnOverview.Location = new System.Drawing.Point(964, 518);
+            this.btnOverview.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnOverview.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnOverview.Name = "btnOverview";
+            this.btnOverview.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnOverview.Size = new System.Drawing.Size(123, 36);
+            this.btnOverview.TabIndex = 16;
+            this.btnOverview.Text = "Kıyas Raporu";
+            this.btnOverview.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnOverview.UseAccentColor = false;
+            this.btnOverview.UseVisualStyleBackColor = true;
             // 
-            // materialButton2
+            // btnFoodStats
             // 
-            this.materialButton2.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
-            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton2.Depth = 0;
-            this.materialButton2.HighEmphasis = true;
-            this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(1095, 518);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton2.Name = "materialButton2";
-            this.materialButton2.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.materialButton2.Size = new System.Drawing.Size(179, 36);
-            this.materialButton2.TabIndex = 16;
-            this.materialButton2.Text = "Yemek İstatistikleri";
-            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton2.UseAccentColor = false;
-            this.materialButton2.UseVisualStyleBackColor = true;
-            this.materialButton2.Click += new System.EventHandler(this.btnDaily_Click);
+            this.btnFoodStats.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
+            this.btnFoodStats.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnFoodStats.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnFoodStats.Depth = 0;
+            this.btnFoodStats.HighEmphasis = true;
+            this.btnFoodStats.Icon = null;
+            this.btnFoodStats.Location = new System.Drawing.Point(1095, 518);
+            this.btnFoodStats.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnFoodStats.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnFoodStats.Name = "btnFoodStats";
+            this.btnFoodStats.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnFoodStats.Size = new System.Drawing.Size(179, 36);
+            this.btnFoodStats.TabIndex = 16;
+            this.btnFoodStats.Text = "Yemek İstatistikleri";
+            this.btnFoodStats.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnFoodStats.UseAccentColor = false;
+            this.btnFoodStats.UseVisualStyleBackColor = true;
+            this.btnFoodStats.Click += new System.EventHandler(this.btnFoodStats_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1294, 563);
-            this.Controls.Add(this.materialButton2);
-            this.Controls.Add(this.materialButton1);
+            this.Controls.Add(this.btnFoodStats);
+            this.Controls.Add(this.btnOverview);
             this.Controls.Add(this.btnDaily);
             this.Controls.Add(this.lblUserCalculatedCalorie);
             this.Controls.Add(this.materialLabel9);
@@ -428,7 +427,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private Label lblUserCalculatedCalorie;
         private MaterialSkin.Controls.MaterialButton btnDaily;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
+        private MaterialSkin.Controls.MaterialButton btnOverview;
+        private MaterialSkin.Controls.MaterialButton btnFoodStats;
     }
 }

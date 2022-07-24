@@ -21,21 +21,24 @@ namespace MyDietProgram.UI
             db = context;
             this.Text = user.FirstName + " " + user.LastName;
             InitializeComponent();
-            GetUserData(user);
+            GetUserData(user, date);
+            lblDate.Text = date.ToShortDateString();
         }
 
-        private void GetUserData(User user)
+        private void GetUserData(User user, DateTime date)
         {
-            var meals = db.Meals.Include(m => m.Foods).Where(m => m.UserId == user.UserId && !m.IsDeleted);
-
-
-            dgvDaily.DataSource = meals.Select(m => new
+            var meals = db.Meals.Include(m => m.Foods).Where(m => m.UserId == user.UserId && !m.IsDeleted && m.Date.Date == date.Date);
+            var view = meals.Select(m => new
             {
                 Öğün = m.Name,
                 Yiyecekler = m.GetFoods(),
                 ToplamKalori = m.GetTotalCalorie()
             }).ToList();
 
+            dgvDaily.DataSource = view;
+
+            string totalCal = view.Sum(m => m.ToplamKalori).ToString();
+            lblTotalCal.Text = $"Toplam kalori: {totalCal} kcal";
         }
     }
 }
