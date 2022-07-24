@@ -12,8 +12,8 @@ using MyDietProgram.Classes;
 namespace MyDietProgram.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220723155730_isDeleted")]
-    partial class isDeleted
+    [Migration("20220723225742_update_2407_2022")]
+    partial class update_2407_2022
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -124,9 +124,6 @@ namespace MyDietProgram.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -148,6 +145,9 @@ namespace MyDietProgram.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Name")
                         .HasColumnType("int");

@@ -44,8 +44,9 @@
             this.flpMeals = new System.Windows.Forms.FlowLayoutPanel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.lblUserCalculatedCalorie = new System.Windows.Forms.Label();
-            this.dgvMeals = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMeals)).BeginInit();
+            this.btnDaily = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // cbMeals
@@ -175,7 +176,7 @@
             this.lblTotalCalorie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblTotalCalorie.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblTotalCalorie.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblTotalCalorie.Location = new System.Drawing.Point(189, 447);
+            this.lblTotalCalorie.Location = new System.Drawing.Point(189, 433);
             this.lblTotalCalorie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalCalorie.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalCalorie.Name = "lblTotalCalorie";
@@ -191,7 +192,7 @@
             this.btnAddMeal.Depth = 0;
             this.btnAddMeal.HighEmphasis = true;
             this.btnAddMeal.Icon = null;
-            this.btnAddMeal.Location = new System.Drawing.Point(190, 492);
+            this.btnAddMeal.Location = new System.Drawing.Point(189, 465);
             this.btnAddMeal.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.btnAddMeal.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddMeal.Name = "btnAddMeal";
@@ -284,7 +285,7 @@
             this.flpMeals.AutoScroll = true;
             this.flpMeals.Location = new System.Drawing.Point(694, 113);
             this.flpMeals.Name = "flpMeals";
-            this.flpMeals.Size = new System.Drawing.Size(580, 418);
+            this.flpMeals.Size = new System.Drawing.Size(580, 388);
             this.flpMeals.TabIndex = 13;
             // 
             // materialLabel9
@@ -312,21 +313,77 @@
             this.lblUserCalculatedCalorie.Text = "1000 kcal";
             this.lblUserCalculatedCalorie.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // dgvMeals
+            // btnDaily
             // 
-            this.dgvMeals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMeals.Location = new System.Drawing.Point(79, 551);
-            this.dgvMeals.Name = "dgvMeals";
-            this.dgvMeals.RowTemplate.Height = 25;
-            this.dgvMeals.Size = new System.Drawing.Size(1195, 280);
-            this.dgvMeals.TabIndex = 16;
+            this.btnDaily.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
+            this.btnDaily.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDaily.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnDaily.Depth = 0;
+            this.btnDaily.HighEmphasis = true;
+            this.btnDaily.Icon = null;
+            this.btnDaily.Location = new System.Drawing.Point(844, 518);
+            this.btnDaily.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDaily.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnDaily.Name = "btnDaily";
+            this.btnDaily.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnDaily.Size = new System.Drawing.Size(112, 36);
+            this.btnDaily.TabIndex = 16;
+            this.btnDaily.Text = "Gün Raporu";
+            this.btnDaily.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnDaily.UseAccentColor = false;
+            this.btnDaily.UseVisualStyleBackColor = true;
+            this.btnDaily.Click += new System.EventHandler(this.btnDaily_Click);
+            // 
+            // materialButton1
+            // 
+            this.materialButton1.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(964, 518);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.materialButton1.Size = new System.Drawing.Size(123, 36);
+            this.materialButton1.TabIndex = 16;
+            this.materialButton1.Text = "Kıyas Raporu";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.btnDaily_Click);
+            // 
+            // materialButton2
+            // 
+            this.materialButton2.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
+            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton2.Depth = 0;
+            this.materialButton2.HighEmphasis = true;
+            this.materialButton2.Icon = null;
+            this.materialButton2.Location = new System.Drawing.Point(1095, 518);
+            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton2.Name = "materialButton2";
+            this.materialButton2.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.materialButton2.Size = new System.Drawing.Size(179, 36);
+            this.materialButton2.TabIndex = 16;
+            this.materialButton2.Text = "Yemek İstatistikleri";
+            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton2.UseAccentColor = false;
+            this.materialButton2.UseVisualStyleBackColor = true;
+            this.materialButton2.Click += new System.EventHandler(this.btnDaily_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1294, 850);
-            this.Controls.Add(this.dgvMeals);
+            this.ClientSize = new System.Drawing.Size(1294, 563);
+            this.Controls.Add(this.materialButton2);
+            this.Controls.Add(this.materialButton1);
+            this.Controls.Add(this.btnDaily);
             this.Controls.Add(this.lblUserCalculatedCalorie);
             this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.flpMeals);
@@ -348,7 +405,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ANASAYFA";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMeals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,6 +427,8 @@
         private FlowLayoutPanel flpMeals;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private Label lblUserCalculatedCalorie;
-        private DataGridView dgvMeals;
+        private MaterialSkin.Controls.MaterialButton btnDaily;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
     }
 }

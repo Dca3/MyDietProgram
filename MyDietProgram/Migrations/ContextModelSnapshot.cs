@@ -240,8 +240,6 @@ namespace MyDietProgram.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-
-                    b.Navigation("Meal");
                 });
 
             modelBuilder.Entity("MyDietProgram.Classes.Meal", b =>

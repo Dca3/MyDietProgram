@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyDietProgram.Migrations
 {
-    public partial class newDb : Migration
+    public partial class update_2407_2022 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -77,6 +77,7 @@ namespace MyDietProgram.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

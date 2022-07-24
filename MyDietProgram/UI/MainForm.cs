@@ -25,7 +25,8 @@ namespace MyDietProgram.UI
             this.user = user;
             InitializeComponent();
             FillElements();
-            dgvMeals.DataSource = user.Meals;
+            DailyReportForm daily = new DailyReportForm(db, user, dtpDate.Value.Date);
+            daily.ShowDialog();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -218,40 +219,26 @@ namespace MyDietProgram.UI
                 meal.Foods.Add(food);
                 user.Meals.Add(meal);
                 db.SaveChanges();
-                meal = user.Meals.LastOrDefault();
-                CreateMealComponent(meal);
             }
             else
             {
-                Food foodInMeal = meal.Foods.FirstOrDefault(f => f.Name == food.Name);
+                Food foodInMeal = meal.Foods.FirstOrDefault(m => m.Name == food.Name);
                 if (foodInMeal == null)
                 {
                     meal.Foods.Add(food);
                 }
                 else
                 {
-
                     foodInMeal.Amount += food.Amount;
                 }
-                DeleteMealComponent(meal.MealId);
-                CreateMealComponent(meal);
             }
             db.SaveChanges();
-        }
-
-        private void UpdateMealComponent(int mealId)
-        {
-
+            ListMealsOfUser();
         }
 
         private void ListMealsOfUser()
         {
-            var a = db.Meals.Include(x => x.Foods).ToList();
-            var b = db.Foods.ToList();
-            List<Meal> meals = db.Meals.Where(m => m.UserId == 1 && m.IsDeleted == false).ToList();
-            foreach (var meal in meals)
-            {
-            }
+            List<Meal> meals = db.Meals.Include(x => x.Foods).Where(m => m.UserId == user.UserId && m.IsDeleted == false).ToList();
             flpMeals.Controls.Clear();
             
             foreach (Meal meal in meals)
@@ -268,6 +255,12 @@ namespace MyDietProgram.UI
         {
             NewFoodForm form = new NewFoodForm(db);
             form.ShowDialog();
+        }
+
+        private void btnDaily_Click(object sender, EventArgs e)
+        {
+            DailyReportForm daily = new DailyReportForm(db, user, dtpDate.Value.Date);
+            daily.ShowDialog();
         }
     }
 }
