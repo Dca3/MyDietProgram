@@ -22,9 +22,6 @@ namespace MyDietProgram.Classes
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
-
-        public ICollection<Meal> Meals { get; set; }
-
         public override string ToString()
         {
             return $"{Name} ({AmountDescription}, {Calorie} kcal)";

@@ -33,8 +33,5 @@ namespace MyDietProgram.Classes
         public int Age { get; set; }
 
         public double CalculatedCalorie { get; set; }
-
-        public ICollection<Meal> Meals { get; set; }=new List<Meal>();
-
     }
 }

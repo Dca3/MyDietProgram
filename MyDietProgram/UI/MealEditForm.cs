@@ -21,11 +21,12 @@ namespace MyDietProgram.UI
             db = context;
             this.meal = meal;
             InitializeComponent();
-
-            foreach (var item in meal.Foods)
-            {
-                flpFoods.Controls.Add(CreateFoodComponent(item));
-            }
+            List<int> foodIds = db.Infos.Where(i => i.MealId == meal.MealId && !meal.IsDeleted).Select(i => i.FoodId).ToList();
+            //List<Food> foods = db.Foods
+            //foreach (var item in meal.Foods)
+            //{
+            //    flpFoods.Controls.Add(CreateFoodComponent(item));
+            //}
         }
 
         private Panel CreateFoodComponent(Food food)
@@ -60,7 +61,10 @@ namespace MyDietProgram.UI
         {
             MaterialButton btn = (MaterialButton)sender;
             Food food = (Food)btn.Parent.Tag;
-            meal.Foods.Remove(food);
+
+
+
+            //meal.Foods.Remove(food);
             db.SaveChanges();
 
             btn.Parent.Visible = false;

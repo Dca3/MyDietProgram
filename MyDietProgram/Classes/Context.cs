@@ -60,6 +60,8 @@ namespace MyDietProgram.Classes
 
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<Info> Infos { get; set; }
+
 
     }
 }

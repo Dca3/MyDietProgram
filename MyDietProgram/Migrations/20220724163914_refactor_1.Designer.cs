@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyDietProgram.Classes;
 
@@ -11,9 +12,10 @@ using MyDietProgram.Classes;
 namespace MyDietProgram.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220724163914_refactor_1")]
+    partial class refactor_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +23,21 @@ namespace MyDietProgram.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("FoodMeal", b =>
+                {
+                    b.Property<int>("FoodsFoodId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MealsMealId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FoodsFoodId", "MealsMealId");
+
+                    b.HasIndex("MealsMealId");
+
+                    b.ToTable("FoodMeal");
+                });
 
             modelBuilder.Entity("MyDietProgram.Classes.Category", b =>
                 {
@@ -143,12 +160,6 @@ namespace MyDietProgram.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FoodId");
-
-                    b.HasIndex("MealId");
-
-                    b.HasIndex("UserId");
-
                     b.ToTable("Infos");
                 });
 
@@ -169,7 +180,12 @@ namespace MyDietProgram.Migrations
                     b.Property<int>("Name")
                         .HasColumnType("int");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("MealId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Meals");
                 });
@@ -230,6 +246,21 @@ namespace MyDietProgram.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("FoodMeal", b =>
+                {
+                    b.HasOne("MyDietProgram.Classes.Food", null)
+                        .WithMany()
+                        .HasForeignKey("FoodsFoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyDietProgram.Classes.Meal", null)
+                        .WithMany()
+                        .HasForeignKey("MealsMealId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("MyDietProgram.Classes.Food", b =>
                 {
                     b.HasOne("MyDietProgram.Classes.Category", "Category")
@@ -241,29 +272,13 @@ namespace MyDietProgram.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("MyDietProgram.Classes.Info", b =>
+            modelBuilder.Entity("MyDietProgram.Classes.Meal", b =>
                 {
-                    b.HasOne("MyDietProgram.Classes.Food", "Food")
-                        .WithMany()
-                        .HasForeignKey("FoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MyDietProgram.Classes.Meal", "Meal")
-                        .WithMany()
-                        .HasForeignKey("MealId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("MyDietProgram.Classes.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Food");
-
-                    b.Navigation("Meal");
 
                     b.Navigation("User");
                 });

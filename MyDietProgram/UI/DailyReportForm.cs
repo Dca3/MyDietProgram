@@ -27,18 +27,18 @@ namespace MyDietProgram.UI
 
         private void GetUserData(User user, DateTime date)
         {
-            var meals = db.Meals.Include(m => m.Foods).Where(m => m.UserId == user.UserId && !m.IsDeleted && m.Date.Date == date.Date);
-            var view = meals.Select(m => new
-            {
-                Öğün = m.Name,
-                Yiyecekler = m.GetFoods(),
-                ToplamKalori = m.GetTotalCalorie()
-            }).ToList();
+            //var meals = db.Meals.Include(m => m.Foods).Where(m => m.UserId == user.UserId && !m.IsDeleted && m.Date.Date == date.Date);
+            //var view = meals.Select(m => new
+            //{
+            //    Öğün = m.Name,
+            //    Yiyecekler = m.GetFoods(),
+            //    ToplamKalori = m.GetTotalCalorie()
+            //}).ToList();
 
-            dgvDaily.DataSource = view;
+            //dgvDaily.DataSource = view;
 
-            string totalCal = view.Sum(m => m.ToplamKalori).ToString();
-            lblTotalCal.Text = $"Toplam kalori: {totalCal} kcal";
+            //string totalCal = view.Sum(m => m.ToplamKalori).ToString();
+            //lblTotalCal.Text = $"Toplam kalori: {totalCal} kcal";
         }
     }
 }

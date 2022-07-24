@@ -26,8 +26,6 @@ namespace MyDietProgram.UI
             this.user = user;
             InitializeComponent();
             FillElements();
-            FoodStatisticsForm daily = new FoodStatisticsForm(db);
-            daily.ShowDialog();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -119,12 +117,13 @@ namespace MyDietProgram.UI
             UpdateTotal();
         }
 
-        private void CreateMealComponent(Meal meal)
+        private void CreateMealComponent(Info info)
         {
+            Meal meal = info.Meal;
             Panel pnlContainer = new Panel();
             MaterialLabel lblMealName = new MaterialLabel() { Text = meal.Name.ToString() };
-            MaterialLabel lblFoods = new MaterialLabel() { Text = meal.GetFoods() };
-            MaterialLabel lblMealCal = new MaterialLabel() { Text = meal.GetTotalCalorie().ToString() + " kcal" };
+            MaterialLabel lblFoods = new MaterialLabel() { Text = GetFoods(info) };
+            MaterialLabel lblMealCal = new MaterialLabel() { Text = GetTotalCalorie(info).ToString() + " kcal" };
             MaterialButton btnEdit = new MaterialButton() { Text = "DÜZENLE" };
             MaterialButton btnDelete = new MaterialButton() { Text = "SİL" };
 
@@ -186,14 +185,14 @@ namespace MyDietProgram.UI
                     item.Visible = false;
             }
 
-            Meal meal = user.Meals.Where(m => m.MealId == mealId).FirstOrDefault();
+            Meal meal = db.Meals.Where(m => m.MealId == mealId).FirstOrDefault();
             if (meal != null)
                 meal.IsDeleted = true;
         }
 
         private void DeleteMealFromDB(int mealId)
         {
-            Meal meal = user.Meals.Where(m => m.MealId == mealId).FirstOrDefault();
+            Meal meal = db.Meals.Where(m => m.MealId == mealId).FirstOrDefault();
             if (meal != null)
                 meal.IsDeleted = true;
         }
@@ -207,42 +206,60 @@ namespace MyDietProgram.UI
         {
             MealName mealName = (MealName)cbMeals.SelectedIndex;
             Food food = (Food)cbFoods.SelectedItem;
+            List<Info> userInfos = db.Infos.Where(m => m.User == user).ToList();
             
-            food.Amount = Convert.ToDouble(txtAmount.Text);
-            Meal meal = user.Meals.FirstOrDefault(m => m.Name == mealName && m.Date.Date == dtpDate.Value.Date && !m.IsDeleted);
+            List<Meal> userMeals = db.Meals.Where(m => userInfos.Select(i => i.MealId).Contains(m.MealId)).ToList();
+            Meal meal = userMeals.Where(m => m.Name == mealName).FirstOrDefault();
 
             if (meal == null)
             {
-                meal = new Meal()
+                meal = new Meal
                 {
                     Name = mealName,
                     Date = dtpDate.Value.Date,
                 };
-                meal.Foods.Add(food);
-                user.Meals.Add(meal);
+                db.Meals.Add(meal);
+                db.SaveChanges();
+                Info info = new Info()
+                {
+                    MealId = meal.MealId,
+                    UserId = user.UserId,
+                    FoodId = food.FoodId,
+                    Amount = Convert.ToDouble(txtAmount.Text)
+            };
+                db.Infos.Add(info);
                 db.SaveChanges();
             }
             else
             {
-                meal.Foods.Add(food);
+                Info info = new Info()
+                {
+                    MealId = meal.MealId,
+                    UserId = user.UserId,
+                    FoodId = food.FoodId,
+                };
+                db.Infos.Add(info);
+                db.SaveChanges();
+                info.Amount = Convert.ToDouble(txtAmount.Text);
             }
-            
             db.SaveChanges();
             ListMealsOfUser();
         }
 
         private void ListMealsOfUser()
         {
-            List<Meal> meals = db.Meals.Include(x => x.Foods).Where(m => m.UserId == user.UserId && m.IsDeleted == false).ToList();
-            flpMeals.Controls.Clear();
+            List<Info> userInfos = db.Infos.Include(m => m.Food).Where(m => m.UserId == user.UserId).ToList();
+            List<Meal> userMeals = db.Meals.Where(m => userInfos.Select(i => i.MealId).Contains(m.MealId)).ToList();
+
             double userCalculatedCal = user.CalculatedCalorie;
+            flpMeals.Controls.Clear();
             
-            foreach (Meal meal in meals)
+            foreach (Info info in userInfos)
             {
-                if (meal.Date.Date == dtpDate.Value.Date)
+                if (info.MealDate.Date == dtpDate.Value.Date)
                 {
-                    CreateMealComponent(meal);
-                    userCalculatedCal -= meal.GetTotalCalorie();
+                    CreateMealComponent(info);
+                    userCalculatedCal -= GetTotalCalorie(info);
                 }
             }
 
@@ -276,6 +293,18 @@ namespace MyDietProgram.UI
         {
             OverviewForm daily = new OverviewForm(db);
             daily.ShowDialog();
+        }
+
+        public string GetFoods(Info info)
+        {
+            List<Food> foods = db.Infos.Where(i => i.MealId == info.MealId).Select(i => i.Food).ToList();
+            return string.Join(", ", foods);
+        }
+
+        public double GetTotalCalorie(Info info)
+        {
+            List<Food> foods = db.Infos.Where(i => i.MealId == info.MealId).Select(i => i.Food).ToList();
+            return foods.Sum(f=>f.Calorie);
         }
     }
 }

@@ -13,21 +13,8 @@ namespace MyDietProgram.Classes
         public int MealId { get; set; }
         public MealName Name { get; set; }
         public DateTime Date { get; set; }
-        public ICollection<Food> Foods { get; set; } = new List<Food>();
         public bool IsDeleted { get; set; } = false;
 
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-        public User User { get; set; }
-
-        public string GetFoods()
-        {
-            return string.Join(", ", Foods.Select(f=>f.Name).ToArray());
-        }
-
-        public double GetTotalCalorie()
-        {
-            return Foods.Sum(f=>f.Calorie);
-        }
+        
     }
 }
