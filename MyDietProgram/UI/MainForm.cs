@@ -19,6 +19,7 @@ namespace MyDietProgram.UI
         Context db;
         User user;
         List<Food> foodList;
+        double dailyCalorie = 0;
         public MainForm(Context context, User user)
         {
             db = context;
@@ -206,8 +207,9 @@ namespace MyDietProgram.UI
         {
             MealName mealName = (MealName)cbMeals.SelectedIndex;
             Food food = (Food)cbFoods.SelectedItem;
+            
             food.Amount = Convert.ToDouble(txtAmount.Text);
-            Meal meal = user.Meals.FirstOrDefault(m => m.Name == mealName && m.Date.Date == dtpDate.Value.Date);
+            Meal meal = user.Meals.FirstOrDefault(m => m.Name == mealName && m.Date.Date == dtpDate.Value.Date && !m.IsDeleted);
 
             if (meal == null)
             {
@@ -222,16 +224,9 @@ namespace MyDietProgram.UI
             }
             else
             {
-                Food foodInMeal = meal.Foods.FirstOrDefault(m => m.Name == food.Name);
-                if (foodInMeal == null)
-                {
-                    meal.Foods.Add(food);
-                }
-                else
-                {
-                    foodInMeal.Amount += food.Amount;
-                }
+                meal.Foods.Add(food);
             }
+            
             db.SaveChanges();
             ListMealsOfUser();
         }
@@ -240,10 +235,18 @@ namespace MyDietProgram.UI
         {
             List<Meal> meals = db.Meals.Include(x => x.Foods).Where(m => m.UserId == user.UserId && m.IsDeleted == false).ToList();
             flpMeals.Controls.Clear();
+            double userCalculatedCal = user.CalculatedCalorie;
             
             foreach (Meal meal in meals)
+            {
                 if (meal.Date.Date == dtpDate.Value.Date)
+                {
                     CreateMealComponent(meal);
+                    userCalculatedCal -= meal.GetTotalCalorie();
+                }
+            }
+
+            lblUserCalculatedCalorie.Text = userCalculatedCal.ToString() + " kcal";
         }
 
         private void dtpDate_ValueChanged(object sender, EventArgs e)
