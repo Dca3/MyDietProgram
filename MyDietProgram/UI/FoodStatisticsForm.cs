@@ -25,22 +25,28 @@ namespace MyDietProgram.UI
 
         private void GetStats()
         {
-            var foods = db.Foods.FromSqlRaw("SELECT f.* FROM FoodMeal fm RIGHT JOIN Meals m ON m.MealId = fm.MealsMealId RIGHT JOIN Foods f ON f.FoodId = fm.FoodsFoodId where m.IsDeleted = 0").Select(f => new
+            var foods = db.Foods.Include(m => m.Meals).Select(f => new
             {
                 Ad = f.Name,
-                Miktar = f.Amount
+                Miktar = f.Amount,
+                Öğünler = f.Meals
             }).ToList();
-
-            var groupedFoods = foods.GroupBy(f => new {
+            var groupedFoods = foods.GroupBy(f => new
+            {
                 Ad = f.Ad,
-                Miktar = f.Miktar
-            }).Select( g=> new {
+                Miktar = f.Miktar,
+                Kahvaltı = f.Öğünler.Where(m => m.Name == MealName.Breakfast),
+                Öğle = f.Öğünler.Where(m => m.Name == MealName.Launch),
+                Akşam = f.Öğünler.Where(m => m.Name == MealName.Dinner)
+            }).Select(g => new
+            {
                 Ad = g.Key.Ad,
-                Miktar = g.Sum( x => x.Miktar)
-            });
+                Miktar = g.Sum(x => x.Miktar),
+                Kahvaltı = g.Key.Kahvaltı.Count(),
+                Öğle = g.Key.Öğle.Count(),
+                Akşam = g.Key.Akşam.Count()
+            }).OrderByDescending( f=> f.Miktar);
             dgvStats.DataSource = groupedFoods.ToList();
-
-            
         }
     }
 }

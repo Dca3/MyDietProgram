@@ -268,5 +268,11 @@ namespace MyDietProgram.UI
             FoodStatisticsForm daily = new FoodStatisticsForm(db);
             daily.ShowDialog();
         }
+
+        private void btnOverview_Click(object sender, EventArgs e)
+        {
+            OverviewForm daily = new OverviewForm(db);
+            daily.ShowDialog();
+        }
     }
 }

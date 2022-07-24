@@ -249,7 +249,7 @@
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(123, 381);
+            this.materialLabel6.Location = new System.Drawing.Point(107, 382);
             this.materialLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
@@ -353,6 +353,7 @@
             this.btnOverview.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnOverview.UseAccentColor = false;
             this.btnOverview.UseVisualStyleBackColor = true;
+            this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
             // 
             // btnFoodStats
             // 
@@ -379,7 +380,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1294, 563);
+            this.ClientSize = new System.Drawing.Size(1294, 569);
             this.Controls.Add(this.btnFoodStats);
             this.Controls.Add(this.btnOverview);
             this.Controls.Add(this.btnDaily);
