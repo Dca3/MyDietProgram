@@ -216,7 +216,6 @@ namespace MyDietProgram.UI
                 meal = new Meal
                 {
                     Name = mealName,
-                    Date = dtpDate.Value.Date,
                 };
                 db.Meals.Add(meal);
                 db.SaveChanges();
@@ -225,8 +224,9 @@ namespace MyDietProgram.UI
                     MealId = meal.MealId,
                     UserId = user.UserId,
                     FoodId = food.FoodId,
-                    Amount = Convert.ToDouble(txtAmount.Text)
-            };
+                    Amount = Convert.ToDouble(txtAmount.Text),
+                    MealDate = dtpDate.Value.Date,
+                };
                 db.Infos.Add(info);
                 db.SaveChanges();
             }

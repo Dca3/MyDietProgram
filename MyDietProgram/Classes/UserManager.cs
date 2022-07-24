@@ -229,16 +229,6 @@ namespace MyDietProgram.Classes
             db.SaveChanges();
         }
 
-
-        public void CreateMeal(int mealname, DateTime time)
-        {
-            Meal meal = new Meal();
-
-            meal.Name = (MealName)mealname;
-            meal.Date = time;
-        }
-
-
         public void CheckIsNumber(string value, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&

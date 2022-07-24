@@ -12,9 +12,6 @@ namespace MyDietProgram.Classes
     {
         public int MealId { get; set; }
         public MealName Name { get; set; }
-        public DateTime Date { get; set; }
         public bool IsDeleted { get; set; } = false;
-
-        
     }
 }
