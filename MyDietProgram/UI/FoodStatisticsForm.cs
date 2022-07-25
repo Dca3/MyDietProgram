@@ -25,38 +25,15 @@ namespace MyDietProgram.UI
 
         private void GetStats()
         {
-            //var foods = db.Foods.Include(m => m.Meals).Select(f => new
-            //{
-            //    Ad = f.Name,
-            //    Miktar = f.Amount,
-            //    Öğünler = f.Meals
-            //}).ToList();
-            //var groupedFoods = foods.GroupBy(f => new
-            //{
-            //    Ad = f.Ad,
-            //    Miktar = f.Miktar,
-            //    Kahvaltı = f.Öğünler.Where(m => m.Name == MealName.Breakfast),
-            //    Öğle = f.Öğünler.Where(m => m.Name == MealName.Launch),
-            //    Akşam = f.Öğünler.Where(m => m.Name == MealName.Dinner)
-            //}).Select(g => new
-            //{
-            //    Ad = g.Key.Ad,
-            //    Miktar = g.Sum(x => x.Miktar),
-            //    Kahvaltı = g.Key.Kahvaltı.Count(),
-            //    Öğle = g.Key.Öğle.Count(),
-            //    Akşam = g.Key.Akşam.Count()
-            //}).OrderByDescending(f => f.Miktar);
-            //dgvStats.DataSource = groupedFoods.ToList();
             var foods = db.Infos
                 .Include(i => i.Food)
                 .Include(i => i.Meal)
+                .Where(i => !i.Meal.IsDeleted)
                 .Select(i => new
                 {
                     Ad = i.Food.Name,
                     Miktar = i.Amount,
                     Öğün = i.Meal.Name,
-                    Öğünler = db.Infos.Where(x => x.Food.Name == i.Food.Name).Select(x => x.Meal).ToList(),
-                    Infos = db.Infos.Where(x => x.Food.Name == i.Food.Name).ToList()
                 }).ToList();
 
             var groupedFoods = foods.GroupBy(f => new
