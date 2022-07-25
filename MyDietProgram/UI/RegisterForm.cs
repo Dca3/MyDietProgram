@@ -163,7 +163,7 @@ namespace MyDietProgram
         {
 
             char pressedkey = e.KeyChar;
-            if (char.IsLetter(pressedkey) )
+            if (char.IsLetter(pressedkey) || char.IsWhiteSpace(pressedkey) )
                 e.Handled = false;
             else
             e.Handled = true;
