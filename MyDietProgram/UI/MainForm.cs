@@ -173,7 +173,11 @@ namespace MyDietProgram.UI
             
            
             MealEditForm mealEditForm = new MealEditForm(db, meal,user);
-            mealEditForm.ShowDialog();
+            DialogResult dr = mealEditForm.ShowDialog();
+            if (dr == DialogResult.Cancel)
+            {
+                ListMealsOfUser();
+            }
         }
 
         private void BtnDelete_Click(object? sender, EventArgs e)
@@ -310,6 +314,7 @@ namespace MyDietProgram.UI
         {
             DailyReportForm daily = new DailyReportForm(db, user, dtpDate.Value.Date);
             daily.ShowDialog();
+
         }
 
         private void btnFoodStats_Click(object sender, EventArgs e)
