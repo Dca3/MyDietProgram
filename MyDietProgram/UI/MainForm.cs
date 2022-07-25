@@ -270,14 +270,21 @@ namespace MyDietProgram.UI
         private void ListMealsOfUser()
         {
             List<Info> userInfos = db.Infos.Include(m => m.Meal).Where(i => i.UserId == user.UserId && !i.Meal.IsDeleted && i.MealDate == dtpDate.Value.Date).ToList();
-            List<Meal> userMeals = userInfos.Select(u => u.Meal).Where(m => !m.IsDeleted).ToList();
 
             double userCalculatedCal = user.CalculatedCalorie;
             flpMeals.Controls.Clear();
             
             foreach (Info info in userInfos)
             {
-                if (info.MealDate.Date == dtpDate.Value.Date)
+                bool isComponentExist = false;
+                foreach (Control panel in flpMeals.Controls)
+                {
+                    if ((int)panel.Tag == info.MealId)
+                    {
+                        isComponentExist = true;
+                    }
+                }
+                if (!isComponentExist && info.MealDate.Date == dtpDate.Value.Date)
                 {
                     List<Food> foods = db.Infos.Where(i => i.MealId == info.MealId && !i.Meal.IsDeleted).Select(i => i.Food).ToList();
                     CreateMealComponent(info);

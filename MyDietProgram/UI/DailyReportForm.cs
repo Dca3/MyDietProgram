@@ -30,23 +30,29 @@ namespace MyDietProgram.UI
             var infos = db.Infos
                 .Include(m => m.Food)
                 .Include(m => m.Meal)
-                .Where(i => i.UserId == user.UserId && !i.Meal.IsDeleted && i.MealDate.Date == date.Date).ToList();
+                .Where(i => i.UserId == user.UserId && !i.Meal.IsDeleted && i.MealDate.Date == date.Date)
+                .Select(i => new
+                {
+                    Öğün = i.Meal.Name,
+                    Yiyecek = i.Food.Name,
+                    Kalori = i.Food.Calorie
+                })
+                .ToList();
 
             var groupedInfos = infos.GroupBy(i => new
             {
-                Öğün = i.Meal.Name,
-                Yiyecekler = infos.Where(x => x.MealId == i.MealId).Select(x => x.Food).ToList(),
+                Öğün = i.Öğün,
             })
                 .Select(i => new
                 {
                     Öğün = i.Key.Öğün,
-                    Yiyecekler = string.Join(", ", i.Key.Yiyecekler),
-                    Kalori = i.Sum(x => x.Food.Calorie)
+                    Yiyecekler = string.Join(", ", infos.Select(x => x.Yiyecek).ToList()),
+                    Kalori = i.Sum(x => x.Kalori)
                 }).ToList();
 
             dgvDaily.DataSource = groupedInfos;
 
-            lblTotalCal.Text = infos.Sum(i => i.Food.Calorie).ToString() + " kcal";
+            lblTotalCal.Text = infos.Sum(i => i.Kalori).ToString() + " kcal";
         }
     }
 }
