@@ -215,7 +215,7 @@ namespace MyDietProgram.UI
         {
             MealName mealName = (MealName)cbMeals.SelectedIndex;
             Food food = (Food)cbFoods.SelectedItem;
-            List<Info> userInfos = db.Infos.Where(m => m.User == user).ToList();
+            List<Info> userInfos = db.Infos.Where(i => i.User == user && i.MealDate == dtpDate.Value.Date).ToList();
             
             List<Meal> userMeals = db.Meals.Where(m => userInfos.Select(i => i.MealId).Contains(m.MealId) && !m.IsDeleted).ToList();
             Meal meal = userMeals.Where(m => m.Name == mealName).FirstOrDefault();
@@ -251,7 +251,7 @@ namespace MyDietProgram.UI
 
         private void ListMealsOfUser()
         {
-            List<Info> userInfos = db.Infos.Include(m => m.Meal).Where(i => i.UserId == user.UserId && !i.Meal.IsDeleted).ToList();
+            List<Info> userInfos = db.Infos.Include(m => m.Meal).Where(i => i.UserId == user.UserId && !i.Meal.IsDeleted && i.MealDate == dtpDate.Value.Date).ToList();
             List<Meal> userMeals = userInfos.Select(u => u.Meal).Where(m => !m.IsDeleted).ToList();
 
             double userCalculatedCal = user.CalculatedCalorie;

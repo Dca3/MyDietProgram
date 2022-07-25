@@ -47,9 +47,6 @@ namespace MyDietProgram.UI
             //    Akşam = g.Key.Akşam.Count()
             //}).OrderByDescending(f => f.Miktar);
             //dgvStats.DataSource = groupedFoods.ToList();
-
-
-
             var foods = db.Infos
                 .Include(i => i.Food)
                 .Include(i => i.Meal)
@@ -57,25 +54,23 @@ namespace MyDietProgram.UI
                 {
                     Ad = i.Food.Name,
                     Miktar = i.Amount,
-                    Öğünler = db.Infos.Where(x => x.Food.Name == i.Food.Name).Select(x=> x.Meal).ToList(),
+                    Öğün = i.Meal.Name,
+                    Öğünler = db.Infos.Where(x => x.Food.Name == i.Food.Name).Select(x => x.Meal).ToList(),
+                    Infos = db.Infos.Where(x => x.Food.Name == i.Food.Name).ToList()
                 }).ToList();
 
             var groupedFoods = foods.GroupBy(f => new
             {
                 Ad = f.Ad,
-                Miktar = f.Miktar,
-                Kahvaltı = f.Öğünler.Where(m => m.Name == MealName.Kahvaltı),
-                Öğle = f.Öğünler.Where(m => m.Name == MealName.ÖğleYemeği),
-                Akşam = f.Öğünler.Where(m => m.Name == MealName.AkşamYemeği),
-                Atıştırma = f.Öğünler.Where(m => m.Name == MealName.Atıştırma)
             }).Select(g => new
             {
                 Ad = g.Key.Ad,
                 Miktar = g.Sum(x => x.Miktar),
-                Kahvaltı = g.Key.Kahvaltı.Count(),
-                Öğle = g.Key.Öğle.Count(),
-                Akşam = g.Key.Akşam.Count(),
-                Atıştırma = g.Key.Atıştırma.Count(),
+                Kahvaltı = g.Where(x=> x.Öğün == MealName.Kahvaltı).Select(x => x.Miktar).Sum(),
+                ÖğleYemeği = g.Where(x=> x.Öğün == MealName.ÖğleYemeği).Select(x => x.Miktar).Sum(),
+                AkşamYemeği = g.Where(x=> x.Öğün == MealName.AkşamYemeği).Select(x => x.Miktar).Sum(),
+                Atıştırma = g.Where(x=> x.Öğün == MealName.Atıştırma).Select(x => x.Miktar).Sum(),
+
             }).OrderByDescending(f => f.Miktar);
 
             dgvStats.DataSource = groupedFoods.ToList();

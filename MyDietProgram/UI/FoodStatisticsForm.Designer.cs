@@ -54,6 +54,7 @@
             this.ClientSize = new System.Drawing.Size(378, 354);
             this.Controls.Add(this.dgvStats);
             this.Name = "FoodStatisticsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yiyecek İstatistikleri";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStats)).EndInit();
             this.ResumeLayout(false);
