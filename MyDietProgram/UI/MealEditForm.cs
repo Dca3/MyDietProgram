@@ -54,6 +54,7 @@ namespace MyDietProgram.UI
             txtAmount.Size = new Size(100, 50);
             txtAmount.Location = new Point(189, 13);
             txtAmount.UseAccent = false;
+            txtAmount.Tag = info;
 
             btnSave.Location = new Point(391, 19);
             btnSave.UseAccentColor = true;
@@ -69,21 +70,20 @@ namespace MyDietProgram.UI
         private void btnSave_Click(object? sender, EventArgs e)
         {
             MaterialButton btn = (MaterialButton)sender;
-
-            
-
             Info info = (Info)btn.Parent.Tag;
             MaterialTextBox txtbox=new MaterialTextBox();
-            foreach (MaterialTextBox  item in btn.Parent.Controls)
+            MessageBox.Show(((Info)btn.Parent.Tag).Amount.ToString());
+
+            foreach (Control item in btn.Parent.Controls)
             {
-                if (item.GetType() is MaterialTextBox)
+                if ((Info)item.Tag == info)
                 {
                     txtbox = (MaterialTextBox)item;
                 }
             }
-            var ınfos = db.Infos.Where(x => x.FoodId == info.FoodId).ToList();
-            var usersfoodsinfarmation = ınfos.Where(x => x.UserId == _user.UserId).FirstOrDefault();
-            usersfoodsinfarmation.Amount =Convert.ToDouble( txtbox.Text);
+            var infos = db.Infos.Where(x => x.FoodId == info.FoodId).ToList();
+            var usersfoodsinfarmation = infos.Where(x => x.UserId == _user.UserId).FirstOrDefault();
+            usersfoodsinfarmation.Amount = Convert.ToDouble(txtbox.Text);
 
             flpFoods.Controls.Add(CreateFoodComponent(usersfoodsinfarmation));
 

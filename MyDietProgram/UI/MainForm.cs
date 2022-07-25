@@ -136,6 +136,7 @@ namespace MyDietProgram.UI
 
             lblMealName.Location = new Point(14, 11);
             lblMealName.FontType = MaterialSkinManager.fontType.H6;
+            lblMealName.Size = new Size(536, 25);
 
             lblFoods.Location = new Point(14, 46);
             lblFoods.AutoSize = false;
@@ -216,7 +217,7 @@ namespace MyDietProgram.UI
             Food food = (Food)cbFoods.SelectedItem;
             List<Info> userInfos = db.Infos.Where(m => m.User == user).ToList();
             
-            List<Meal> userMeals = db.Meals.Where(m => userInfos.Select(i => i.MealId).Contains(m.MealId)).ToList();
+            List<Meal> userMeals = db.Meals.Where(m => userInfos.Select(i => i.MealId).Contains(m.MealId) && !m.IsDeleted).ToList();
             Meal meal = userMeals.Where(m => m.Name == mealName).FirstOrDefault();
 
             if (meal == null)
@@ -250,8 +251,8 @@ namespace MyDietProgram.UI
 
         private void ListMealsOfUser()
         {
-            List<Info> userInfos = db.Infos.Include(m => m.Food).Where(m => m.UserId == user.UserId).ToList();
-            List<Meal> userMeals = userInfos.Select(u => u.Meal).Where(u => !u.IsDeleted).ToList();
+            List<Info> userInfos = db.Infos.Include(m => m.Meal).Where(i => i.UserId == user.UserId && !i.Meal.IsDeleted).ToList();
+            List<Meal> userMeals = userInfos.Select(u => u.Meal).Where(m => !m.IsDeleted).ToList();
 
             double userCalculatedCal = user.CalculatedCalorie;
             flpMeals.Controls.Clear();
@@ -260,7 +261,7 @@ namespace MyDietProgram.UI
             {
                 if (info.MealDate.Date == dtpDate.Value.Date)
                 {
-                    List<Food> foods = db.Infos.Where(i => i.MealId == info.MealId).Select(i => i.Food).ToList();
+                    List<Food> foods = db.Infos.Where(i => i.MealId == info.MealId && !i.Meal.IsDeleted).Select(i => i.Food).ToList();
                     CreateMealComponent(info);
                     userCalculatedCal -= GetTotalCalorie(info);
                 }
