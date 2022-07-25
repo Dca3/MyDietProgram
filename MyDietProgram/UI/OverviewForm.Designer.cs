@@ -28,105 +28,201 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.materialRadioButton1 = new MaterialSkin.Controls.MaterialRadioButton();
-            this.materialRadioButton2 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbWeek = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbMonth = new MaterialSkin.Controls.MaterialRadioButton();
             this.dgvResults = new System.Windows.Forms.DataGridView();
-            this.materialRadioButton3 = new MaterialSkin.Controls.MaterialRadioButton();
-            this.materialRadioButton4 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbCategory = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbMeal = new MaterialSkin.Controls.MaterialRadioButton();
+            this.lblDates = new MaterialSkin.Controls.MaterialLabel();
+            this.btnPrev = new MaterialSkin.Controls.MaterialButton();
+            this.btnNext = new MaterialSkin.Controls.MaterialButton();
+            this.gbDateTypes = new System.Windows.Forms.GroupBox();
+            this.gbFilterTypes = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
+            this.gbDateTypes.SuspendLayout();
+            this.gbFilterTypes.SuspendLayout();
             this.SuspendLayout();
             // 
-            // materialRadioButton1
+            // rbWeek
             // 
-            this.materialRadioButton1.AutoSize = true;
-            this.materialRadioButton1.Depth = 0;
-            this.materialRadioButton1.Location = new System.Drawing.Point(12, 75);
-            this.materialRadioButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialRadioButton1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialRadioButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRadioButton1.Name = "materialRadioButton1";
-            this.materialRadioButton1.Ripple = true;
-            this.materialRadioButton1.Size = new System.Drawing.Size(91, 37);
-            this.materialRadioButton1.TabIndex = 1;
-            this.materialRadioButton1.TabStop = true;
-            this.materialRadioButton1.Text = "Haftalık";
-            this.materialRadioButton1.UseVisualStyleBackColor = true;
+            this.rbWeek.AutoSize = true;
+            this.rbWeek.Checked = true;
+            this.rbWeek.Depth = 0;
+            this.rbWeek.Location = new System.Drawing.Point(32, 33);
+            this.rbWeek.Margin = new System.Windows.Forms.Padding(0);
+            this.rbWeek.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbWeek.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbWeek.Name = "rbWeek";
+            this.rbWeek.Ripple = true;
+            this.rbWeek.Size = new System.Drawing.Size(91, 37);
+            this.rbWeek.TabIndex = 1;
+            this.rbWeek.TabStop = true;
+            this.rbWeek.Text = "Haftalık";
+            this.rbWeek.UseVisualStyleBackColor = true;
+            this.rbWeek.CheckedChanged += new System.EventHandler(this.rbWeek_CheckedChanged);
             // 
-            // materialRadioButton2
+            // rbMonth
             // 
-            this.materialRadioButton2.AutoSize = true;
-            this.materialRadioButton2.Depth = 0;
-            this.materialRadioButton2.Location = new System.Drawing.Point(126, 75);
-            this.materialRadioButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.materialRadioButton2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialRadioButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRadioButton2.Name = "materialRadioButton2";
-            this.materialRadioButton2.Ripple = true;
-            this.materialRadioButton2.Size = new System.Drawing.Size(69, 37);
-            this.materialRadioButton2.TabIndex = 1;
-            this.materialRadioButton2.TabStop = true;
-            this.materialRadioButton2.Text = "Aylık";
-            this.materialRadioButton2.UseVisualStyleBackColor = true;
+            this.rbMonth.AutoSize = true;
+            this.rbMonth.Depth = 0;
+            this.rbMonth.Location = new System.Drawing.Point(147, 33);
+            this.rbMonth.Margin = new System.Windows.Forms.Padding(0);
+            this.rbMonth.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbMonth.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbMonth.Name = "rbMonth";
+            this.rbMonth.Ripple = true;
+            this.rbMonth.Size = new System.Drawing.Size(69, 37);
+            this.rbMonth.TabIndex = 1;
+            this.rbMonth.TabStop = true;
+            this.rbMonth.Text = "Aylık";
+            this.rbMonth.UseVisualStyleBackColor = true;
+            this.rbMonth.CheckedChanged += new System.EventHandler(this.rbMonth_CheckedChanged);
             // 
             // dgvResults
             // 
             this.dgvResults.AllowUserToAddRows = false;
             this.dgvResults.AllowUserToDeleteRows = false;
+            this.dgvResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResults.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvResults.Location = new System.Drawing.Point(3, 115);
+            this.dgvResults.Location = new System.Drawing.Point(9, 177);
             this.dgvResults.Name = "dgvResults";
             this.dgvResults.ReadOnly = true;
             this.dgvResults.RowTemplate.Height = 25;
-            this.dgvResults.Size = new System.Drawing.Size(812, 332);
+            this.dgvResults.Size = new System.Drawing.Size(737, 378);
             this.dgvResults.TabIndex = 2;
             // 
-            // materialRadioButton3
+            // rbCategory
             // 
-            this.materialRadioButton3.AutoSize = true;
-            this.materialRadioButton3.Depth = 0;
-            this.materialRadioButton3.Location = new System.Drawing.Point(628, 75);
-            this.materialRadioButton3.Margin = new System.Windows.Forms.Padding(0);
-            this.materialRadioButton3.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialRadioButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRadioButton3.Name = "materialRadioButton3";
-            this.materialRadioButton3.Ripple = true;
-            this.materialRadioButton3.Size = new System.Drawing.Size(94, 37);
-            this.materialRadioButton3.TabIndex = 1;
-            this.materialRadioButton3.TabStop = true;
-            this.materialRadioButton3.Text = "Kategori";
-            this.materialRadioButton3.UseVisualStyleBackColor = true;
+            this.rbCategory.AutoSize = true;
+            this.rbCategory.Depth = 0;
+            this.rbCategory.Location = new System.Drawing.Point(141, 33);
+            this.rbCategory.Margin = new System.Windows.Forms.Padding(0);
+            this.rbCategory.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbCategory.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbCategory.Name = "rbCategory";
+            this.rbCategory.Ripple = true;
+            this.rbCategory.Size = new System.Drawing.Size(94, 37);
+            this.rbCategory.TabIndex = 1;
+            this.rbCategory.TabStop = true;
+            this.rbCategory.Text = "Kategori";
+            this.rbCategory.UseVisualStyleBackColor = true;
+            this.rbCategory.CheckedChanged += new System.EventHandler(this.rbCategory_CheckedChanged);
             // 
-            // materialRadioButton4
+            // rbMeal
             // 
-            this.materialRadioButton4.AutoSize = true;
-            this.materialRadioButton4.Depth = 0;
-            this.materialRadioButton4.Location = new System.Drawing.Point(742, 75);
-            this.materialRadioButton4.Margin = new System.Windows.Forms.Padding(0);
-            this.materialRadioButton4.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialRadioButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRadioButton4.Name = "materialRadioButton4";
-            this.materialRadioButton4.Ripple = true;
-            this.materialRadioButton4.Size = new System.Drawing.Size(73, 37);
-            this.materialRadioButton4.TabIndex = 1;
-            this.materialRadioButton4.TabStop = true;
-            this.materialRadioButton4.Text = "Öğün";
-            this.materialRadioButton4.UseVisualStyleBackColor = true;
+            this.rbMeal.AutoSize = true;
+            this.rbMeal.Checked = true;
+            this.rbMeal.Depth = 0;
+            this.rbMeal.Location = new System.Drawing.Point(31, 32);
+            this.rbMeal.Margin = new System.Windows.Forms.Padding(0);
+            this.rbMeal.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbMeal.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbMeal.Name = "rbMeal";
+            this.rbMeal.Ripple = true;
+            this.rbMeal.Size = new System.Drawing.Size(73, 37);
+            this.rbMeal.TabIndex = 1;
+            this.rbMeal.TabStop = true;
+            this.rbMeal.Text = "Öğün";
+            this.rbMeal.UseVisualStyleBackColor = true;
+            this.rbMeal.CheckedChanged += new System.EventHandler(this.rbMeal_CheckedChanged);
+            // 
+            // lblDates
+            // 
+            this.lblDates.AutoSize = true;
+            this.lblDates.Depth = 0;
+            this.lblDates.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDates.Location = new System.Drawing.Point(272, 574);
+            this.lblDates.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDates.Name = "lblDates";
+            this.lblDates.Size = new System.Drawing.Size(173, 19);
+            this.lblDates.TabIndex = 3;
+            this.lblDates.Text = "01.01.2022 - 01.01.2022";
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
+            this.btnPrev.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPrev.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnPrev.Depth = 0;
+            this.btnPrev.HighEmphasis = true;
+            this.btnPrev.Icon = null;
+            this.btnPrev.Location = new System.Drawing.Point(186, 564);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnPrev.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnPrev.Size = new System.Drawing.Size(64, 36);
+            this.btnPrev.TabIndex = 4;
+            this.btnPrev.Text = "<";
+            this.btnPrev.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnPrev.UseAccentColor = false;
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
+            this.btnNext.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnNext.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnNext.Depth = 0;
+            this.btnNext.HighEmphasis = true;
+            this.btnNext.Icon = null;
+            this.btnNext.Location = new System.Drawing.Point(467, 564);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnNext.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnNext.Name = "btnNext";
+            this.btnNext.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnNext.Size = new System.Drawing.Size(64, 36);
+            this.btnNext.TabIndex = 4;
+            this.btnNext.Text = ">";
+            this.btnNext.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnNext.UseAccentColor = false;
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // gbDateTypes
+            // 
+            this.gbDateTypes.Controls.Add(this.rbWeek);
+            this.gbDateTypes.Controls.Add(this.rbMonth);
+            this.gbDateTypes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gbDateTypes.Location = new System.Drawing.Point(9, 76);
+            this.gbDateTypes.Name = "gbDateTypes";
+            this.gbDateTypes.Size = new System.Drawing.Size(267, 95);
+            this.gbDateTypes.TabIndex = 5;
+            this.gbDateTypes.TabStop = false;
+            this.gbDateTypes.Text = "Zaman aralığı";
+            // 
+            // gbFilterTypes
+            // 
+            this.gbFilterTypes.Controls.Add(this.rbCategory);
+            this.gbFilterTypes.Controls.Add(this.rbMeal);
+            this.gbFilterTypes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gbFilterTypes.Location = new System.Drawing.Point(482, 76);
+            this.gbFilterTypes.Name = "gbFilterTypes";
+            this.gbFilterTypes.Size = new System.Drawing.Size(267, 95);
+            this.gbFilterTypes.TabIndex = 6;
+            this.gbFilterTypes.TabStop = false;
+            this.gbFilterTypes.Text = "Filtre türü";
             // 
             // OverviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 450);
+            this.ClientSize = new System.Drawing.Size(752, 609);
+            this.Controls.Add(this.gbFilterTypes);
+            this.Controls.Add(this.gbDateTypes);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnPrev);
+            this.Controls.Add(this.lblDates);
             this.Controls.Add(this.dgvResults);
-            this.Controls.Add(this.materialRadioButton4);
-            this.Controls.Add(this.materialRadioButton3);
-            this.Controls.Add(this.materialRadioButton2);
-            this.Controls.Add(this.materialRadioButton1);
             this.Name = "OverviewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Karşılaştırma";
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
+            this.gbDateTypes.ResumeLayout(false);
+            this.gbDateTypes.PerformLayout();
+            this.gbFilterTypes.ResumeLayout(false);
+            this.gbFilterTypes.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,10 +230,15 @@
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialRadioButton materialRadioButton1;
-        private MaterialSkin.Controls.MaterialRadioButton materialRadioButton2;
+        private MaterialSkin.Controls.MaterialRadioButton rbWeek;
+        private MaterialSkin.Controls.MaterialRadioButton rbMonth;
         private DataGridView dgvResults;
-        private MaterialSkin.Controls.MaterialRadioButton materialRadioButton3;
-        private MaterialSkin.Controls.MaterialRadioButton materialRadioButton4;
+        private MaterialSkin.Controls.MaterialRadioButton rbCategory;
+        private MaterialSkin.Controls.MaterialRadioButton rbMeal;
+        private MaterialSkin.Controls.MaterialLabel lblDates;
+        private MaterialSkin.Controls.MaterialButton btnPrev;
+        private MaterialSkin.Controls.MaterialButton btnNext;
+        private GroupBox gbDateTypes;
+        private GroupBox gbFilterTypes;
     }
 }
