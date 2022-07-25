@@ -146,5 +146,33 @@ namespace MyDietProgram
             userManager.CheckIsNumber(txtHeight.Text, e);
         }
 
+       
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkWholeValueString(e, txtFirstName.Text);
+
+        }
+
+        public void checkWholeValueString(KeyPressEventArgs e,string stringvalue)
+        {
+
+            char pressedkey = e.KeyChar;
+            if (char.IsLetter(pressedkey) || char.IsWhiteSpace(pressedkey) )
+                e.Handled = false;
+            else
+            e.Handled = true;
+
+        }
+
+        private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkWholeValueString(e, txtLastName.Text);
+        }
     }
 }

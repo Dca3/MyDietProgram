@@ -68,6 +68,8 @@
             this.txtFirstName.Text = "";
             this.txtFirstName.TrailingIcon = null;
             this.txtFirstName.UseAccent = false;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFirstName_KeyPress);
             // 
             // txtLastName
             // 
@@ -85,6 +87,7 @@
             this.txtLastName.Text = "";
             this.txtLastName.TrailingIcon = null;
             this.txtLastName.UseAccent = false;
+            this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName_KeyPress);
             // 
             // txtAge
             // 
@@ -271,7 +274,7 @@
             this.txtPassword.Depth = 0;
             this.txtPassword.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtPassword.LeadingIcon = null;
-            this.txtPassword.Location = new System.Drawing.Point(204, 289);
+            this.txtPassword.Location = new System.Drawing.Point(204, 290);
             this.txtPassword.MaxLength = 50;
             this.txtPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtPassword.Multiline = false;

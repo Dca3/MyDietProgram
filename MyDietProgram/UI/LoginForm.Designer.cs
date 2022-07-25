@@ -64,11 +64,13 @@
             this.txtPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtPassword.Multiline = false;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Password = true;
             this.txtPassword.Size = new System.Drawing.Size(235, 50);
             this.txtPassword.TabIndex = 0;
             this.txtPassword.Text = "Test123.";
             this.txtPassword.TrailingIcon = null;
             this.txtPassword.UseAccent = false;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // btnLogin
             // 
@@ -153,6 +155,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

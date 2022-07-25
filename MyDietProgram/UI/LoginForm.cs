@@ -13,6 +13,8 @@ namespace MyDietProgram
         {
             this.db = context;
             InitializeComponent();
+            
+
             LoadData();
             if(db.Users.Count() == 0)
                 CreateSeedData();
@@ -230,6 +232,16 @@ namespace MyDietProgram
             DateTime start = new DateTime(2022, 7, 1);
             int range = (DateTime.Today - start).Days;
             return start.AddDays(gen.Next(range));
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
