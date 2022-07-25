@@ -332,8 +332,8 @@ namespace MyDietProgram.UI
 
         public double GetTotalCalorie(Info info)
         {
-            List<Food> foods = db.Infos.Where(i => i.MealId == info.MealId).Select(i => i.Food).ToList();
-            return foods.Sum(f => f.Calorie);
+            List<Info> infos = db.Infos.Where(i => i.MealId == info.MealId).ToList();
+            return infos.Sum(i => i.Food.Calorie * i.Amount);
         }
 
         private void MainForm_Load(object sender, EventArgs e)

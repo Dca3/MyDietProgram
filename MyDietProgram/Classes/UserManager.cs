@@ -50,7 +50,7 @@ namespace MyDietProgram.Classes
             int maxLength = 15;
             int minNumber = 1;
             int minCharacter = 1;
-            string allowedSpecials = "@#/.!')-_?;,:";
+            string allowedSpecials = "@#/.!')-_?;,:+-*";
 
             char[] characters = password.ToCharArray();
 
@@ -191,18 +191,13 @@ namespace MyDietProgram.Classes
         {
             if (gender == 0)
             {
-
                 double basalMetabolismWoman = (10 * weight) + (6.25 * height) - (5 * age) - (161);
-
                 return basalMetabolismWoman;
             }
             else if (gender == 1)
             {
-
                 double basalMetabolismMan = (10 * weight) + (8.25 * height) - (5 * age) - (161);
-
                 return basalMetabolismMan;
-
             }
             return 0;
         }

@@ -35,7 +35,8 @@ namespace MyDietProgram.UI
                 {
                     Öğün = i.Meal.Name,
                     Yiyecek = i.Food.Name,
-                    Kalori = i.Food.Calorie
+                    Kalori = i.Food.Calorie,
+                    Miktar = i.Amount
                 })
                 .ToList();
 
@@ -47,12 +48,12 @@ namespace MyDietProgram.UI
                 {
                     Öğün = i.Key.Öğün,
                     Yiyecekler = string.Join(", ", infos.Select(x => x.Yiyecek).ToList()),
-                    Kalori = i.Sum(x => x.Kalori)
+                    Kalori = i.Sum(x => x.Kalori * x.Miktar)
                 }).ToList();
 
             dgvDaily.DataSource = groupedInfos;
 
-            lblTotalCal.Text = infos.Sum(i => i.Kalori).ToString() + " kcal";
+            lblTotalCal.Text = "Toplam: " + infos.Sum(i => i.Kalori).ToString() + " kcal";
         }
     }
 }

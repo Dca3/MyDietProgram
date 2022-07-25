@@ -39,7 +39,7 @@ namespace MyDietProgram
             txtWeight.Text = new Random().Next(50, 140).ToString();
             txtFirstName.Text = "Test" + new Random().Next(1, 1000);
             txtFirstName.Text = "Test" + new Random().Next(1, 1000);
-            txtEmail.Text = "Test" + new Random().Next(1, 1000) + "@test.com";
+            txtEmail.Text = "Test" + new Random().Next(1, 1000) + "@mail.com";
             txtPassword.Text = "Test123.";
             txtAge.Text = new Random().Next(10, 49).ToString();
             var gender = new Random().Next(1, 3);
@@ -71,8 +71,6 @@ namespace MyDietProgram
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 if (btnRegister.Text.ToLower() == "giriş yap")
@@ -122,7 +120,6 @@ namespace MyDietProgram
             {
                 db.ChangeTracker.Clear();
                 MessageBox.Show(ex.Message);
-                //TODO Hata lduğunda db track temizle
             }
         }
 
