@@ -45,8 +45,40 @@ namespace MyDietProgram.UI
             //    Kahvaltı = g.Key.Kahvaltı.Count(),
             //    Öğle = g.Key.Öğle.Count(),
             //    Akşam = g.Key.Akşam.Count()
-            //}).OrderByDescending( f=> f.Miktar);
+            //}).OrderByDescending(f => f.Miktar);
             //dgvStats.DataSource = groupedFoods.ToList();
+
+
+
+            var foods = db.Infos
+                .Include(i => i.Food)
+                .Include(i => i.Meal)
+                .Select(i => new
+                {
+                    Ad = i.Food.Name,
+                    Miktar = i.Amount,
+                    Öğünler = db.Infos.Where(x => x.Food.Name == i.Food.Name).Select(x=> x.Meal).ToList(),
+                }).ToList();
+
+            var groupedFoods = foods.GroupBy(f => new
+            {
+                Ad = f.Ad,
+                Miktar = f.Miktar,
+                Kahvaltı = f.Öğünler.Where(m => m.Name == MealName.Kahvaltı),
+                Öğle = f.Öğünler.Where(m => m.Name == MealName.ÖğleYemeği),
+                Akşam = f.Öğünler.Where(m => m.Name == MealName.AkşamYemeği),
+                Atıştırma = f.Öğünler.Where(m => m.Name == MealName.Atıştırma)
+            }).Select(g => new
+            {
+                Ad = g.Key.Ad,
+                Miktar = g.Sum(x => x.Miktar),
+                Kahvaltı = g.Key.Kahvaltı.Count(),
+                Öğle = g.Key.Öğle.Count(),
+                Akşam = g.Key.Akşam.Count(),
+                Atıştırma = g.Key.Atıştırma.Count(),
+            }).OrderByDescending(f => f.Miktar);
+
+            dgvStats.DataSource = groupedFoods.ToList();
         }
     }
 }

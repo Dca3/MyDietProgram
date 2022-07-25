@@ -8,9 +8,9 @@ namespace MyDietProgram.Classes
 {
     public enum MealName
     {
-        Breakfast=0,
-        Launch=1,
-        Dinner=2,
-        Collation=3
+        Kahvaltı=0,
+        ÖğleYemeği=1,
+        AkşamYemeği=2,
+        Atıştırma=3
     }
 }
