@@ -30,10 +30,10 @@
         {
             this.materialRadioButton1 = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialRadioButton2 = new MaterialSkin.Controls.MaterialRadioButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvResults = new System.Windows.Forms.DataGridView();
             this.materialRadioButton3 = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialRadioButton4 = new MaterialSkin.Controls.MaterialRadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.SuspendLayout();
             // 
             // materialRadioButton1
@@ -68,24 +68,24 @@
             this.materialRadioButton2.Text = "Aylık";
             this.materialRadioButton2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvResults
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 115);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(794, 332);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvResults.AllowUserToAddRows = false;
+            this.dgvResults.AllowUserToDeleteRows = false;
+            this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResults.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvResults.Location = new System.Drawing.Point(3, 115);
+            this.dgvResults.Name = "dgvResults";
+            this.dgvResults.ReadOnly = true;
+            this.dgvResults.RowTemplate.Height = 25;
+            this.dgvResults.Size = new System.Drawing.Size(812, 332);
+            this.dgvResults.TabIndex = 2;
             // 
             // materialRadioButton3
             // 
             this.materialRadioButton3.AutoSize = true;
             this.materialRadioButton3.Depth = 0;
-            this.materialRadioButton3.Location = new System.Drawing.Point(601, 75);
+            this.materialRadioButton3.Location = new System.Drawing.Point(628, 75);
             this.materialRadioButton3.Margin = new System.Windows.Forms.Padding(0);
             this.materialRadioButton3.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialRadioButton3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -101,7 +101,7 @@
             // 
             this.materialRadioButton4.AutoSize = true;
             this.materialRadioButton4.Depth = 0;
-            this.materialRadioButton4.Location = new System.Drawing.Point(715, 75);
+            this.materialRadioButton4.Location = new System.Drawing.Point(742, 75);
             this.materialRadioButton4.Margin = new System.Windows.Forms.Padding(0);
             this.materialRadioButton4.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialRadioButton4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -117,8 +117,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(818, 450);
+            this.Controls.Add(this.dgvResults);
             this.Controls.Add(this.materialRadioButton4);
             this.Controls.Add(this.materialRadioButton3);
             this.Controls.Add(this.materialRadioButton2);
@@ -126,7 +126,7 @@
             this.Name = "OverviewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Karşılaştırma";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,7 +136,7 @@
 
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButton1;
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButton2;
-        private DataGridView dataGridView1;
+        private DataGridView dgvResults;
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButton3;
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButton4;
     }

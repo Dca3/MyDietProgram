@@ -215,9 +215,9 @@ namespace MyDietProgram.UI
         {
             MealName mealName = (MealName)cbMeals.SelectedIndex;
             Food food = (Food)cbFoods.SelectedItem;
-            List<Info> userInfos = db.Infos.Where(i => i.User == user && i.MealDate == dtpDate.Value.Date).ToList();
-            
-            List<Meal> userMeals = db.Meals.Where(m => userInfos.Select(i => i.MealId).Contains(m.MealId) && !m.IsDeleted).ToList();
+            List<Info> userInfos = db.Infos.Include(i => i.Meal).Where(i => i.User == user && i.MealDate == dtpDate.Value.Date).ToList();
+
+            List<Meal> userMeals = userInfos.Where(i => !i.Meal.IsDeleted).Select(i => i.Meal).ToList();
             Meal meal = userMeals.Where(m => m.Name == mealName).FirstOrDefault();
 
             if (meal == null)
@@ -241,8 +241,26 @@ namespace MyDietProgram.UI
             }
             else
             {
-                Info info = db.Infos.Where(i => i.MealId == meal.MealId).FirstOrDefault();
-                info.Amount += Convert.ToDouble(txtAmount.Text);
+                List<Info> infos = db.Infos.Where(i => i.MealId == meal.MealId).ToList();
+                Food foodInMeal = infos.Where(i => i.Food == food).Select(i => i.Food).FirstOrDefault();
+                if (foodInMeal == null)
+                {
+                    Info info = new Info()
+                    {
+                        MealId = meal.MealId,
+                        UserId = user.UserId,
+                        FoodId = food.FoodId,
+                        Amount = Convert.ToDouble(txtAmount.Text),
+                        MealDate = dtpDate.Value.Date,
+                    };
+                    db.Infos.Add(info);
+                    db.SaveChanges();
+                }
+                else
+                {
+                   Info info = infos.FirstOrDefault(i => i.Food == foodInMeal);
+                    info.Amount += Convert.ToDouble(txtAmount.Text);
+                }
                 db.SaveChanges();
             }
             db.SaveChanges();
@@ -295,7 +313,7 @@ namespace MyDietProgram.UI
 
         private void btnOverview_Click(object sender, EventArgs e)
         {
-            OverviewForm daily = new OverviewForm(db);
+            OverviewForm daily = new OverviewForm(db, user);
             daily.ShowDialog();
         }
 
