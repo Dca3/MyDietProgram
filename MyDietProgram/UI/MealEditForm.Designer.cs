@@ -43,13 +43,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 450);
+            this.ClientSize = new System.Drawing.Size(586, 450);
             this.Controls.Add(this.flpFoods);
             this.MaximizeBox = false;
             this.Name = "MealEditForm";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Öğün Düzenle";
+            this.Load += new System.EventHandler(this.MealEditForm_Load);
             this.ResumeLayout(false);
 
         }

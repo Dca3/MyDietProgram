@@ -12,8 +12,8 @@ using MyDietProgram.Classes;
 namespace MyDietProgram.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220724180230_refactor_2")]
-    partial class refactor_2
+    [Migration("20220725115857_newdb2")]
+    partial class newdb2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -145,6 +145,12 @@ namespace MyDietProgram.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FoodId");
+
+                    b.HasIndex("MealId");
+
+                    b.HasIndex("UserId");
+
                     b.ToTable("Infos");
                 });
 
@@ -155,9 +161,6 @@ namespace MyDietProgram.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MealId"), 1L, 1);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -235,6 +238,33 @@ namespace MyDietProgram.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("MyDietProgram.Classes.Info", b =>
+                {
+                    b.HasOne("MyDietProgram.Classes.Food", "Food")
+                        .WithMany()
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyDietProgram.Classes.Meal", "Meal")
+                        .WithMany()
+                        .HasForeignKey("MealId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyDietProgram.Classes.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Food");
+
+                    b.Navigation("Meal");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MyDietProgram.Classes.Category", b =>

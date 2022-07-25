@@ -21,11 +21,14 @@ namespace MyDietProgram.UI
         List<Food> foodList;
         public MainForm(Context context, User user)
         {
+            
             db = context;
             this.user = user;
+          
             InitializeComponent();
             FillElements();
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -163,9 +166,12 @@ namespace MyDietProgram.UI
         private void BtnEdit_Click(object? sender, EventArgs e)
         {
             var btn = (MaterialButton)sender;
+            var _User=db.Infos.Where(x=>x.UserId==user.UserId).FirstOrDefault();
             int mealId = (int)btn.Parent.Tag;
             Meal meal = db.Meals.Where(m => m.MealId == mealId).FirstOrDefault();
-            MealEditForm mealEditForm = new MealEditForm(db, meal);
+            
+           
+            MealEditForm mealEditForm = new MealEditForm(db, meal,user);
             mealEditForm.ShowDialog();
         }
 
@@ -210,7 +216,7 @@ namespace MyDietProgram.UI
             Food food = (Food)cbFoods.SelectedItem;
             List<Info> userInfos = db.Infos.Where(m => m.User == user).ToList();
             
-            List<Meal> userMeals = db.Infos.Where((m) => m.User == user && m.MealDate == dtpDate.Value.Date).Select(i=> i.Meal).ToList();
+            List<Meal> userMeals = db.Meals.Where(m => userInfos.Select(i => i.MealId).Contains(m.MealId)).ToList();
             Meal meal = userMeals.Where(m => m.Name == mealName).FirstOrDefault();
 
             if (meal == null)
@@ -245,7 +251,7 @@ namespace MyDietProgram.UI
         private void ListMealsOfUser()
         {
             List<Info> userInfos = db.Infos.Include(m => m.Food).Where(m => m.UserId == user.UserId).ToList();
-            List<Meal> userMeals = db.Meals.Where(m => userInfos.Select(i => i.MealId).Contains(m.MealId)).ToList();
+            List<Meal> userMeals = userInfos.Select(u => u.Meal).Where(u => !u.IsDeleted).ToList();
 
             double userCalculatedCal = user.CalculatedCalorie;
             flpMeals.Controls.Clear();
@@ -302,6 +308,11 @@ namespace MyDietProgram.UI
         {
             List<Food> foods = db.Infos.Where(i => i.MealId == info.MealId).Select(i => i.Food).ToList();
             return foods.Sum(f => f.Calorie);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

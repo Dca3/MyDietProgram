@@ -1,4 +1,5 @@
 ﻿using MaterialSkin.Controls;
+using Microsoft.EntityFrameworkCore;
 using MyDietProgram.Classes;
 using System;
 using System.Collections.Generic;
@@ -16,29 +17,37 @@ namespace MyDietProgram.UI
     {
         Context db;
         Meal meal;
-        public MealEditForm(Context context, Meal meal)
+        User _user;
+
+       
+        public MealEditForm(Context context, Meal meal,User user)
         {
             db = context;
+            this._user=user;
             this.meal = meal;
             InitializeComponent();
-            List<int> foodIds = db.Infos.Where(i => i.MealId == meal.MealId && !meal.IsDeleted).Select(i => i.FoodId).ToList();
-            //List<Food> foods = db.Foods
-            //foreach (var item in meal.Foods)
-            //{
-            //    flpFoods.Controls.Add(CreateFoodComponent(item));
-            //}
+
+            
+
+            var ınfos=db.Infos.Include(x=>x.Food).Where(x=>x.MealId==meal.MealId).ToList();
+            foreach (var item in ınfos)
+            {
+                flpFoods.Controls.Add(CreateFoodComponent(item));
+            }
+
         }
 
-        private Panel CreateFoodComponent(Food food)
+        private Panel CreateFoodComponent(Info info)
         {
+            Food food=info.Food;
             Panel pnlContainer = new Panel();
             MaterialLabel lblFoodName = new MaterialLabel() { Text = food.Name.ToString() };
             MaterialTextBox txtAmount = new MaterialTextBox() { Text = food.Amount.ToString() };
-            MaterialButton btnDelete = new MaterialButton() { Text = "SİL" };
+            MaterialButton btnSave = new MaterialButton() { Text = "Kaydet" };
 
             pnlContainer.Size = new Size(469, 83);
             pnlContainer.Location = new Point(20, 29);
-            pnlContainer.Tag = food;
+            pnlContainer.Tag = info;
 
             lblFoodName.Location = new Point(20, 29);
 
@@ -46,28 +55,50 @@ namespace MyDietProgram.UI
             txtAmount.Location = new Point(189, 13);
             txtAmount.UseAccent = false;
 
-            btnDelete.Location = new Point(391, 19);
-            btnDelete.UseAccentColor = true;
-            btnDelete.Click += BtnDelete_Click;
+            btnSave.Location = new Point(391, 19);
+            btnSave.UseAccentColor = true;
+            btnSave.Click += btnSave_Click;
 
             pnlContainer.Controls.Add(lblFoodName);
             pnlContainer.Controls.Add(txtAmount);
-            pnlContainer.Controls.Add(btnDelete);
+            pnlContainer.Controls.Add(btnSave);
 
             return pnlContainer;
         }
 
-        private void BtnDelete_Click(object? sender, EventArgs e)
+        private void btnSave_Click(object? sender, EventArgs e)
         {
             MaterialButton btn = (MaterialButton)sender;
-            Food food = (Food)btn.Parent.Tag;
+
+            
+
+            Info info = (Info)btn.Parent.Tag;
+            MaterialTextBox txtbox=new MaterialTextBox();
+            foreach (MaterialTextBox  item in btn.Parent.Controls)
+            {
+                if (item.GetType() is MaterialTextBox)
+                {
+                    txtbox = (MaterialTextBox)item;
+                }
+            }
+            var ınfos = db.Infos.Where(x => x.FoodId == info.FoodId).ToList();
+            var usersfoodsinfarmation = ınfos.Where(x => x.UserId == _user.UserId).FirstOrDefault();
+            usersfoodsinfarmation.Amount =Convert.ToDouble( txtbox.Text);
+
+            flpFoods.Controls.Add(CreateFoodComponent(usersfoodsinfarmation));
 
 
-
-            //meal.Foods.Remove(food);
             db.SaveChanges();
+
 
             btn.Parent.Visible = false;
         }
+
+        private void MealEditForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
