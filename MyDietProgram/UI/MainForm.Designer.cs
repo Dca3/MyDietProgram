@@ -33,7 +33,6 @@
             this.btnNewFood = new MaterialSkin.Controls.MaterialButton();
             this.cbFoods = new MaterialSkin.Controls.MaterialComboBox();
             this.txtAmount = new MaterialSkin.Controls.MaterialTextBox();
-            this.lblTotalCalorie = new MaterialSkin.Controls.MaterialLabel();
             this.btnAddMeal = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
@@ -47,6 +46,7 @@
             this.btnDaily = new MaterialSkin.Controls.MaterialButton();
             this.btnOverview = new MaterialSkin.Controls.MaterialButton();
             this.btnFoodStats = new MaterialSkin.Controls.MaterialButton();
+            this.lblFoodDetails = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // cbMeals
@@ -155,7 +155,7 @@
             this.txtAmount.Depth = 0;
             this.txtAmount.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtAmount.LeadingIcon = null;
-            this.txtAmount.Location = new System.Drawing.Point(189, 363);
+            this.txtAmount.Location = new System.Drawing.Point(190, 350);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAmount.MaxLength = 50;
             this.txtAmount.MouseState = MaterialSkin.MouseState.OUT;
@@ -169,21 +169,6 @@
             this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
-            // lblTotalCalorie
-            // 
-            this.lblTotalCalorie.AutoSize = true;
-            this.lblTotalCalorie.Depth = 0;
-            this.lblTotalCalorie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTotalCalorie.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblTotalCalorie.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblTotalCalorie.Location = new System.Drawing.Point(189, 433);
-            this.lblTotalCalorie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalCalorie.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblTotalCalorie.Name = "lblTotalCalorie";
-            this.lblTotalCalorie.Size = new System.Drawing.Size(53, 24);
-            this.lblTotalCalorie.TabIndex = 9;
-            this.lblTotalCalorie.Text = "0 kcal";
-            // 
             // btnAddMeal
             // 
             this.btnAddMeal.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
@@ -192,7 +177,7 @@
             this.btnAddMeal.Depth = 0;
             this.btnAddMeal.HighEmphasis = true;
             this.btnAddMeal.Icon = null;
-            this.btnAddMeal.Location = new System.Drawing.Point(189, 465);
+            this.btnAddMeal.Location = new System.Drawing.Point(190, 425);
             this.btnAddMeal.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.btnAddMeal.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddMeal.Name = "btnAddMeal";
@@ -249,7 +234,7 @@
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(107, 382);
+            this.materialLabel6.Location = new System.Drawing.Point(109, 368);
             this.materialLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
@@ -283,9 +268,10 @@
             // flpMeals
             // 
             this.flpMeals.AutoScroll = true;
-            this.flpMeals.Location = new System.Drawing.Point(694, 113);
+            this.flpMeals.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpMeals.Location = new System.Drawing.Point(708, 109);
             this.flpMeals.Name = "flpMeals";
-            this.flpMeals.Size = new System.Drawing.Size(580, 388);
+            this.flpMeals.Size = new System.Drawing.Size(554, 388);
             this.flpMeals.TabIndex = 13;
             // 
             // materialLabel9
@@ -294,7 +280,7 @@
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.materialLabel9.Location = new System.Drawing.Point(1174, 81);
+            this.materialLabel9.Location = new System.Drawing.Point(1178, 77);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.Size = new System.Drawing.Size(84, 29);
@@ -321,7 +307,7 @@
             this.btnDaily.Depth = 0;
             this.btnDaily.HighEmphasis = true;
             this.btnDaily.Icon = null;
-            this.btnDaily.Location = new System.Drawing.Point(844, 518);
+            this.btnDaily.Location = new System.Drawing.Point(834, 515);
             this.btnDaily.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDaily.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDaily.Name = "btnDaily";
@@ -342,7 +328,7 @@
             this.btnOverview.Depth = 0;
             this.btnOverview.HighEmphasis = true;
             this.btnOverview.Icon = null;
-            this.btnOverview.Location = new System.Drawing.Point(964, 518);
+            this.btnOverview.Location = new System.Drawing.Point(954, 515);
             this.btnOverview.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnOverview.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnOverview.Name = "btnOverview";
@@ -363,7 +349,7 @@
             this.btnFoodStats.Depth = 0;
             this.btnFoodStats.HighEmphasis = true;
             this.btnFoodStats.Icon = null;
-            this.btnFoodStats.Location = new System.Drawing.Point(1095, 518);
+            this.btnFoodStats.Location = new System.Drawing.Point(1085, 515);
             this.btnFoodStats.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFoodStats.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnFoodStats.Name = "btnFoodStats";
@@ -375,6 +361,21 @@
             this.btnFoodStats.UseAccentColor = false;
             this.btnFoodStats.UseVisualStyleBackColor = true;
             this.btnFoodStats.Click += new System.EventHandler(this.btnFoodStats_Click);
+            // 
+            // lblFoodDetails
+            // 
+            this.lblFoodDetails.AutoSize = true;
+            this.lblFoodDetails.Depth = 0;
+            this.lblFoodDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblFoodDetails.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblFoodDetails.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.lblFoodDetails.Location = new System.Drawing.Point(352, 363);
+            this.lblFoodDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFoodDetails.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblFoodDetails.Name = "lblFoodDetails";
+            this.lblFoodDetails.Size = new System.Drawing.Size(53, 24);
+            this.lblFoodDetails.TabIndex = 9;
+            this.lblFoodDetails.Text = "0 kcal";
             // 
             // MainForm
             // 
@@ -394,7 +395,7 @@
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.txtAmount);
-            this.Controls.Add(this.lblTotalCalorie);
+            this.Controls.Add(this.lblFoodDetails);
             this.Controls.Add(this.cbFoods);
             this.Controls.Add(this.cbCategories);
             this.Controls.Add(this.cbMeals);
@@ -417,7 +418,6 @@
         private MaterialSkin.Controls.MaterialButton btnNewFood;
         private MaterialSkin.Controls.MaterialComboBox cbFoods;
         private MaterialSkin.Controls.MaterialTextBox txtAmount;
-        private MaterialSkin.Controls.MaterialLabel lblTotalCalorie;
         private MaterialSkin.Controls.MaterialButton btnAddMeal;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
@@ -431,5 +431,6 @@
         private MaterialSkin.Controls.MaterialButton btnDaily;
         private MaterialSkin.Controls.MaterialButton btnOverview;
         private MaterialSkin.Controls.MaterialButton btnFoodStats;
+        private MaterialSkin.Controls.MaterialLabel lblFoodDetails;
     }
 }

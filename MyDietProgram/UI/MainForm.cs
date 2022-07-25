@@ -106,7 +106,10 @@ namespace MyDietProgram.UI
 
             decimal amount = txtAmount.Text != "" ? Convert.ToDecimal(txtAmount.Text) : 0;
             if (selectedFood != null)
-                lblTotalCalorie.Text = (selectedFood.Calorie * amount).ToString() + " kcal";
+            {
+                decimal totalCal = selectedFood.Calorie * amount;
+                lblFoodDetails.Text = string.Format("{0}, {1} kcal", selectedFood.AmountDescription, totalCal.ToString());
+            }
         }
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)

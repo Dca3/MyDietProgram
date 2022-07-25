@@ -24,7 +24,7 @@ namespace MyDietProgram.Classes
 
         public override string ToString()
         {
-            return $"{Name} ({AmountDescription}, {Calorie} kcal)";
+            return $"{Name}";
         }
     }
 }

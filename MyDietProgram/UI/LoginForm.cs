@@ -58,14 +58,14 @@ namespace MyDietProgram
                         Name = "Ali nazik",
                         Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
                         Calorie = 536,
-                        AmountDescription = "1 porsiyon"
+                        AmountDescription = "porsiyon"
                     },
                     new Food()
                     {
                         Name = "Ýskender",
                         Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
                         Calorie = 755,
-                        AmountDescription = "1 porsiyon"
+                        AmountDescription = "porsiyon"
                     },
 
                     new Food()
@@ -73,7 +73,7 @@ namespace MyDietProgram
                         Name = "Hamburger",
                         Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
                         Calorie = 249,
-                        AmountDescription = "1 adet"
+                        AmountDescription = "adet"
                     },
 
                     new Food()
@@ -81,7 +81,7 @@ namespace MyDietProgram
                         Name = "Çoban salata",
                         Category = categories.Where(c => c.Name == "Salata").FirstOrDefault(),
                         Calorie = 120,
-                        AmountDescription = "1 porsiyon"
+                        AmountDescription = "porsiyon"
                     },
 
                     new Food()
@@ -89,7 +89,7 @@ namespace MyDietProgram
                         Name = "Balýk",
                         Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
                         Calorie = 164,
-                        AmountDescription = "1 porsiyon"
+                        AmountDescription = "porsiyon"
                     },
 
                     new Food()
@@ -97,7 +97,7 @@ namespace MyDietProgram
                         Name = "Kuru fasülye",
                         Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
                         Calorie = 146,
-                        AmountDescription = "1 porsiyon"
+                        AmountDescription = "porsiyon"
                     },
 
                     new Food()
@@ -105,7 +105,7 @@ namespace MyDietProgram
                         Name = "Dondurma",
                         Category = categories.Where(c => c.Name == "Tatlý").FirstOrDefault(),
                         Calorie = 103,
-                        AmountDescription = "1 top"
+                        AmountDescription = "top"
                     },
 
                     new Food()
@@ -113,7 +113,7 @@ namespace MyDietProgram
                         Name = "Pilav",
                         Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
                         Calorie = 359,
-                        AmountDescription = "1 porsiyon"
+                        AmountDescription = "porsiyon"
                     },
 
                     new Food()
@@ -121,7 +121,7 @@ namespace MyDietProgram
                         Name = "Domates",
                         Category = categories.Where(c => c.Name == "Sebze").FirstOrDefault(),
                         Calorie = 19,
-                        AmountDescription = "1 adet"
+                        AmountDescription = "adet"
                     },
 
                     new Food()
@@ -129,7 +129,7 @@ namespace MyDietProgram
                         Name = "Salatalýk",
                         Category = categories.Where(c => c.Name == "Sebze").FirstOrDefault(),
                         Calorie = 20,
-                        AmountDescription = "1 adet"
+                        AmountDescription = "adet"
                     },
 
                     new Food()
@@ -137,7 +137,7 @@ namespace MyDietProgram
                         Name = "Elma",
                         Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
                         Calorie = 46,
-                        AmountDescription = "1 adet"
+                        AmountDescription = "adet"
                     },
 
                     new Food()
@@ -145,7 +145,7 @@ namespace MyDietProgram
                         Name = "Armut",
                         Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
                         Calorie = 57,
-                        AmountDescription = "1 adet"
+                        AmountDescription = "adet"
                     },
 
                     new Food()
@@ -153,7 +153,7 @@ namespace MyDietProgram
                         Name = "Muz",
                         Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
                         Calorie = 151,
-                        AmountDescription = "1 adet"
+                        AmountDescription = "adet"
                     },
 
                     new Food()
@@ -161,7 +161,7 @@ namespace MyDietProgram
                         Name = "Yulaf",
                         Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
                         Calorie = 351,
-                        AmountDescription = "1 porsiyon"
+                        AmountDescription = "porsiyon"
                     }
                 );
 
