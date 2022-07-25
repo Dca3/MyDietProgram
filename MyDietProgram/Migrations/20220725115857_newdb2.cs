@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyDietProgram.Migrations
 {
-    public partial class update_2407_2022 : Migration
+    public partial class newdb2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,20 @@ namespace MyDietProgram.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Meals",
+                columns: table => new
+                {
+                    MealId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<int>(type: "int", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Meals", x => x.MealId);
                 });
 
             migrationBuilder.CreateTable(
@@ -70,48 +84,37 @@ namespace MyDietProgram.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Meals",
+                name: "Infos",
                 columns: table => new
                 {
-                    MealId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    MealId = table.Column<int>(type: "int", nullable: false),
+                    FoodId = table.Column<int>(type: "int", nullable: false),
+                    Amount = table.Column<double>(type: "float", nullable: false),
+                    MealDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Meals", x => x.MealId);
+                    table.PrimaryKey("PK_Infos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Meals_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FoodMeal",
-                columns: table => new
-                {
-                    FoodsFoodId = table.Column<int>(type: "int", nullable: false),
-                    MealsMealId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FoodMeal", x => new { x.FoodsFoodId, x.MealsMealId });
-                    table.ForeignKey(
-                        name: "FK_FoodMeal_Foods_FoodsFoodId",
-                        column: x => x.FoodsFoodId,
+                        name: "FK_Infos_Foods_FoodId",
+                        column: x => x.FoodId,
                         principalTable: "Foods",
                         principalColumn: "FoodId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_FoodMeal_Meals_MealsMealId",
-                        column: x => x.MealsMealId,
+                        name: "FK_Infos_Meals_MealId",
+                        column: x => x.MealId,
                         principalTable: "Meals",
                         principalColumn: "MealId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Infos_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -132,18 +135,23 @@ namespace MyDietProgram.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_FoodMeal_MealsMealId",
-                table: "FoodMeal",
-                column: "MealsMealId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Foods_CategoryId",
                 table: "Foods",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Meals_UserId",
-                table: "Meals",
+                name: "IX_Infos_FoodId",
+                table: "Infos",
+                column: "FoodId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Infos_MealId",
+                table: "Infos",
+                column: "MealId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Infos_UserId",
+                table: "Infos",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -156,7 +164,7 @@ namespace MyDietProgram.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "FoodMeal");
+                name: "Infos");
 
             migrationBuilder.DropTable(
                 name: "Foods");
@@ -165,10 +173,10 @@ namespace MyDietProgram.Migrations
                 name: "Meals");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Categories");
         }
     }
 }
