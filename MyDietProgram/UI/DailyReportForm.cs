@@ -27,32 +27,23 @@ namespace MyDietProgram.UI
 
         private void GetUserData(User user, DateTime date)
         {
-            //var infos = db.Infos
-            //    .Include(m => m.Food)
-            //    .Include(m => m.Meal)
-            //    .Where(i => i.UserId == user.UserId && !i.Meal.IsDeleted && i.MealDate.Date == date.Date)
-            //    .ToList();
+            var infos = db.Infos
+                .Include(m => m.Food)
+                .Include(m => m.Meal)
+                .Where(i => i.UserId == user.UserId && !i.Meal.IsDeleted && i.MealDate.Date == date.Date);
 
-            //List<Food> foods = db.Infos.Where(i => i.MealId == info.MealId).Select(i => i.Food).ToList();
+            List<Meal> meals = infos.Select(i => i.Meal).ToList();
 
-            //var view = infos.GroupBy(i => new
-            //{
-            //    Öğün = i.Meal.Name,
-            //    Yiyecekler = db.Infos.Where(x => x.MealId == i.MealId).Select(x => x.Food)
-            //}).Select(i => new
-            //{
-            //    Öğün = i.Key.Öğün,
-            //    Yiyecekler = i.Key.Yiyecekler.ToString()
-            //    ToplamKalori = i.Key.Yiyecekler.Sum(x => x.Calorie)
-            //});
 
-            //dgvDaily.DataSource = view.ToList();
+            var groupedInfos = infos.GroupBy(i => new
+            {
+                Öğün = i.MealId
+            })
+                .Select(i => i.Key.Öğün).ToList();
 
-            //string totalCal = view.Sum(m => m.ToplamKalori).ToString();
-            //lblTotalCal.Text = $"Toplam kalori: {totalCal} kcal";
+            var a = "";
 
-            //var testTable = infos.GroupBy(i => i.UserId).Select(i => i.Key).ToList();
-            //dgvDaily.DataSource = infos;
+            dgvDaily.DataSource = groupedInfos;
         }
 
         //public string GetFoods(Info info)
