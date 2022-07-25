@@ -246,6 +246,8 @@ namespace MyDietProgram.Classes
             }
         }
 
+       
+
         public bool ValidatePassword(string password)
         {
             const int MINLENGTH = 8;
