@@ -13,9 +13,6 @@ namespace MyDietProgram.Classes
         public string Name { get; set; }
 
         public int Calorie { get; set; }
-
-        public double? Amount { get; set; }
-
         public string AmountDescription { get; set; }
 
         [ForeignKey("Category")]

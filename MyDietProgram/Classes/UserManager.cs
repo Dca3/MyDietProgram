@@ -203,13 +203,12 @@ namespace MyDietProgram.Classes
         }
 
 
-        public void CreateFood(string foodname, int calorie, Category category, int? amount, double? gram)
+        public void CreateFood(string foodname, int calorie, Category category)
         {
             Food food = new Food();
             food.Name = foodname;
             food.Category = category;
             food.Calorie = calorie;
-            food.Amount = amount;
 
             db.Foods.Add(food);
             db.SaveChanges();

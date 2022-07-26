@@ -27,14 +27,16 @@ namespace MyDietProgram.UI
             this.meal = meal;
             InitializeComponent();
 
-            
+            ListFoodsOfMeal();
+        }
 
-            var ınfos=db.Infos.Include(x=>x.Food).Where(x=>x.MealId==meal.MealId).ToList();
-            foreach (var item in ınfos)
+        private void ListFoodsOfMeal()
+        {
+            var infos = db.Infos.Include(x => x.Food).Where(x => x.MealId == meal.MealId).ToList();
+            foreach (var item in infos)
             {
                 flpFoods.Controls.Add(CreateFoodComponent(item));
             }
-
         }
 
         private Panel CreateFoodComponent(Info info)
@@ -42,10 +44,11 @@ namespace MyDietProgram.UI
             Food food=info.Food;
             Panel pnlContainer = new Panel();
             MaterialLabel lblFoodName = new MaterialLabel() { Text = food.Name.ToString() };
-            MaterialTextBox txtAmount = new MaterialTextBox() { Text = food.Amount.ToString() };
+            MaterialTextBox txtAmount = new MaterialTextBox() { Text = info.Amount.ToString() };
             MaterialButton btnSave = new MaterialButton() { Text = "Kaydet" };
+            MaterialButton btnDelete = new MaterialButton() { Text = "Sil" };
 
-            pnlContainer.Size = new Size(469, 83);
+            pnlContainer.Size = new Size(516, 83);
             pnlContainer.Location = new Point(20, 29);
             pnlContainer.Tag = info;
 
@@ -56,15 +59,29 @@ namespace MyDietProgram.UI
             txtAmount.UseAccent = false;
             txtAmount.Tag = info;
 
-            btnSave.Location = new Point(391, 19);
+            btnSave.Location = new Point(341, 19);
             btnSave.UseAccentColor = true;
             btnSave.Click += btnSave_Click;
+
+            btnDelete.Location = new Point(440, 19);
+            btnDelete.UseAccentColor = true;
+            btnDelete.Click += BtnDelete_Click;
 
             pnlContainer.Controls.Add(lblFoodName);
             pnlContainer.Controls.Add(txtAmount);
             pnlContainer.Controls.Add(btnSave);
+            pnlContainer.Controls.Add(btnDelete);
 
             return pnlContainer;
+        }
+
+        private void BtnDelete_Click(object? sender, EventArgs e)
+        {
+            Panel panel = ((Control)sender).Parent as Panel;
+            Info info = panel.Tag as Info;
+            panel.Visible = false;
+            db.Infos.Remove(info);
+            db.SaveChanges();
         }
 
         private void btnSave_Click(object? sender, EventArgs e)
@@ -87,9 +104,7 @@ namespace MyDietProgram.UI
 
             flpFoods.Controls.Add(CreateFoodComponent(usersfoodsinfarmation));
 
-
             db.SaveChanges();
-
 
             btn.Parent.Visible = false;
         }
