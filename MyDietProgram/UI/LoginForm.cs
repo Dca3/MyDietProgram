@@ -44,11 +44,10 @@ namespace MyDietProgram
                     MainForm mainForm = new MainForm(db, user);
                     this.Hide();
                     DialogResult dr = mainForm.ShowDialog();
-                    MessageBox.Show(dr.ToString());
                     if (dr == DialogResult.OK)
-                    {
                         this.Show();
-                    }
+                    else if(dr == DialogResult.Cancel)
+                        Environment.Exit(0);
                 }
             }
             catch (Exception ex)

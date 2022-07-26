@@ -353,13 +353,8 @@ namespace MyDietProgram.UI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Continue;
+            this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void MainForm_FormClosed_1(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
         }
     }
 }
