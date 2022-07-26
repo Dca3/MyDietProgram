@@ -50,6 +50,7 @@
             this.btnRegister = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.cbGoal = new MaterialSkin.Controls.MaterialComboBox();
+            this.chkShowPassword = new MaterialSkin.Controls.MaterialCheckbox();
             this.SuspendLayout();
             // 
             // txtFirstName
@@ -278,6 +279,7 @@
             this.txtPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtPassword.Multiline = false;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Password = true;
             this.txtPassword.Size = new System.Drawing.Size(255, 50);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.Text = "";
@@ -396,11 +398,27 @@
             this.cbGoal.TabIndex = 6;
             this.cbGoal.UseAccent = false;
             // 
+            // chkShowPassword
+            // 
+            this.chkShowPassword.AutoSize = true;
+            this.chkShowPassword.Depth = 0;
+            this.chkShowPassword.Location = new System.Drawing.Point(429, 321);
+            this.chkShowPassword.Margin = new System.Windows.Forms.Padding(0);
+            this.chkShowPassword.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkShowPassword.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkShowPassword.Name = "chkShowPassword";
+            this.chkShowPassword.Ripple = true;
+            this.chkShowPassword.Size = new System.Drawing.Size(35, 37);
+            this.chkShowPassword.TabIndex = 9;
+            this.chkShowPassword.UseVisualStyleBackColor = true;
+            this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 566);
+            this.Controls.Add(this.chkShowPassword);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.rbMale);
             this.Controls.Add(this.rbFemale);
@@ -456,5 +474,6 @@
         private MaterialSkin.Controls.MaterialButton btnRegister;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private MaterialSkin.Controls.MaterialComboBox cbGoal;
+        private MaterialSkin.Controls.MaterialCheckbox chkShowPassword;
     }
 }

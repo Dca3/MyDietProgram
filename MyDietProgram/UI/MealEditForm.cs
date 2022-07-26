@@ -18,15 +18,13 @@ namespace MyDietProgram.UI
         Context db;
         Meal meal;
         User _user;
-
-       
         public MealEditForm(Context context, Meal meal,User user)
         {
             db = context;
-            this._user=user;
+            _user=user;
             this.meal = meal;
             InitializeComponent();
-
+            this.Text = meal.GetMealName();
             ListFoodsOfMeal();
         }
 
@@ -44,12 +42,12 @@ namespace MyDietProgram.UI
             Food food=info.Food;
             Panel pnlContainer = new Panel();
             MaterialLabel lblFoodName = new MaterialLabel() { Text = food.Name.ToString() };
+            MaterialLabel lblAmountDesc = new MaterialLabel() { Text = food.AmountDescription };
             MaterialTextBox txtAmount = new MaterialTextBox() { Text = info.Amount.ToString() };
             MaterialButton btnSave = new MaterialButton() { Text = "Kaydet" };
             MaterialButton btnDelete = new MaterialButton() { Text = "Sil" };
 
-            pnlContainer.Size = new Size(516, 83);
-            pnlContainer.Location = new Point(20, 29);
+            pnlContainer.Size = new Size(653, 80);
             pnlContainer.Tag = info;
 
             lblFoodName.Location = new Point(20, 29);
@@ -59,16 +57,19 @@ namespace MyDietProgram.UI
             txtAmount.UseAccent = false;
             txtAmount.Tag = info;
 
-            btnSave.Location = new Point(341, 19);
+            lblAmountDesc.Location = new Point(300, 29);
+
+            btnSave.Location = new Point(410, 19);
             btnSave.UseAccentColor = true;
             btnSave.Click += btnSave_Click;
 
-            btnDelete.Location = new Point(440, 19);
+            btnDelete.Location = new Point(540, 19);
             btnDelete.UseAccentColor = true;
             btnDelete.Click += BtnDelete_Click;
 
             pnlContainer.Controls.Add(lblFoodName);
             pnlContainer.Controls.Add(txtAmount);
+            pnlContainer.Controls.Add(lblAmountDesc);
             pnlContainer.Controls.Add(btnSave);
             pnlContainer.Controls.Add(btnDelete);
 

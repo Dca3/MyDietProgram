@@ -33,17 +33,18 @@
             // 
             // flpFoods
             // 
+            this.flpFoods.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpFoods.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpFoods.Location = new System.Drawing.Point(6, 67);
+            this.flpFoods.Location = new System.Drawing.Point(3, 64);
             this.flpFoods.Name = "flpFoods";
-            this.flpFoods.Size = new System.Drawing.Size(516, 377);
+            this.flpFoods.Size = new System.Drawing.Size(653, 383);
             this.flpFoods.TabIndex = 0;
             // 
             // MealEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 450);
+            this.ClientSize = new System.Drawing.Size(659, 450);
             this.Controls.Add(this.flpFoods);
             this.MaximizeBox = false;
             this.Name = "MealEditForm";

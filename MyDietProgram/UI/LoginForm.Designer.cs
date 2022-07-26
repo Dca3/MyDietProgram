@@ -49,7 +49,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(235, 50);
             this.txtEmail.TabIndex = 0;
-            this.txtEmail.Text = "admin@mail.com";
+            this.txtEmail.Text = "aliyilmaz@mail.com";
             this.txtEmail.TrailingIcon = null;
             this.txtEmail.UseAccent = false;
             // 
@@ -70,7 +70,6 @@
             this.txtPassword.Text = "Test123.";
             this.txtPassword.TrailingIcon = null;
             this.txtPassword.UseAccent = false;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // btnLogin
             // 
@@ -155,7 +154,6 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

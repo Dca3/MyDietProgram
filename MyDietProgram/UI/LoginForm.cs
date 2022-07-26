@@ -8,13 +8,13 @@ namespace MyDietProgram
     public partial class LoginForm : MaterialForm
     {
         Context db;
+        Random rnd = new Random();
+
 
         public LoginForm(Context context)
         {
             this.db = context;
             InitializeComponent();
-            
-
             LoadData();
             if(db.Users.Count() == 0)
                 CreateSeedData();
@@ -234,7 +234,6 @@ namespace MyDietProgram
 
         private void CreateSeedData()
         {
-            Random rnd = new Random();
             string[] firstNames = { "Patty", "Paddy", "Olive", "Aida", "Maureen", "Teri", "Peg", "Allie", "Liz", "Constanc", "Lois", "Minnie", "Lynn", "Ray", "Lee", "Ray", "Isabelle", "Eileen", "Rita", "Paige"}; //20
 
             string[] lastNames = { "Yew", "Bugg", "Biologist", "Dactyl", "Legge", "Grater", "Erd", "Mused", "Noring", "Di", "Van", "Ann", "Sin", "Ringing", "Sideways", "Book", "Turner", "Report", "Wind", "Teak" }; //20
@@ -286,22 +285,11 @@ namespace MyDietProgram
             }
         }
 
-        private Random gen = new Random();
         DateTime RandomDay()
         {
             DateTime start = new DateTime(2022, 7, 1);
             int range = (DateTime.Today - start.AddDays(5)).Days;
-            return start.AddDays(gen.Next(range));
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
+            return start.AddDays(rnd.Next(range));
         }
     }
 }

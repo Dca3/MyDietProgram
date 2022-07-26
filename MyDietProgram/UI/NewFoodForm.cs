@@ -29,16 +29,25 @@ namespace MyDietProgram.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Food newFood = new Food()
+            List<string> foodNames = db.Foods.Select(f => f.Name).ToList();
+            string newName = txtFoodName.Text;
+            if (foodNames.Contains(newName))
             {
-                Name = txtFoodName.Text,
-                AmountDescription = txtAmountDesc.Text,
-                Category = (Category)cbCategories.SelectedItem,
-                Calorie = Convert.ToInt32(txtCalorie.Text)
-            };
+                MessageBox.Show("Bu isimde bir yiyecek zaten mevcut");
+            }
+            else
+            {
+                Food newFood = new Food()
+                {
+                    Name = txtFoodName.Text,
+                    AmountDescription = txtAmountDesc.Text,
+                    Category = (Category)cbCategories.SelectedItem,
+                    Calorie = Convert.ToInt32(txtCalorie.Text)
+                };
 
-            db.Foods.Add(newFood);
-            db.SaveChanges();
+                db.Foods.Add(newFood);
+                db.SaveChanges();
+            }
         }
 
         private void txtCalorie_KeyPress(object sender, KeyPressEventArgs e)
