@@ -27,6 +27,7 @@ namespace MyDietProgram.UI
             this.user = user;
 
             InitializeComponent();
+            dgvResults.ForeColor = Color.Black;
             SetWeekDates();
             UpdateTable();
         }
@@ -44,7 +45,7 @@ namespace MyDietProgram.UI
             tableInfos = db.Infos
                  .Include(x => x.Meal)
                  .Include(x => x.User)
-                 .Where(x => !x.Meal.IsDeleted && x.MealDate > startDate && x.MealDate < finishDate && x.User != user)
+                 .Where(x => !x.Meal.IsDeleted && x.MealDate >= startDate && x.MealDate <= finishDate && x.User != user)
                  .Select(x => new TableInfo
                  {
                      Name = x.User.FirstName + " " + x.User.LastName,
@@ -145,7 +146,7 @@ namespace MyDietProgram.UI
         private void SetMonthDates()
         {
             startDate = startDate.AddDays(-startDate.Day + 1);
-            finishDate = finishDate.AddDays(DateTime.DaysInMonth(finishDate.Year, finishDate.Month) - finishDate.Day);
+            finishDate = startDate.AddDays(DateTime.DaysInMonth(startDate.Year, startDate.Month)-1);
             UpdateDateString();
         }
 

@@ -38,9 +38,11 @@
             this.btnNext = new MaterialSkin.Controls.MaterialButton();
             this.gbDateTypes = new System.Windows.Forms.GroupBox();
             this.gbFilterTypes = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.gbDateTypes.SuspendLayout();
             this.gbFilterTypes.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbWeek
@@ -82,13 +84,14 @@
             // 
             this.dgvResults.AllowUserToAddRows = false;
             this.dgvResults.AllowUserToDeleteRows = false;
+            this.dgvResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResults.Location = new System.Drawing.Point(9, 177);
+            this.dgvResults.Location = new System.Drawing.Point(17, 177);
             this.dgvResults.Name = "dgvResults";
             this.dgvResults.ReadOnly = true;
             this.dgvResults.RowTemplate.Height = 25;
-            this.dgvResults.Size = new System.Drawing.Size(737, 378);
+            this.dgvResults.Size = new System.Drawing.Size(894, 400);
             this.dgvResults.TabIndex = 2;
             // 
             // rbCategory
@@ -131,7 +134,7 @@
             this.lblDates.AutoSize = true;
             this.lblDates.Depth = 0;
             this.lblDates.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblDates.Location = new System.Drawing.Point(272, 574);
+            this.lblDates.Location = new System.Drawing.Point(90, 16);
             this.lblDates.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDates.Name = "lblDates";
             this.lblDates.Size = new System.Drawing.Size(173, 19);
@@ -146,7 +149,7 @@
             this.btnPrev.Depth = 0;
             this.btnPrev.HighEmphasis = true;
             this.btnPrev.Icon = null;
-            this.btnPrev.Location = new System.Drawing.Point(186, 564);
+            this.btnPrev.Location = new System.Drawing.Point(4, 6);
             this.btnPrev.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPrev.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPrev.Name = "btnPrev";
@@ -167,7 +170,7 @@
             this.btnNext.Depth = 0;
             this.btnNext.HighEmphasis = true;
             this.btnNext.Icon = null;
-            this.btnNext.Location = new System.Drawing.Point(467, 564);
+            this.btnNext.Location = new System.Drawing.Point(285, 6);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnNext.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnNext.Name = "btnNext";
@@ -185,7 +188,7 @@
             this.gbDateTypes.Controls.Add(this.rbWeek);
             this.gbDateTypes.Controls.Add(this.rbMonth);
             this.gbDateTypes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.gbDateTypes.Location = new System.Drawing.Point(9, 76);
+            this.gbDateTypes.Location = new System.Drawing.Point(34, 76);
             this.gbDateTypes.Name = "gbDateTypes";
             this.gbDateTypes.Size = new System.Drawing.Size(267, 95);
             this.gbDateTypes.TabIndex = 5;
@@ -194,26 +197,36 @@
             // 
             // gbFilterTypes
             // 
+            this.gbFilterTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbFilterTypes.Controls.Add(this.rbCategory);
             this.gbFilterTypes.Controls.Add(this.rbMeal);
             this.gbFilterTypes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.gbFilterTypes.Location = new System.Drawing.Point(482, 76);
+            this.gbFilterTypes.Location = new System.Drawing.Point(625, 76);
             this.gbFilterTypes.Name = "gbFilterTypes";
             this.gbFilterTypes.Size = new System.Drawing.Size(267, 95);
             this.gbFilterTypes.TabIndex = 6;
             this.gbFilterTypes.TabStop = false;
             this.gbFilterTypes.Text = "Filtre türü";
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btnPrev);
+            this.panel1.Controls.Add(this.lblDates);
+            this.panel1.Controls.Add(this.btnNext);
+            this.panel1.Location = new System.Drawing.Point(284, 598);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(356, 47);
+            this.panel1.TabIndex = 7;
+            // 
             // OverviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 609);
+            this.ClientSize = new System.Drawing.Size(926, 670);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbFilterTypes);
             this.Controls.Add(this.gbDateTypes);
-            this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.btnPrev);
-            this.Controls.Add(this.lblDates);
             this.Controls.Add(this.dgvResults);
             this.Name = "OverviewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -223,8 +236,9 @@
             this.gbDateTypes.PerformLayout();
             this.gbFilterTypes.ResumeLayout(false);
             this.gbFilterTypes.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -240,5 +254,6 @@
         private MaterialSkin.Controls.MaterialButton btnNext;
         private GroupBox gbDateTypes;
         private GroupBox gbFilterTypes;
+        private Panel panel1;
     }
 }

@@ -42,11 +42,13 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.flpMeals = new System.Windows.Forms.FlowLayoutPanel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
-            this.lblUserCalculatedCalorie = new System.Windows.Forms.Label();
             this.btnDaily = new MaterialSkin.Controls.MaterialButton();
             this.btnOverview = new MaterialSkin.Controls.MaterialButton();
             this.btnFoodStats = new MaterialSkin.Controls.MaterialButton();
             this.lblFoodDetails = new MaterialSkin.Controls.MaterialLabel();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.swhTheme = new MaterialSkin.Controls.MaterialSwitch();
+            this.lblUserCalculatedCalorie = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbMeals
@@ -68,7 +70,7 @@
             "Öğle yemeği",
             "Akşam yemeği",
             "Atıştırmalık"});
-            this.cbMeals.Location = new System.Drawing.Point(189, 159);
+            this.cbMeals.Location = new System.Drawing.Point(155, 158);
             this.cbMeals.Margin = new System.Windows.Forms.Padding(4);
             this.cbMeals.MaxDropDownItems = 4;
             this.cbMeals.MouseState = MaterialSkin.MouseState.OUT;
@@ -92,7 +94,7 @@
             this.cbCategories.FormattingEnabled = true;
             this.cbCategories.IntegralHeight = false;
             this.cbCategories.ItemHeight = 43;
-            this.cbCategories.Location = new System.Drawing.Point(189, 222);
+            this.cbCategories.Location = new System.Drawing.Point(155, 221);
             this.cbCategories.Margin = new System.Windows.Forms.Padding(4);
             this.cbCategories.MaxDropDownItems = 4;
             this.cbCategories.MouseState = MaterialSkin.MouseState.OUT;
@@ -111,7 +113,7 @@
             this.btnNewFood.Depth = 0;
             this.btnNewFood.HighEmphasis = true;
             this.btnNewFood.Icon = null;
-            this.btnNewFood.Location = new System.Drawing.Point(559, 292);
+            this.btnNewFood.Location = new System.Drawing.Point(525, 291);
             this.btnNewFood.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.btnNewFood.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnNewFood.Name = "btnNewFood";
@@ -138,7 +140,7 @@
             this.cbFoods.FormattingEnabled = true;
             this.cbFoods.IntegralHeight = false;
             this.cbFoods.ItemHeight = 43;
-            this.cbFoods.Location = new System.Drawing.Point(189, 287);
+            this.cbFoods.Location = new System.Drawing.Point(155, 286);
             this.cbFoods.Margin = new System.Windows.Forms.Padding(4);
             this.cbFoods.MaxDropDownItems = 4;
             this.cbFoods.MouseState = MaterialSkin.MouseState.OUT;
@@ -155,7 +157,7 @@
             this.txtAmount.Depth = 0;
             this.txtAmount.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtAmount.LeadingIcon = null;
-            this.txtAmount.Location = new System.Drawing.Point(190, 350);
+            this.txtAmount.Location = new System.Drawing.Point(156, 349);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAmount.MaxLength = 50;
             this.txtAmount.MouseState = MaterialSkin.MouseState.OUT;
@@ -177,7 +179,7 @@
             this.btnAddMeal.Depth = 0;
             this.btnAddMeal.HighEmphasis = true;
             this.btnAddMeal.Icon = null;
-            this.btnAddMeal.Location = new System.Drawing.Point(190, 425);
+            this.btnAddMeal.Location = new System.Drawing.Point(156, 424);
             this.btnAddMeal.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.btnAddMeal.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddMeal.Name = "btnAddMeal";
@@ -195,7 +197,7 @@
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(116, 174);
+            this.materialLabel2.Location = new System.Drawing.Point(82, 173);
             this.materialLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
@@ -208,7 +210,7 @@
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(93, 237);
+            this.materialLabel4.Location = new System.Drawing.Point(59, 236);
             this.materialLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
@@ -221,7 +223,7 @@
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(98, 302);
+            this.materialLabel5.Location = new System.Drawing.Point(64, 301);
             this.materialLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
@@ -234,7 +236,7 @@
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(109, 368);
+            this.materialLabel6.Location = new System.Drawing.Point(75, 367);
             this.materialLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
@@ -246,7 +248,7 @@
             // 
             this.dtpDate.CalendarMonthBackground = System.Drawing.SystemColors.Control;
             this.dtpDate.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpDate.Location = new System.Drawing.Point(190, 110);
+            this.dtpDate.Location = new System.Drawing.Point(156, 109);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(362, 33);
             this.dtpDate.TabIndex = 12;
@@ -257,7 +259,7 @@
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(116, 123);
+            this.materialLabel1.Location = new System.Drawing.Point(82, 122);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
@@ -269,7 +271,7 @@
             // 
             this.flpMeals.AutoScroll = true;
             this.flpMeals.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpMeals.Location = new System.Drawing.Point(708, 109);
+            this.flpMeals.Location = new System.Drawing.Point(686, 118);
             this.flpMeals.Name = "flpMeals";
             this.flpMeals.Size = new System.Drawing.Size(554, 388);
             this.flpMeals.TabIndex = 13;
@@ -280,24 +282,12 @@
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.materialLabel9.Location = new System.Drawing.Point(1178, 77);
+            this.materialLabel9.Location = new System.Drawing.Point(1156, 86);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.Size = new System.Drawing.Size(84, 29);
             this.materialLabel9.TabIndex = 14;
             this.materialLabel9.Text = "Öğünler";
-            // 
-            // lblUserCalculatedCalorie
-            // 
-            this.lblUserCalculatedCalorie.BackColor = System.Drawing.Color.Transparent;
-            this.lblUserCalculatedCalorie.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblUserCalculatedCalorie.ForeColor = System.Drawing.Color.White;
-            this.lblUserCalculatedCalorie.Location = new System.Drawing.Point(1065, 30);
-            this.lblUserCalculatedCalorie.Name = "lblUserCalculatedCalorie";
-            this.lblUserCalculatedCalorie.Size = new System.Drawing.Size(209, 30);
-            this.lblUserCalculatedCalorie.TabIndex = 15;
-            this.lblUserCalculatedCalorie.Text = "1000 kcal";
-            this.lblUserCalculatedCalorie.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnDaily
             // 
@@ -307,7 +297,7 @@
             this.btnDaily.Depth = 0;
             this.btnDaily.HighEmphasis = true;
             this.btnDaily.Icon = null;
-            this.btnDaily.Location = new System.Drawing.Point(834, 515);
+            this.btnDaily.Location = new System.Drawing.Point(812, 520);
             this.btnDaily.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDaily.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDaily.Name = "btnDaily";
@@ -328,7 +318,7 @@
             this.btnOverview.Depth = 0;
             this.btnOverview.HighEmphasis = true;
             this.btnOverview.Icon = null;
-            this.btnOverview.Location = new System.Drawing.Point(954, 515);
+            this.btnOverview.Location = new System.Drawing.Point(932, 520);
             this.btnOverview.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnOverview.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnOverview.Name = "btnOverview";
@@ -349,14 +339,14 @@
             this.btnFoodStats.Depth = 0;
             this.btnFoodStats.HighEmphasis = true;
             this.btnFoodStats.Icon = null;
-            this.btnFoodStats.Location = new System.Drawing.Point(1085, 515);
+            this.btnFoodStats.Location = new System.Drawing.Point(1063, 520);
             this.btnFoodStats.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFoodStats.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnFoodStats.Name = "btnFoodStats";
             this.btnFoodStats.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.btnFoodStats.Size = new System.Drawing.Size(179, 36);
             this.btnFoodStats.TabIndex = 16;
-            this.btnFoodStats.Text = "Yemek İstatistikleri";
+            this.btnFoodStats.Text = "YEMEK İSTATİSTİKLERİ";
             this.btnFoodStats.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnFoodStats.UseAccentColor = false;
             this.btnFoodStats.UseVisualStyleBackColor = true;
@@ -369,7 +359,7 @@
             this.lblFoodDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblFoodDetails.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblFoodDetails.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblFoodDetails.Location = new System.Drawing.Point(352, 363);
+            this.lblFoodDetails.Location = new System.Drawing.Point(323, 367);
             this.lblFoodDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFoodDetails.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFoodDetails.Name = "lblFoodDetails";
@@ -377,15 +367,56 @@
             this.lblFoodDetails.TabIndex = 9;
             this.lblFoodDetails.Text = "0 kcal";
             // 
+            // materialDivider1
+            // 
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(637, 67);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(10, 496);
+            this.materialDivider1.TabIndex = 17;
+            this.materialDivider1.Text = "materialDivider1";
+            // 
+            // swhTheme
+            // 
+            this.swhTheme.AutoSize = true;
+            this.swhTheme.Depth = 0;
+            this.swhTheme.Location = new System.Drawing.Point(25, 519);
+            this.swhTheme.Margin = new System.Windows.Forms.Padding(0);
+            this.swhTheme.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.swhTheme.MouseState = MaterialSkin.MouseState.HOVER;
+            this.swhTheme.Name = "swhTheme";
+            this.swhTheme.Ripple = true;
+            this.swhTheme.Size = new System.Drawing.Size(139, 37);
+            this.swhTheme.TabIndex = 18;
+            this.swhTheme.Text = "Koyu Tema";
+            this.swhTheme.UseVisualStyleBackColor = true;
+            this.swhTheme.CheckedChanged += new System.EventHandler(this.swhTheme_CheckedChanged);
+            // 
+            // lblUserCalculatedCalorie
+            // 
+            this.lblUserCalculatedCalorie.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserCalculatedCalorie.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUserCalculatedCalorie.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblUserCalculatedCalorie.Location = new System.Drawing.Point(913, 33);
+            this.lblUserCalculatedCalorie.Name = "lblUserCalculatedCalorie";
+            this.lblUserCalculatedCalorie.Size = new System.Drawing.Size(327, 23);
+            this.lblUserCalculatedCalorie.TabIndex = 21;
+            this.lblUserCalculatedCalorie.Text = "Günlük hedef: 1000 kcal";
+            this.lblUserCalculatedCalorie.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1294, 569);
+            this.ClientSize = new System.Drawing.Size(1284, 569);
+            this.Controls.Add(this.lblUserCalculatedCalorie);
+            this.Controls.Add(this.swhTheme);
+            this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.btnFoodStats);
             this.Controls.Add(this.btnOverview);
             this.Controls.Add(this.btnDaily);
-            this.Controls.Add(this.lblUserCalculatedCalorie);
             this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.flpMeals);
             this.Controls.Add(this.dtpDate);
@@ -402,7 +433,9 @@
             this.Controls.Add(this.btnAddMeal);
             this.Controls.Add(this.btnNewFood);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ANASAYFA";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
@@ -427,10 +460,12 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private FlowLayoutPanel flpMeals;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
-        private Label lblUserCalculatedCalorie;
         private MaterialSkin.Controls.MaterialButton btnDaily;
         private MaterialSkin.Controls.MaterialButton btnOverview;
         private MaterialSkin.Controls.MaterialButton btnFoodStats;
         private MaterialSkin.Controls.MaterialLabel lblFoodDetails;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private MaterialSkin.Controls.MaterialSwitch swhTheme;
+        private Label lblUserCalculatedCalorie;
     }
 }

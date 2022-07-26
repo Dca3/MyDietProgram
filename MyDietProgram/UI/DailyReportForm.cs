@@ -21,6 +21,7 @@ namespace MyDietProgram.UI
             db = context;
             this.Text = user.FirstName + " " + user.LastName;
             InitializeComponent();
+            dgvDaily.ForeColor = Color.Black;
             GetUserData(user, date);
             lblDate.Text = date.ToShortDateString();
         }
@@ -47,7 +48,7 @@ namespace MyDietProgram.UI
                 .Select(i => new
                 {
                     Öğün = i.Key.Öğün,
-                    Yiyecekler = string.Join(", ", infos.Select(x => x.Yiyecek).ToList()),
+                    Yiyecekler = string.Join(", ", infos.Where(x=> x.Öğün == i.Key.Öğün).Select(x => x.Yiyecek).ToList()),
                     Kalori = i.Sum(x => x.Kalori * x.Miktar)
                 }).ToList();
 

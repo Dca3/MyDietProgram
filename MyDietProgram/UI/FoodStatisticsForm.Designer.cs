@@ -44,14 +44,14 @@
             this.dgvStats.ReadOnly = true;
             this.dgvStats.RowHeadersVisible = false;
             this.dgvStats.RowTemplate.Height = 25;
-            this.dgvStats.Size = new System.Drawing.Size(372, 287);
+            this.dgvStats.Size = new System.Drawing.Size(590, 394);
             this.dgvStats.TabIndex = 0;
             // 
             // FoodStatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 354);
+            this.ClientSize = new System.Drawing.Size(596, 461);
             this.Controls.Add(this.dgvStats);
             this.Name = "FoodStatisticsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

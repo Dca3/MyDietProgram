@@ -49,7 +49,7 @@
             this.dgvDaily.ReadOnly = true;
             this.dgvDaily.RowHeadersVisible = false;
             this.dgvDaily.RowTemplate.Height = 25;
-            this.dgvDaily.Size = new System.Drawing.Size(443, 148);
+            this.dgvDaily.Size = new System.Drawing.Size(574, 230);
             this.dgvDaily.TabIndex = 0;
             // 
             // lblDate
@@ -59,7 +59,7 @@
             this.lblDate.BackColor = System.Drawing.Color.Transparent;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(321, 31);
+            this.lblDate.Location = new System.Drawing.Point(452, 31);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(111, 30);
             this.lblDate.TabIndex = 1;
@@ -70,7 +70,7 @@
             this.lblTotalCal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotalCal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalCal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalCal.Location = new System.Drawing.Point(172, 215);
+            this.lblTotalCal.Location = new System.Drawing.Point(303, 297);
             this.lblTotalCal.Name = "lblTotalCal";
             this.lblTotalCal.Size = new System.Drawing.Size(260, 30);
             this.lblTotalCal.TabIndex = 1;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 248);
+            this.ClientSize = new System.Drawing.Size(569, 330);
             this.Controls.Add(this.lblTotalCal);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.dgvDaily);

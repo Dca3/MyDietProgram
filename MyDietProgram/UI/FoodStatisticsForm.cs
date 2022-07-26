@@ -20,6 +20,7 @@ namespace MyDietProgram.UI
         {
             db = context;
             InitializeComponent();
+            dgvStats.ForeColor = Color.Black;
             GetStats();
         }
 

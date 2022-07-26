@@ -19,13 +19,18 @@ namespace MyDietProgram.UI
         Context db;
         User user;
         List<Food> foodList;
+        readonly MaterialSkinManager manager;
         public MainForm(Context context, User user)
         {
-            
+
             db = context;
             this.user = user;
-          
+
             InitializeComponent();
+            manager = MaterialSkinManager.Instance;
+            manager.EnforceBackcolorOnAllComponents = false;
+            manager.AddFormToManage(this);
+
             FillElements();
         }
 
@@ -74,7 +79,7 @@ namespace MyDietProgram.UI
             cbFoods.SelectedIndex = 0;
 
             this.Text = $"Hoşgeldiniz, {user.FirstName} {user.LastName}";
-            lblUserCalculatedCalorie.Text = user.CalculatedCalorie.ToString() + " kcal";
+            lblUserCalculatedCalorie.Text = "Günlük hedef: " + user.CalculatedCalorie.ToString() + " kcal";
 
             ListMealsOfUser();
         }
@@ -130,7 +135,7 @@ namespace MyDietProgram.UI
             Panel pnlContainer = new Panel();
             MaterialLabel lblMealName = new MaterialLabel() { Text = meal.Name.ToString() };
             MaterialLabel lblFoods = new MaterialLabel() { Text = GetFoods(info) };
-            MaterialLabel lblMealCal = new MaterialLabel() { Text =GetTotalCalorie(info).ToString() + " kcal" };
+            MaterialLabel lblMealCal = new MaterialLabel() { Text = GetTotalCalorie(info).ToString() + " kcal" };
             MaterialButton btnEdit = new MaterialButton() { Text = "DÜZENLE" };
             MaterialButton btnDelete = new MaterialButton() { Text = "SİL" };
 
@@ -170,12 +175,13 @@ namespace MyDietProgram.UI
         private void BtnEdit_Click(object? sender, EventArgs e)
         {
             var btn = (MaterialButton)sender;
-            var _User=db.Infos.Where(x=>x.UserId==user.UserId).FirstOrDefault();
+            var _User = db.Infos.Where(x => x.UserId == user.UserId).FirstOrDefault();
             int mealId = (int)btn.Parent.Tag;
             Meal meal = db.Meals.Where(m => m.MealId == mealId).FirstOrDefault();
-            
-           
-            MealEditForm mealEditForm = new MealEditForm(db, meal,user);
+
+
+            MealEditForm mealEditForm = new MealEditForm(db, meal, user);
+            manager.AddFormToManage(mealEditForm);
             DialogResult dr = mealEditForm.ShowDialog();
             if (dr == DialogResult.Cancel)
             {
@@ -265,7 +271,7 @@ namespace MyDietProgram.UI
                 }
                 else
                 {
-                   Info info = infos.FirstOrDefault(i => i.Food == foodInMeal);
+                    Info info = infos.FirstOrDefault(i => i.Food == foodInMeal);
                     info.Amount += Convert.ToDouble(txtAmount.Text);
                 }
                 db.SaveChanges();
@@ -280,7 +286,7 @@ namespace MyDietProgram.UI
 
             double userCalculatedCal = user.CalculatedCalorie;
             flpMeals.Controls.Clear();
-            
+
             foreach (Info info in userInfos)
             {
                 bool isComponentExist = false;
@@ -299,7 +305,7 @@ namespace MyDietProgram.UI
                 }
             }
 
-            lblUserCalculatedCalorie.Text = userCalculatedCal.ToString() + " kcal";
+            lblUserCalculatedCalorie.Text = "Günlük hedef: " + userCalculatedCal.ToString() + " kcal";
         }
 
         private void dtpDate_ValueChanged(object sender, EventArgs e)
@@ -310,25 +316,31 @@ namespace MyDietProgram.UI
         private void btnNewFood_Click(object sender, EventArgs e)
         {
             NewFoodForm form = new NewFoodForm(db);
+            manager.AddFormToManage(form);
+
             form.ShowDialog();
         }
 
         private void btnDaily_Click(object sender, EventArgs e)
         {
             DailyReportForm daily = new DailyReportForm(db, user, dtpDate.Value.Date);
+            manager.AddFormToManage(daily);
+
             daily.ShowDialog();
 
         }
 
         private void btnFoodStats_Click(object sender, EventArgs e)
         {
-            FoodStatisticsForm daily = new FoodStatisticsForm(db);
-            daily.ShowDialog();
+            FoodStatisticsForm form = new FoodStatisticsForm(db);
+            manager.AddFormToManage(form);
+            form.ShowDialog();
         }
 
         private void btnOverview_Click(object sender, EventArgs e)
         {
             OverviewForm daily = new OverviewForm(db, user);
+            manager.AddFormToManage(daily);
             daily.ShowDialog();
         }
 
@@ -347,6 +359,15 @@ namespace MyDietProgram.UI
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void swhTheme_CheckedChanged(object sender, EventArgs e)
+        {
+            MaterialSwitch sw = (MaterialSwitch)sender;
+            if (sw.Checked)
+                manager.Theme = MaterialSkinManager.Themes.DARK;
+            else
+                manager.Theme = MaterialSkinManager.Themes.LIGHT;
         }
     }
 }
