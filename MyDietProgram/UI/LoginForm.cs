@@ -24,7 +24,11 @@ namespace MyDietProgram
         {
             this.Hide();
             RegisterForm registerForm = new RegisterForm(db);
-            registerForm.ShowDialog();
+            DialogResult dr = registerForm.ShowDialog();
+            if(dr == DialogResult.Cancel)
+            {
+                this.Show();
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

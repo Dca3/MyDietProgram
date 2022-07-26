@@ -28,6 +28,11 @@ namespace MyDietProgram.UI
 
             InitializeComponent();
             dgvResults.ForeColor = Color.Black;
+            if(MaterialSkin.MaterialSkinManager.Instance.Theme == MaterialSkin.MaterialSkinManager.Themes.DARK)
+            {
+                gbDateTypes.ForeColor = Color.White;
+                gbFilterTypes.ForeColor = Color.White;
+            }
             SetWeekDates();
             UpdateTable();
         }
