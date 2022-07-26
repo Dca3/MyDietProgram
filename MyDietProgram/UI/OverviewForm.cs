@@ -63,7 +63,7 @@ namespace MyDietProgram.UI
             userTableInfos = db.Infos
                 .Include(x => x.Meal)
                 .Include(x => x.User)
-                .Where(x => !x.Meal.IsDeleted && x.MealDate > startDate && x.MealDate < finishDate && x.User == user)
+                .Where(x => !x.Meal.IsDeleted && x.MealDate >= startDate && x.MealDate <= finishDate && x.User == user)
                 .Select(x => new TableInfo
                 {
                     Name = x.User.FirstName + " " + x.User.LastName,

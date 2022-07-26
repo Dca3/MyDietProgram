@@ -273,7 +273,7 @@
             this.flpMeals.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpMeals.Location = new System.Drawing.Point(686, 118);
             this.flpMeals.Name = "flpMeals";
-            this.flpMeals.Size = new System.Drawing.Size(554, 388);
+            this.flpMeals.Size = new System.Drawing.Size(554, 416);
             this.flpMeals.TabIndex = 13;
             // 
             // materialLabel9
@@ -297,7 +297,7 @@
             this.btnDaily.Depth = 0;
             this.btnDaily.HighEmphasis = true;
             this.btnDaily.Icon = null;
-            this.btnDaily.Location = new System.Drawing.Point(812, 520);
+            this.btnDaily.Location = new System.Drawing.Point(812, 543);
             this.btnDaily.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDaily.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDaily.Name = "btnDaily";
@@ -318,7 +318,7 @@
             this.btnOverview.Depth = 0;
             this.btnOverview.HighEmphasis = true;
             this.btnOverview.Icon = null;
-            this.btnOverview.Location = new System.Drawing.Point(932, 520);
+            this.btnOverview.Location = new System.Drawing.Point(932, 543);
             this.btnOverview.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnOverview.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnOverview.Name = "btnOverview";
@@ -339,7 +339,7 @@
             this.btnFoodStats.Depth = 0;
             this.btnFoodStats.HighEmphasis = true;
             this.btnFoodStats.Icon = null;
-            this.btnFoodStats.Location = new System.Drawing.Point(1063, 520);
+            this.btnFoodStats.Location = new System.Drawing.Point(1063, 543);
             this.btnFoodStats.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFoodStats.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnFoodStats.Name = "btnFoodStats";
@@ -374,7 +374,7 @@
             this.materialDivider1.Location = new System.Drawing.Point(637, 67);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(10, 496);
+            this.materialDivider1.Size = new System.Drawing.Size(10, 526);
             this.materialDivider1.TabIndex = 17;
             this.materialDivider1.Text = "materialDivider1";
             // 
@@ -382,7 +382,7 @@
             // 
             this.swhTheme.AutoSize = true;
             this.swhTheme.Depth = 0;
-            this.swhTheme.Location = new System.Drawing.Point(25, 519);
+            this.swhTheme.Location = new System.Drawing.Point(23, 542);
             this.swhTheme.Margin = new System.Windows.Forms.Padding(0);
             this.swhTheme.MouseLocation = new System.Drawing.Point(-1, -1);
             this.swhTheme.MouseState = MaterialSkin.MouseState.HOVER;
@@ -410,7 +410,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 569);
+            this.ClientSize = new System.Drawing.Size(1269, 599);
             this.Controls.Add(this.lblUserCalculatedCalorie);
             this.Controls.Add(this.swhTheme);
             this.Controls.Add(this.materialDivider1);
