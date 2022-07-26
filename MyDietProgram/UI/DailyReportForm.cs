@@ -34,7 +34,7 @@ namespace MyDietProgram.UI
                 .Where(i => i.UserId == user.UserId && !i.Meal.IsDeleted && i.MealDate.Date == date.Date)
                 .Select(i => new
                 {
-                    Öğün = i.Meal.Name,
+                    Öğün = i.Meal.GetMealName(),
                     Yiyecek = i.Food.Name,
                     Kalori = i.Food.Calorie,
                     Miktar = i.Amount

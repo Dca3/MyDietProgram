@@ -55,6 +55,7 @@
             this.txtFoodName.Text = "";
             this.txtFoodName.TrailingIcon = null;
             this.txtFoodName.UseAccent = false;
+            this.txtFoodName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFoodName_KeyPress);
             // 
             // btnAdd
             // 

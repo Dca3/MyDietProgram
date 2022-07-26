@@ -24,6 +24,7 @@ namespace MyDietProgram.UI
             {
                 cbCategories.Items.Add(item);
             }
+            cbCategories.SelectedIndex = 0;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -43,6 +44,11 @@ namespace MyDietProgram.UI
         private void txtCalorie_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonMethods.AcceptOnlyNumbers(txtCalorie.Text, e);
+        }
+
+        private void txtFoodName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonMethods.AcceptOnlyLetterOrWhiteSpace(e, txtFoodName.Text);
         }
     }
 }

@@ -168,6 +168,62 @@ namespace MyDietProgram
                         Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
                         Calorie = 351,
                         AmountDescription = "porsiyon"
+                    },
+                    new Food()
+                    {
+                        Name = "Ekmek",
+                        Category = categories.Where(c => c.Name == "Unlu Mamül").FirstOrDefault(),
+                        Calorie = 150,
+                        AmountDescription = "dilim"
+                    },
+                    new Food()
+                    {
+                        Name = "Makarna",
+                        Category = categories.Where(c => c.Name == "Unlu Mamül").FirstOrDefault(),
+                        Calorie = 183,
+                        AmountDescription = "porsiyon"
+                    },
+                    new Food()
+                    {
+                        Name = "Fýstýk",
+                        Category = categories.Where(c => c.Name == "Kuruyemiþ").FirstOrDefault(),
+                        Calorie = 23,
+                        AmountDescription = "gram"
+                    },
+                    new Food()
+                    {
+                        Name = "Badem",
+                        Category = categories.Where(c => c.Name == "Kuruyemiþ").FirstOrDefault(),
+                        Calorie = 26,
+                        AmountDescription = "gram"
+                    },
+                    new Food()
+                    {
+                        Name = "Kaju",
+                        Category = categories.Where(c => c.Name == "Kuruyemiþ").FirstOrDefault(),
+                        Calorie = 33,
+                        AmountDescription = "gram"
+                    },
+                    new Food()
+                    {
+                        Name = "Çay",
+                        Category = categories.Where(c => c.Name == "Ýçecek").FirstOrDefault(),
+                        Calorie = 75,
+                        AmountDescription = "litre"
+                    },
+                    new Food()
+                    {
+                        Name = "Meyve suyu",
+                        Category = categories.Where(c => c.Name == "Ýçecek").FirstOrDefault(),
+                        Calorie = 125,
+                        AmountDescription = "litre"
+                    },
+                    new Food()
+                    {
+                        Name = "Sushi",
+                        Category = categories.Where(c => c.Name == "Diðer").FirstOrDefault(),
+                        Calorie = 113,
+                        AmountDescription = "adet"
                     }
                 );
 
@@ -234,7 +290,7 @@ namespace MyDietProgram
         DateTime RandomDay()
         {
             DateTime start = new DateTime(2022, 7, 1);
-            int range = (DateTime.Today - start).Days;
+            int range = (DateTime.Today - start.AddDays(5)).Days;
             return start.AddDays(gen.Next(range));
         }
 

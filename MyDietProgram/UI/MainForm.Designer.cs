@@ -159,7 +159,7 @@
             this.txtAmount.LeadingIcon = null;
             this.txtAmount.Location = new System.Drawing.Point(156, 349);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAmount.MaxLength = 50;
+            this.txtAmount.MaxLength = 8;
             this.txtAmount.MouseState = MaterialSkin.MouseState.OUT;
             this.txtAmount.Multiline = false;
             this.txtAmount.Name = "txtAmount";

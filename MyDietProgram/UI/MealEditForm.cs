@@ -89,7 +89,6 @@ namespace MyDietProgram.UI
             MaterialButton btn = (MaterialButton)sender;
             Info info = (Info)btn.Parent.Tag;
             MaterialTextBox txtbox=new MaterialTextBox();
-            MessageBox.Show(((Info)btn.Parent.Tag).Amount.ToString());
 
             foreach (Control item in btn.Parent.Controls)
             {
@@ -98,22 +97,14 @@ namespace MyDietProgram.UI
                     txtbox = (MaterialTextBox)item;
                 }
             }
-            var infos = db.Infos.Where(x => x.FoodId == info.FoodId).ToList();
-            var usersfoodsinfarmation = infos.Where(x => x.UserId == _user.UserId).FirstOrDefault();
-            usersfoodsinfarmation.Amount = Convert.ToDouble(txtbox.Text);
 
-            flpFoods.Controls.Add(CreateFoodComponent(usersfoodsinfarmation));
+            info.Amount = Convert.ToDouble(txtbox.Text);
+
+            flpFoods.Controls.Add(CreateFoodComponent(info));
 
             db.SaveChanges();
 
             btn.Parent.Visible = false;
         }
-
-        private void MealEditForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

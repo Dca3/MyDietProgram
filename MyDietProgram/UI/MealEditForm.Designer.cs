@@ -50,7 +50,6 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Öğün Düzenle";
-            this.Load += new System.EventHandler(this.MealEditForm_Load);
             this.ResumeLayout(false);
 
         }

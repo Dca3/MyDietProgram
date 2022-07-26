@@ -13,5 +13,20 @@ namespace MyDietProgram.Classes
         public int MealId { get; set; }
         public MealName Name { get; set; }
         public bool IsDeleted { get; set; } = false;
+
+        public string GetMealName()
+        {
+            switch (Name)
+            {
+                case MealName.ÖğleYemeği:
+                    return "Öğle yemeği";
+                    break;
+                case MealName.AkşamYemeği:
+                    return "Akşam yemeği";
+                    break;
+                default:
+                    return Name.ToString();
+            }
+        }
     }
 }

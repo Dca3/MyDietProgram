@@ -9,12 +9,9 @@ namespace MyDietProgram.Classes
 {
     public class Context : DbContext
     {
-        private readonly ModelBuilder _modelBuilder;
 
         public Context(DbContextOptions options) : base(options)
         {
-
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,28 +25,11 @@ namespace MyDietProgram.Classes
             Category bakliyat = new Category() { Id = 7, Name = "Bakliyat" };
             Category meze = new Category() { Id = 8, Name = "Meze" };
             Category kuruyemiş = new Category() { Id = 9, Name = "Kuruyemiş" };
+            Category icecek = new Category() { Id = 10, Name = "İçecek" };
+            Category diger = new Category() { Id = 11, Name = "Diğer" };
 
             modelBuilder.Entity<Category>().HasData(
-                et, sebze, meyve, salata, tatli, unlu, bakliyat, meze, kuruyemiş);
-
-
-            //modelBuilder.Entity<Food>().HasData(
-            //    new Food() { Id = 1, Name = "Ali nazik", Category = meze },
-            //    new Food() { Id = 2, Name = "İskender", Category = et },
-            //    new Food() { Id = 3, Name = "Hamburger", Category = et },
-            //    new Food() { Id = 4, Name = "Çoban salata", Category = salata },
-            //    new Food() { Id = 5, Name = "Balık", Category = et },
-            //    new Food() { Id = 6, Name = "Kuru fasülye", Category = bakliyat },
-            //    new Food() { Id = 7, Name = "Dondurma", Category = tatli },
-            //    new Food() { Id = 8, Name = "Pilav", Category = bakliyat },
-            //    new Food() { Id = 9, Name = "Domates", Category = sebze },
-            //    new Food() { Id = 10, Name = "Salatalık", Category = sebze },
-            //    new Food() { Id = 11, Name = "Elma", Category = meyve },
-            //    new Food() { Id = 12, Name = "Armut", Category = meyve },
-            //    new Food() { Id = 13, Name = "Muz", Category = meyve },
-            //    new Food() { Id = 14, Name = "Yulaf", Category = meyve }
-            //);
-
+                et, sebze, meyve, salata, tatli, unlu, bakliyat, meze, kuruyemiş, icecek, diger);
         }
 
         public DbSet<User> Users { get; set; }

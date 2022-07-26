@@ -33,6 +33,15 @@ namespace MyDietProgram.Classes
             mouseDown = false;
         }
 
+        public static void AcceptOnlyLetterOrWhiteSpace(KeyPressEventArgs e, string stringvalue)
+        {
+            char pressedkey = e.KeyChar;
+            if (char.IsLetter(pressedkey) || char.IsWhiteSpace(pressedkey))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
         public static void AcceptOnlyNumbers(string txt, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&

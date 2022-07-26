@@ -40,7 +40,7 @@ namespace MyDietProgram.UI
         class TableInfo
         {
             public string Name { get; set; }
-            public MealName MealName { get; set; }
+            public string MealName { get; set; }
             public Food Food { get; set; }
             public double Amount { get; set; }
         }
@@ -54,7 +54,7 @@ namespace MyDietProgram.UI
                  .Select(x => new TableInfo
                  {
                      Name = x.User.FirstName + " " + x.User.LastName,
-                     MealName = x.Meal.Name,
+                     MealName = x.Meal.GetMealName(),
                      Food = x.Food,
                      Amount = x.Amount
                  })
@@ -67,7 +67,7 @@ namespace MyDietProgram.UI
                 .Select(x => new TableInfo
                 {
                     Name = x.User.FirstName + " " + x.User.LastName,
-                    MealName = x.Meal.Name,
+                    MealName = x.Meal.GetMealName(),
                     Food = x.Food,
                     Amount = x.Amount
                 })
@@ -129,7 +129,7 @@ namespace MyDietProgram.UI
                 Ad = x.Key.Ad,
                 Kategori = x.Key.Kategori,
                 Kalori = x.Sum(y => y.Food.Calorie * y.Amount),
-                SizinKaloriniz = userInfosGroupedByCategory.Where(y => y.Kategori == x.Key.Kategori).Select(y => y.Kalori).FirstOrDefault(),
+                Kaloriniz = userInfosGroupedByCategory.Where(y => y.Kategori == x.Key.Kategori).Select(y => y.Kalori).FirstOrDefault(),
                 Fark = x.Sum(y => y.Food.Calorie * y.Amount) - userInfosGroupedByCategory.Where(y => y.Kategori == x.Key.Kategori).Select(y => y.Kalori).FirstOrDefault()
             }).OrderBy(x => x.Ad);
 

@@ -75,8 +75,11 @@ namespace MyDietProgram
                         height,
                         age
                     );
-                MessageBox.Show("Kaydınız oluşturulmuştur.");
-
+                DialogResult dr = MessageBox.Show("Kaydınız oluşturulmuştur.");
+                if (dr == DialogResult.OK)
+                {
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -105,21 +108,14 @@ namespace MyDietProgram
 
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            checkWholeValueString(e, txtFirstName.Text);
+            CommonMethods.AcceptOnlyLetterOrWhiteSpace(e, txtFirstName.Text);
         }
 
-        public void checkWholeValueString(KeyPressEventArgs e, string stringvalue)
-        {
-            char pressedkey = e.KeyChar;
-            if (char.IsLetter(pressedkey) || char.IsWhiteSpace(pressedkey))
-                e.Handled = false;
-            else
-                e.Handled = true;
-        }
+
 
         private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            checkWholeValueString(e, txtLastName.Text);
+            CommonMethods.AcceptOnlyLetterOrWhiteSpace(e, txtLastName.Text);
         }
     }
 }

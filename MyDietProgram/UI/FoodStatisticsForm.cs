@@ -34,7 +34,7 @@ namespace MyDietProgram.UI
                 {
                     Ad = i.Food.Name,
                     Miktar = i.Amount,
-                    Öğün = i.Meal.Name,
+                    Öğün = i.Meal.GetMealName(),
                 }).ToList();
 
             var groupedFoods = foods.GroupBy(f => new
@@ -44,10 +44,10 @@ namespace MyDietProgram.UI
             {
                 Ad = g.Key.Ad,
                 Miktar = g.Sum(x => x.Miktar),
-                Kahvaltı = g.Where(x=> x.Öğün == MealName.Kahvaltı).Select(x => x.Miktar).Sum(),
-                ÖğleYemeği = g.Where(x=> x.Öğün == MealName.ÖğleYemeği).Select(x => x.Miktar).Sum(),
-                AkşamYemeği = g.Where(x=> x.Öğün == MealName.AkşamYemeği).Select(x => x.Miktar).Sum(),
-                Atıştırma = g.Where(x=> x.Öğün == MealName.Atıştırma).Select(x => x.Miktar).Sum(),
+                Kahvaltı = g.Where(x => x.Öğün == "Kahvaltı").Select(x => x.Miktar).Sum(),
+                ÖğleYemeği = g.Where(x => x.Öğün == "Öğle yemeği").Select(x => x.Miktar).Sum(),
+                AkşamYemeği = g.Where(x => x.Öğün == "Akşam yemeği").Select(x => x.Miktar).Sum(),
+                Atıştırma = g.Where(x => x.Öğün == "Atıştırma").Select(x => x.Miktar).Sum(),
 
             }).OrderByDescending(f => f.Miktar);
 

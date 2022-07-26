@@ -133,7 +133,7 @@ namespace MyDietProgram.UI
             List<Food> foods = db.Infos.Where(i => i.MealId == info.MealId).Select(i => i.Food).ToList();
 
             Panel pnlContainer = new Panel();
-            MaterialLabel lblMealName = new MaterialLabel() { Text = meal.Name.ToString() };
+            MaterialLabel lblMealName = new MaterialLabel() { Text = meal.GetMealName()};
             MaterialLabel lblFoods = new MaterialLabel() { Text = GetFoods(info) };
             MaterialLabel lblMealCal = new MaterialLabel() { Text = GetTotalCalorie(info).ToString() + " kcal" };
             MaterialButton btnEdit = new MaterialButton() { Text = "DÜZENLE" };
@@ -325,7 +325,6 @@ namespace MyDietProgram.UI
         {
             DailyReportForm daily = new DailyReportForm(db, user, dtpDate.Value.Date);
             manager.AddFormToManage(daily);
-
             daily.ShowDialog();
 
         }
