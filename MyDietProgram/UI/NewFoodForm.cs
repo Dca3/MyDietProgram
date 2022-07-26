@@ -48,7 +48,7 @@ namespace MyDietProgram.UI
 
         private void txtFoodName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            CommonMethods.AcceptOnlyLetterOrWhiteSpace(e, txtFoodName.Text);
+            CommonMethods.AcceptOnlyLetterOrWhiteSpace(txtFoodName.Text, e);
         }
     }
 }

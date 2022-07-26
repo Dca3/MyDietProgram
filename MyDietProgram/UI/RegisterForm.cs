@@ -47,19 +47,15 @@ namespace MyDietProgram
         {
             try
             {
-                string checkMail = txtEmail.Text;
-                string checkPassword = txtPassword.Text;
-
                 UserManager userManager = new UserManager(db);
-                var a = userManager.ValidatePassword(checkPassword);//Password Strongmu Ona Bakar 
                 string firstName = txtFirstName.Text;
                 string lastName = txtLastName.Text;
-                string email = userManager.CheckedEmail(checkMail);
-                string password = userManager.CheckedPassword(checkPassword);
+                string email = txtEmail.Text;
+                string password = txtPassword.Text;
                 int dailyActivity = cbDailyActivity.SelectedIndex;
-                int age = Convert.ToInt32(txtAge.Text);
-                double height = Convert.ToDouble(txtHeight.Text);
-                double weight = Convert.ToDouble(txtWeight.Text);
+                string age = txtAge.Text;
+                string height = txtHeight.Text;
+                string weight = txtWeight.Text;
                 int gender = rbFemale.Checked ? 0 : 1; //0 Female, 1 Male
                 int goal = cbGoal.SelectedIndex;
 
@@ -90,32 +86,27 @@ namespace MyDietProgram
 
         private void txtAge_KeyPress(object sender, KeyPressEventArgs e)
         {
-            UserManager userManager = new UserManager(db);
-            userManager.CheckIsWholeNumber(txtAge.Text, e);
+            CommonMethods.AcceptOnlyNumbers(txtAge.Text, e);
         }
 
         private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
         {
-            UserManager userManager = new UserManager(db);
-            userManager.CheckIsNumber(txtWeight.Text, e);
+            CommonMethods.AcceptOnlyNumbers(txtWeight.Text, e);
         }
 
         private void txtHeight_KeyPress(object sender, KeyPressEventArgs e)
         {
-            UserManager userManager = new UserManager(db);
-            userManager.CheckIsNumber(txtHeight.Text, e);
+            CommonMethods.AcceptOnlyNumbers(txtHeight.Text, e);
         }
 
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            CommonMethods.AcceptOnlyLetterOrWhiteSpace(e, txtFirstName.Text);
+            CommonMethods.AcceptOnlyLetterOrWhiteSpace(txtFirstName.Text, e);
         }
-
-
 
         private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            CommonMethods.AcceptOnlyLetterOrWhiteSpace(e, txtLastName.Text);
+            CommonMethods.AcceptOnlyLetterOrWhiteSpace(txtLastName.Text, e);
         }
     }
 }

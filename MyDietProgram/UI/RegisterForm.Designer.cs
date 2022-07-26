@@ -112,7 +112,7 @@
             this.txtWeight.Depth = 0;
             this.txtWeight.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtWeight.LeadingIcon = null;
-            this.txtWeight.Location = new System.Drawing.Point(616, 177);
+            this.txtWeight.Location = new System.Drawing.Point(616, 175);
             this.txtWeight.MaxLength = 50;
             this.txtWeight.MouseState = MaterialSkin.MouseState.OUT;
             this.txtWeight.Multiline = false;
@@ -130,7 +130,7 @@
             this.txtHeight.Depth = 0;
             this.txtHeight.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtHeight.LeadingIcon = null;
-            this.txtHeight.Location = new System.Drawing.Point(616, 247);
+            this.txtHeight.Location = new System.Drawing.Point(616, 245);
             this.txtHeight.MaxLength = 50;
             this.txtHeight.MouseState = MaterialSkin.MouseState.OUT;
             this.txtHeight.Multiline = false;
@@ -387,7 +387,7 @@
             "Kilo almak",
             "Kilo vermek",
             "Kilomu korumak"});
-            this.cbGoal.Location = new System.Drawing.Point(616, 390);
+            this.cbGoal.Location = new System.Drawing.Point(616, 385);
             this.cbGoal.MaxDropDownItems = 4;
             this.cbGoal.MouseState = MaterialSkin.MouseState.OUT;
             this.cbGoal.Name = "cbGoal";

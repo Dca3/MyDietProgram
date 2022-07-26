@@ -17,12 +17,15 @@ namespace MyDietProgram.Classes
         }
 
         public string sha256_hash(string pwd) { using (SHA256 hash = SHA256Managed.Create()) { return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(pwd)).Select(l => l.ToString("X2"))); } }
-        public void CreateUser(string firstName, string lastName, string userMail, string pwd, int activity, int goal, int gender, double weight, double height, int age)
+        public void CreateUser(string firstName, string lastName, string email, string pwd, int activity, int goal, int gender, string _weight, string _height, string _age)
         {
             User user = new User();
 
             firstName = firstName.Trim();
             lastName = lastName.Trim();
+            double weight;
+            double height;
+            int age;
 
             if (firstName == "")
                 throw new Exception("Ad alanı boş olamaz");
@@ -30,20 +33,47 @@ namespace MyDietProgram.Classes
             if (lastName == "")
                 throw new Exception("Soyad alanı boş olamaz");
 
+            try
+            {
+                age = Convert.ToInt32(_age);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Yaş alanını kontrol ederek yeniden deneyin");
+            }
+
+            if (age < 10)
+                throw new Exception("Yaş değeri 10'dan büyük olmalı");
+            try
+            {
+                weight = Convert.ToDouble(_weight);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Ağırlık alanını kontrol ederek yeniden deneyin");
+            }
 
             if (weight < 30)
                 throw new Exception("Kilo değeri 30'dan büyük olmalı");
 
+            try
+            {
+                height = Convert.ToDouble(_height);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Boy alanını kontrol ederek yeniden deneyin");
+            }
+
             if (height < 100)
                 throw new Exception("Boy değeri 100'den büyük olmalı");
 
-            if(age < 10)
-                throw new Exception("Yaş değeri 10'dan büyük olmalı");
+            
 
             user.FirstName = firstName;
             user.LastName = lastName;
-            user.Email = userMail;
-            user.Password = sha256_hash(pwd);
+            user.Email = CheckedEmail(email);
+            user.Password = sha256_hash(CheckedPassword(pwd));
             user.Activity = (DailyActivity)activity;
             user.Goal = (Goal)goal;
             user.Gender = (Gender)gender;
@@ -69,7 +99,7 @@ namespace MyDietProgram.Classes
             int maxLength = 15;
             int minNumber = 1;
             int minCharacter = 1;
-            string allowedSpecials = "@#/.!')-_?;,:+-*";
+            string allowedSpecials = @"*|!#$%&/()=?»«@£§€{}.-;'<>,";
 
             char[] characters = password.ToCharArray();
 
@@ -80,8 +110,6 @@ namespace MyDietProgram.Classes
             int length = password.Length;
             int illegalCharacters = 0;
 
-
-            
             foreach (char enteredCharacters in characters)
             {
                 if (char.IsUpper(enteredCharacters))
@@ -107,7 +135,7 @@ namespace MyDietProgram.Classes
 
             }
 
-            if (upper < minUpper || lower < minLower || length < minLength || length > maxLength || illegalCharacters >= 1 || character < minCharacter || number<minNumber)
+            if (upper < minUpper || lower < minLower || length < minLength || length > maxLength || illegalCharacters >= 1 || character < minCharacter || number < minNumber)
             {
                 throw new Exception(
                     $"Şifre geçerli değil!\n" +
@@ -119,11 +147,9 @@ namespace MyDietProgram.Classes
             }
             else
             {
-                return password; 
+                return password;
             }
         }
-
-
         public string CheckedEmail(string email)
         {
             string theEmailPattern = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"
@@ -171,17 +197,17 @@ namespace MyDietProgram.Classes
         {
             double basalmetabolism = CountBasalMetabolism(weight, height, age, gender);
             double essentialCalorie;
-            if (activity == 0 || goal==0)
+            if (activity == 0 || goal == 0)
             {
                 essentialCalorie = 0.25 * basalmetabolism;
                 return essentialCalorie + 500;
             }
-            else if (activity == 0 || goal==1)
+            else if (activity == 0 || goal == 1)
             {
                 essentialCalorie = 0.50 * basalmetabolism;
                 return essentialCalorie - 200;
             }
-            else if (activity == 1 || goal == 0 )
+            else if (activity == 1 || goal == 0)
             {
                 essentialCalorie = 0.50 * basalmetabolism;
                 return essentialCalorie + 500;
@@ -203,7 +229,7 @@ namespace MyDietProgram.Classes
             }
             else
             {
-               return essentialCalorie = 1 * basalmetabolism;
+                return essentialCalorie = 1 * basalmetabolism;
             }
         }
 
@@ -220,27 +246,6 @@ namespace MyDietProgram.Classes
                 return basalMetabolismMan;
             }
             return 0;
-        }
-
-
-        public void CreateFood(string foodname, int calorie, Category category)
-        {
-            Food food = new Food();
-            food.Name = foodname;
-            food.Category = category;
-            food.Calorie = calorie;
-
-            db.Foods.Add(food);
-            db.SaveChanges();
-        }
-
-        public void CreateCategory(string category)
-        {
-
-            Category categoryis = new Category();
-            categoryis.Name = category;
-            db.Categories.Add(categoryis);
-            db.SaveChanges();
         }
 
         public void CheckIsNumber(string value, KeyPressEventArgs e)
@@ -264,43 +269,5 @@ namespace MyDietProgram.Classes
                 e.Handled = true;
             }
         }
-
-       
-
-        public bool ValidatePassword(string password)
-        {
-            const int MINLENGTH = 8;
-
-
-            if (password == null) throw new ArgumentNullException();
-
-            bool meetsLengthRequirements = password.Length >= MINLENGTH;
-            bool hasUpperCaseLetter = false;
-            bool hasLowerCaseLetter = false;
-            bool hasDecimalDigit = false;
-            bool hasSymbolDigit = false;
-            string specialChar = @"*|!#$%&/()=?»«@£§€{}.-;'<>,";
-
-            if (meetsLengthRequirements)
-            {
-                foreach (char c in password)
-                {
-                    if (char.IsUpper(c)) hasUpperCaseLetter = true;
-                    else if (char.IsLower(c)) hasLowerCaseLetter = true;
-                    else if (char.IsDigit(c)) hasDecimalDigit = true;
-                    else if (specialChar.Contains(c)) hasSymbolDigit = true;
-                }
-            }
-
-            bool isValid = meetsLengthRequirements
-                        && hasUpperCaseLetter
-                        && hasLowerCaseLetter
-                        && hasDecimalDigit
-                        && hasSymbolDigit
-                        ;
-            return isValid;
-        }
-
-
     }
 }

@@ -45,21 +45,6 @@ namespace MyDietProgram.UI
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            CommonMethods.StartMoving(e);
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            CommonMethods.Move(this, e);
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            CommonMethods.FinishMoving();
-        }
-
         private void FillElements()
         {
             var categories = db.Categories.Select(c => c).ToList();
