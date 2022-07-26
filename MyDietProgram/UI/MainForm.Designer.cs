@@ -49,6 +49,7 @@
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.swhTheme = new MaterialSkin.Controls.MaterialSwitch();
             this.lblUserCalculatedCalorie = new System.Windows.Forms.Label();
+            this.btnLogout = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // cbMeals
@@ -382,7 +383,7 @@
             // 
             this.swhTheme.AutoSize = true;
             this.swhTheme.Depth = 0;
-            this.swhTheme.Location = new System.Drawing.Point(23, 542);
+            this.swhTheme.Location = new System.Drawing.Point(122, 544);
             this.swhTheme.Margin = new System.Windows.Forms.Padding(0);
             this.swhTheme.MouseLocation = new System.Drawing.Point(-1, -1);
             this.swhTheme.MouseState = MaterialSkin.MouseState.HOVER;
@@ -406,11 +407,34 @@
             this.lblUserCalculatedCalorie.Text = "Günlük hedef: 1000 kcal";
             this.lblUserCalculatedCalorie.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnLogout
+            // 
+            this.btnLogout.AccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(129)))));
+            this.btnLogout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogout.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnLogout.Depth = 0;
+            this.btnLogout.HighEmphasis = true;
+            this.btnLogout.Icon = null;
+            this.btnLogout.Location = new System.Drawing.Point(18, 543);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.btnLogout.Size = new System.Drawing.Size(89, 36);
+            this.btnLogout.TabIndex = 22;
+            this.btnLogout.Text = "ÇIKIŞ YAP";
+            this.btnLogout.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnLogout.UseAccentColor = false;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // MainForm
             // 
+            this.AcceptButton = this.btnLogout;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 599);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblUserCalculatedCalorie);
             this.Controls.Add(this.swhTheme);
             this.Controls.Add(this.materialDivider1);
@@ -438,7 +462,7 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ANASAYFA";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed_1);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -467,5 +491,6 @@
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialSwitch swhTheme;
         private Label lblUserCalculatedCalorie;
+        private MaterialSkin.Controls.MaterialButton btnLogout;
     }
 }

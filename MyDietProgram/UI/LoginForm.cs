@@ -43,7 +43,12 @@ namespace MyDietProgram
                 {
                     MainForm mainForm = new MainForm(db, user);
                     this.Hide();
-                    mainForm.Show();
+                    DialogResult dr = mainForm.ShowDialog();
+                    MessageBox.Show(dr.ToString());
+                    if (dr == DialogResult.OK)
+                    {
+                        this.Show();
+                    }
                 }
             }
             catch (Exception ex)

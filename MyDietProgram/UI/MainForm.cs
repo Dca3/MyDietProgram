@@ -204,10 +204,7 @@ namespace MyDietProgram.UI
             db.SaveChanges();
         }
 
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
+ 
 
         private void btnAddMeal_Click(object sender, EventArgs e)
         {
@@ -352,6 +349,17 @@ namespace MyDietProgram.UI
                 manager.Theme = MaterialSkinManager.Themes.DARK;
             else
                 manager.Theme = MaterialSkinManager.Themes.LIGHT;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Continue;
+            this.Close();
+        }
+
+        private void MainForm_FormClosed_1(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
