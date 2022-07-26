@@ -21,7 +21,7 @@ namespace MyDietProgram
             db = context;
             InitializeComponent();
             rbFemale.Checked = true;
-            Fill();
+            //Fill();
         }
 
         private void Fill()

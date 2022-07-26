@@ -21,6 +21,25 @@ namespace MyDietProgram.Classes
         {
             User user = new User();
 
+            firstName = firstName.Trim();
+            lastName = lastName.Trim();
+
+            if (firstName == "")
+                throw new Exception("Ad alanı boş olamaz");
+
+            if (lastName == "")
+                throw new Exception("Soyad alanı boş olamaz");
+
+
+            if (weight < 30)
+                throw new Exception("Kilo değeri 30'dan büyük olmalı");
+
+            if (height < 100)
+                throw new Exception("Boy değeri 100'den büyük olmalı");
+
+            if(age < 10)
+                throw new Exception("Yaş değeri 10'dan büyük olmalı");
+
             user.FirstName = firstName;
             user.LastName = lastName;
             user.Email = userMail;
@@ -90,8 +109,13 @@ namespace MyDietProgram.Classes
 
             if (upper < minUpper || lower < minLower || length < minLength || length > maxLength || illegalCharacters >= 1 || character < minCharacter || number<minNumber)
             {
-                throw new Exception("Something's not right, your password does not meet the minimum security criteria");
-                
+                throw new Exception(
+                    $"Şifre geçerli değil!\n" +
+                    $"\nŞifre kriterleri:" +
+                    $"\n  • En az {minUpper} büyük harf" +
+                    $"\n  • En az {minLower} küçük harf" +
+                    $"\n  • {minLength} • {maxLength} karakter uzunluğunda olmalıdır." +
+                    $"\n  • Yalnızca harf, rakam ve {allowedSpecials} karakterlerini içerebilir.");
             }
             else
             {
@@ -125,7 +149,6 @@ namespace MyDietProgram.Classes
             }
             else if (password == null)
             {
-
                 throw new Exception("Şifre boş bırakılamaz");
             }
 
@@ -133,7 +156,6 @@ namespace MyDietProgram.Classes
 
             if (user == null)
             {
-
                 throw new Exception("Kullanıcı bulunamadı");
             }
 
@@ -143,7 +165,6 @@ namespace MyDietProgram.Classes
             }
 
             return user;
-
         }
 
         public double CalculatedCalorie(double weight, double height, int age, int activity, int gender, int goal)
@@ -185,7 +206,6 @@ namespace MyDietProgram.Classes
                return essentialCalorie = 1 * basalmetabolism;
             }
         }
-
 
         private double CountBasalMetabolism(double weight, double height, int age, int gender)
         {
