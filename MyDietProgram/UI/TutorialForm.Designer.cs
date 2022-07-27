@@ -32,6 +32,7 @@
             this.btnPrev = new MaterialSkin.Controls.MaterialButton();
             this.pbxSlide = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblWelcome = new MaterialSkin.Controls.MaterialLabel();
             this.lblDescription = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSlide)).BeginInit();
             this.panel1.SuspendLayout();
@@ -84,7 +85,7 @@
             // 
             // pbxSlide
             // 
-            this.pbxSlide.BackColor = System.Drawing.SystemColors.Control;
+            this.pbxSlide.BackColor = System.Drawing.Color.White;
             this.pbxSlide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbxSlide.Location = new System.Drawing.Point(30, 18);
             this.pbxSlide.Name = "pbxSlide";
@@ -96,6 +97,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lblWelcome);
             this.panel1.Controls.Add(this.lblDescription);
             this.panel1.Controls.Add(this.pbxSlide);
             this.panel1.Controls.Add(this.btnPrev);
@@ -105,6 +107,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1325, 796);
             this.panel1.TabIndex = 3;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.Depth = 0;
+            this.lblWelcome.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lblWelcome.FontType = MaterialSkin.MaterialSkinManager.fontType.H3;
+            this.lblWelcome.Location = new System.Drawing.Point(30, 18);
+            this.lblWelcome.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(1271, 677);
+            this.lblWelcome.TabIndex = 4;
+            this.lblWelcome.Text = "Hoşgeldiniz";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDescription
             // 
@@ -145,5 +160,6 @@
         private PictureBox pbxSlide;
         private Panel panel1;
         private MaterialSkin.Controls.MaterialLabel lblDescription;
+        private MaterialSkin.Controls.MaterialLabel lblWelcome;
     }
 }
