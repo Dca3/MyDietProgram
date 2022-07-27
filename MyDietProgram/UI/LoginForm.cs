@@ -14,11 +14,11 @@ namespace MyDietProgram
         public LoginForm(Context context)
         {
             this.db = context;
-            ShowTutorial();
             InitializeComponent();
-            LoadData();
+
             if (db.Users.Count() == 0)
                 CreateSeedData();
+            ShowTutorial();
         }
 
         private void ShowTutorial()
@@ -63,191 +63,179 @@ namespace MyDietProgram
             }
         }
 
-        private void LoadData()
-        {
-            var categories = db.Categories.Select(c => c).ToList();
-
-            if (!db.Foods.Any())
-            {
-                db.Foods.AddRange(
-                    new Food()
-                    {
-                        Name = "Ali nazik",
-                        Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
-                        Calorie = 536,
-                        AmountDescription = "porsiyon"
-                    },
-                    new Food()
-                    {
-                        Name = "Ýskender",
-                        Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
-                        Calorie = 755,
-                        AmountDescription = "porsiyon"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Hamburger",
-                        Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
-                        Calorie = 249,
-                        AmountDescription = "adet"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Çoban salata",
-                        Category = categories.Where(c => c.Name == "Salata").FirstOrDefault(),
-                        Calorie = 120,
-                        AmountDescription = "porsiyon"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Balýk",
-                        Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
-                        Calorie = 164,
-                        AmountDescription = "porsiyon"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Kuru fasülye",
-                        Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
-                        Calorie = 146,
-                        AmountDescription = "porsiyon"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Dondurma",
-                        Category = categories.Where(c => c.Name == "Tatlý").FirstOrDefault(),
-                        Calorie = 103,
-                        AmountDescription = "top"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Pilav",
-                        Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
-                        Calorie = 359,
-                        AmountDescription = "porsiyon"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Domates",
-                        Category = categories.Where(c => c.Name == "Sebze").FirstOrDefault(),
-                        Calorie = 19,
-                        AmountDescription = "adet"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Salatalýk",
-                        Category = categories.Where(c => c.Name == "Sebze").FirstOrDefault(),
-                        Calorie = 20,
-                        AmountDescription = "adet"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Elma",
-                        Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
-                        Calorie = 46,
-                        AmountDescription = "adet"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Armut",
-                        Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
-                        Calorie = 57,
-                        AmountDescription = "adet"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Muz",
-                        Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
-                        Calorie = 151,
-                        AmountDescription = "adet"
-                    },
-
-                    new Food()
-                    {
-                        Name = "Yulaf",
-                        Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
-                        Calorie = 351,
-                        AmountDescription = "porsiyon"
-                    },
-                    new Food()
-                    {
-                        Name = "Ekmek",
-                        Category = categories.Where(c => c.Name == "Unlu Mamül").FirstOrDefault(),
-                        Calorie = 150,
-                        AmountDescription = "dilim"
-                    },
-                    new Food()
-                    {
-                        Name = "Makarna",
-                        Category = categories.Where(c => c.Name == "Unlu Mamül").FirstOrDefault(),
-                        Calorie = 183,
-                        AmountDescription = "porsiyon"
-                    },
-                    new Food()
-                    {
-                        Name = "Fýstýk",
-                        Category = categories.Where(c => c.Name == "Kuruyemiþ").FirstOrDefault(),
-                        Calorie = 23,
-                        AmountDescription = "gram"
-                    },
-                    new Food()
-                    {
-                        Name = "Badem",
-                        Category = categories.Where(c => c.Name == "Kuruyemiþ").FirstOrDefault(),
-                        Calorie = 26,
-                        AmountDescription = "gram"
-                    },
-                    new Food()
-                    {
-                        Name = "Kaju",
-                        Category = categories.Where(c => c.Name == "Kuruyemiþ").FirstOrDefault(),
-                        Calorie = 33,
-                        AmountDescription = "gram"
-                    },
-                    new Food()
-                    {
-                        Name = "Çay",
-                        Category = categories.Where(c => c.Name == "Ýçecek").FirstOrDefault(),
-                        Calorie = 75,
-                        AmountDescription = "litre"
-                    },
-                    new Food()
-                    {
-                        Name = "Meyve suyu",
-                        Category = categories.Where(c => c.Name == "Ýçecek").FirstOrDefault(),
-                        Calorie = 125,
-                        AmountDescription = "litre"
-                    },
-                    new Food()
-                    {
-                        Name = "Sushi",
-                        Category = categories.Where(c => c.Name == "Diðer").FirstOrDefault(),
-                        Calorie = 113,
-                        AmountDescription = "adet"
-                    }
-                );
-
-                db.SaveChanges();
-
-            }
-        }
-
         private void CreateSeedData()
         {
             string[] firstNames = { "Patty", "Paddy", "Olive", "Aida", "Maureen", "Teri", "Peg", "Allie", "Liz", "Constanc", "Lois", "Minnie", "Lynn", "Ray", "Lee", "Ray", "Isabelle", "Eileen", "Rita", "Paige" }; //20
 
             string[] lastNames = { "Yew", "Bugg", "Biologist", "Dactyl", "Legge", "Grater", "Erd", "Mused", "Noring", "Di", "Van", "Ann", "Sin", "Ringing", "Sideways", "Book", "Turner", "Report", "Wind", "Teak" }; //20
+
+            var categories = db.Categories.Select(c => c).ToList();
+
+
+            //Food Seed
+            if (!db.Foods.Any())
+            {
+                db.Foods.AddRange(
+                            new Food()
+                            {
+                                Name = "Ali nazik",
+                                Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
+                                Calorie = 536,
+                                AmountDescription = "porsiyon"
+                            },
+                            new Food()
+                            {
+                                Name = "Ýskender",
+                                Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
+                                Calorie = 755,
+                                AmountDescription = "porsiyon"
+                            },
+                            new Food()
+                            {
+                                Name = "Hamburger",
+                                Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
+                                Calorie = 249,
+                                AmountDescription = "adet"
+                            },
+                            new Food()
+                            {
+                                Name = "Çoban salata",
+                                Category = categories.Where(c => c.Name == "Salata").FirstOrDefault(),
+                                Calorie = 120,
+                                AmountDescription = "porsiyon"
+                            },
+                            new Food()
+                            {
+                                Name = "Balýk",
+                                Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
+                                Calorie = 164,
+                                AmountDescription = "porsiyon"
+                            },
+                            new Food()
+                            {
+                                Name = "Kuru fasülye",
+                                Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
+                                Calorie = 146,
+                                AmountDescription = "porsiyon"
+                            },
+                            new Food()
+                            {
+                                Name = "Dondurma",
+                                Category = categories.Where(c => c.Name == "Tatlý").FirstOrDefault(),
+                                Calorie = 103,
+                                AmountDescription = "top"
+                            },
+                            new Food()
+                            {
+                                Name = "Pilav",
+                                Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
+                                Calorie = 359,
+                                AmountDescription = "porsiyon"
+                            },
+                            new Food()
+                            {
+                                Name = "Domates",
+                                Category = categories.Where(c => c.Name == "Sebze").FirstOrDefault(),
+                                Calorie = 19,
+                                AmountDescription = "adet"
+                            },
+                            new Food()
+                            {
+                                Name = "Salatalýk",
+                                Category = categories.Where(c => c.Name == "Sebze").FirstOrDefault(),
+                                Calorie = 20,
+                                AmountDescription = "adet"
+                            },
+                            new Food()
+                            {
+                                Name = "Elma",
+                                Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
+                                Calorie = 46,
+                                AmountDescription = "adet"
+                            },
+                            new Food()
+                            {
+                                Name = "Armut",
+                                Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
+                                Calorie = 57,
+                                AmountDescription = "adet"
+                            },
+                            new Food()
+                            {
+                                Name = "Muz",
+                                Category = categories.Where(c => c.Name == "Meyve").FirstOrDefault(),
+                                Calorie = 151,
+                                AmountDescription = "adet"
+                            },
+                            new Food()
+                            {
+                                Name = "Yulaf",
+                                Category = categories.Where(c => c.Name == "Bakliyat").FirstOrDefault(),
+                                Calorie = 351,
+                                AmountDescription = "porsiyon"
+                            },
+                            new Food()
+                            {
+                                Name = "Ekmek",
+                                Category = categories.Where(c => c.Name == "Unlu Mamül").FirstOrDefault(),
+                                Calorie = 150,
+                                AmountDescription = "dilim"
+                            },
+                            new Food()
+                            {
+                                Name = "Makarna",
+                                Category = categories.Where(c => c.Name == "Unlu Mamül").FirstOrDefault(),
+                                Calorie = 183,
+                                AmountDescription = "porsiyon"
+                            },
+                            new Food()
+                            {
+                                Name = "Fýstýk",
+                                Category = categories.Where(c => c.Name == "Kuruyemiþ").FirstOrDefault(),
+                                Calorie = 23,
+                                AmountDescription = "gram"
+                            },
+                            new Food()
+                            {
+                                Name = "Badem",
+                                Category = categories.Where(c => c.Name == "Kuruyemiþ").FirstOrDefault(),
+                                Calorie = 26,
+                                AmountDescription = "gram"
+                            },
+                            new Food()
+                            {
+                                Name = "Kaju",
+                                Category = categories.Where(c => c.Name == "Kuruyemiþ").FirstOrDefault(),
+                                Calorie = 33,
+                                AmountDescription = "gram"
+                            },
+                            new Food()
+                            {
+                                Name = "Çay",
+                                Category = categories.Where(c => c.Name == "Ýçecek").FirstOrDefault(),
+                                Calorie = 75,
+                                AmountDescription = "litre"
+                            },
+                            new Food()
+                            {
+                                Name = "Meyve suyu",
+                                Category = categories.Where(c => c.Name == "Ýçecek").FirstOrDefault(),
+                                Calorie = 125,
+                                AmountDescription = "litre"
+                            },
+                            new Food()
+                            {
+                                Name = "Sushi",
+                                Category = categories.Where(c => c.Name == "Diðer").FirstOrDefault(),
+                                Calorie = 113,
+                                AmountDescription = "adet"
+                            }
+                        );
+
+                db.SaveChanges();
+
+            }
+
 
             for (int i = 0; i < firstNames.Length; i++)
             {
