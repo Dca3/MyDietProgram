@@ -38,7 +38,6 @@ namespace MyDietProgram.UI
         {
             InitializeComponent();
             pbxSlide.Image = gallery[slideIndex];
-            label1.Text = slideIndex.ToString();
             lblDescription.Text = descArr[slideIndex];
         }
 

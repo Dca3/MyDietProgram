@@ -112,7 +112,7 @@ namespace MyDietProgram
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             MaterialCheckbox chk = (MaterialCheckbox)sender;
-            txtPassword.Password = chk.Checked;
+            txtPassword.Password = !chk.Checked;
         }
     }
 }
