@@ -14,10 +14,17 @@ namespace MyDietProgram
         public LoginForm(Context context)
         {
             this.db = context;
+            ShowTutorial();
             InitializeComponent();
             LoadData();
-            if(db.Users.Count() == 0)
+            if (db.Users.Count() == 0)
                 CreateSeedData();
+        }
+
+        private void ShowTutorial()
+        {
+            TutorialForm tutorial = new TutorialForm();
+            tutorial.ShowDialog();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -25,7 +32,7 @@ namespace MyDietProgram
             this.Hide();
             RegisterForm registerForm = new RegisterForm(db);
             DialogResult dr = registerForm.ShowDialog();
-            if(dr == DialogResult.Cancel)
+            if (dr == DialogResult.Cancel)
             {
                 this.Show();
             }
@@ -46,7 +53,7 @@ namespace MyDietProgram
                     DialogResult dr = mainForm.ShowDialog();
                     if (dr == DialogResult.OK)
                         this.Show();
-                    else if(dr == DialogResult.Cancel)
+                    else if (dr == DialogResult.Cancel)
                         Environment.Exit(0);
                 }
             }
@@ -238,7 +245,7 @@ namespace MyDietProgram
 
         private void CreateSeedData()
         {
-            string[] firstNames = { "Patty", "Paddy", "Olive", "Aida", "Maureen", "Teri", "Peg", "Allie", "Liz", "Constanc", "Lois", "Minnie", "Lynn", "Ray", "Lee", "Ray", "Isabelle", "Eileen", "Rita", "Paige"}; //20
+            string[] firstNames = { "Patty", "Paddy", "Olive", "Aida", "Maureen", "Teri", "Peg", "Allie", "Liz", "Constanc", "Lois", "Minnie", "Lynn", "Ray", "Lee", "Ray", "Isabelle", "Eileen", "Rita", "Paige" }; //20
 
             string[] lastNames = { "Yew", "Bugg", "Biologist", "Dactyl", "Legge", "Grater", "Erd", "Mused", "Noring", "Di", "Van", "Ann", "Sin", "Ringing", "Sideways", "Book", "Turner", "Report", "Wind", "Teak" }; //20
 

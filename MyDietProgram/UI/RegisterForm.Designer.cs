@@ -65,7 +65,7 @@
             this.txtFirstName.Multiline = false;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(255, 50);
-            this.txtFirstName.TabIndex = 4;
+            this.txtFirstName.TabIndex = 0;
             this.txtFirstName.Text = "";
             this.txtFirstName.TrailingIcon = null;
             this.txtFirstName.UseAccent = false;
@@ -83,7 +83,7 @@
             this.txtLastName.Multiline = false;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(255, 50);
-            this.txtLastName.TabIndex = 4;
+            this.txtLastName.TabIndex = 1;
             this.txtLastName.Text = "";
             this.txtLastName.TrailingIcon = null;
             this.txtLastName.UseAccent = false;
@@ -119,7 +119,7 @@
             this.txtWeight.Multiline = false;
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Size = new System.Drawing.Size(255, 50);
-            this.txtWeight.TabIndex = 4;
+            this.txtWeight.TabIndex = 7;
             this.txtWeight.Text = "";
             this.txtWeight.TrailingIcon = null;
             this.txtWeight.UseAccent = false;
@@ -137,7 +137,7 @@
             this.txtHeight.Multiline = false;
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Size = new System.Drawing.Size(255, 50);
-            this.txtHeight.TabIndex = 4;
+            this.txtHeight.TabIndex = 8;
             this.txtHeight.Text = "";
             this.txtHeight.TrailingIcon = null;
             this.txtHeight.UseAccent = false;
@@ -263,7 +263,7 @@
             this.txtEmail.Multiline = false;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(255, 50);
-            this.txtEmail.TabIndex = 4;
+            this.txtEmail.TabIndex = 2;
             this.txtEmail.Text = "";
             this.txtEmail.TrailingIcon = null;
             this.txtEmail.UseAccent = false;
@@ -281,7 +281,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Password = true;
             this.txtPassword.Size = new System.Drawing.Size(255, 50);
-            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TabIndex = 3;
             this.txtPassword.Text = "";
             this.txtPassword.TrailingIcon = null;
             this.txtPassword.UseAccent = false;
@@ -311,7 +311,7 @@
             this.cbDailyActivity.Name = "cbDailyActivity";
             this.cbDailyActivity.Size = new System.Drawing.Size(255, 49);
             this.cbDailyActivity.StartIndex = 0;
-            this.cbDailyActivity.TabIndex = 6;
+            this.cbDailyActivity.TabIndex = 9;
             this.cbDailyActivity.UseAccent = false;
             // 
             // rbFemale
@@ -321,7 +321,7 @@
             this.rbFemale.Location = new System.Drawing.Point(616, 116);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(67, 24);
-            this.rbFemale.TabIndex = 7;
+            this.rbFemale.TabIndex = 5;
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Kadın";
             this.rbFemale.UseVisualStyleBackColor = true;
@@ -333,7 +333,7 @@
             this.rbMale.Location = new System.Drawing.Point(712, 116);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(68, 24);
-            this.rbMale.TabIndex = 7;
+            this.rbMale.TabIndex = 6;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Erkek";
             this.rbMale.UseVisualStyleBackColor = true;
@@ -352,7 +352,7 @@
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.NoAccentTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.btnRegister.Size = new System.Drawing.Size(84, 36);
-            this.btnRegister.TabIndex = 8;
+            this.btnRegister.TabIndex = 11;
             this.btnRegister.Text = "Kayıt ol";
             this.btnRegister.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnRegister.UseAccentColor = false;
@@ -395,7 +395,7 @@
             this.cbGoal.Name = "cbGoal";
             this.cbGoal.Size = new System.Drawing.Size(255, 49);
             this.cbGoal.StartIndex = 0;
-            this.cbGoal.TabIndex = 6;
+            this.cbGoal.TabIndex = 10;
             this.cbGoal.UseAccent = false;
             // 
             // chkShowPassword
