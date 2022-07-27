@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyDietProgram.Migrations
 {
-    public partial class newdb2 : Migration
+    public partial class local : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,7 +68,6 @@ namespace MyDietProgram.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Calorie = table.Column<int>(type: "int", nullable: false),
-                    Amount = table.Column<double>(type: "float", nullable: true),
                     AmountDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -131,7 +130,9 @@ namespace MyDietProgram.Migrations
                     { 6, "Unlu Mamül" },
                     { 7, "Bakliyat" },
                     { 8, "Meze" },
-                    { 9, "Kuruyemiş" }
+                    { 9, "Kuruyemiş" },
+                    { 10, "İçecek" },
+                    { 11, "Diğer" }
                 });
 
             migrationBuilder.CreateIndex(

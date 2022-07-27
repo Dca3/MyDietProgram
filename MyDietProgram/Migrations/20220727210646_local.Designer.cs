@@ -12,8 +12,8 @@ using MyDietProgram.Classes;
 namespace MyDietProgram.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220726135931_categoryAdd")]
-    partial class categoryAdd
+    [Migration("20220727210646_local")]
+    partial class local
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
