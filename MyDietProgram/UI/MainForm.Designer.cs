@@ -46,10 +46,10 @@
             this.btnOverview = new MaterialSkin.Controls.MaterialButton();
             this.btnFoodStats = new MaterialSkin.Controls.MaterialButton();
             this.lblFoodDetails = new MaterialSkin.Controls.MaterialLabel();
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.swhTheme = new MaterialSkin.Controls.MaterialSwitch();
             this.lblUserCalculatedCalorie = new System.Windows.Forms.Label();
             this.btnLogout = new MaterialSkin.Controls.MaterialButton();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.SuspendLayout();
             // 
             // cbMeals
@@ -271,7 +271,6 @@
             // flpMeals
             // 
             this.flpMeals.AutoScroll = true;
-            this.flpMeals.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpMeals.Location = new System.Drawing.Point(686, 118);
             this.flpMeals.Name = "flpMeals";
             this.flpMeals.Size = new System.Drawing.Size(554, 416);
@@ -368,17 +367,6 @@
             this.lblFoodDetails.TabIndex = 9;
             this.lblFoodDetails.Text = "0 kcal";
             // 
-            // materialDivider1
-            // 
-            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(637, 67);
-            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(10, 526);
-            this.materialDivider1.TabIndex = 17;
-            this.materialDivider1.Text = "materialDivider1";
-            // 
             // swhTheme
             // 
             this.swhTheme.AutoSize = true;
@@ -427,6 +415,17 @@
             this.btnLogout.UseAccentColor = false;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // materialDivider1
+            // 
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(637, 67);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(10, 526);
+            this.materialDivider1.TabIndex = 17;
+            this.materialDivider1.Text = "materialDivider1";
             // 
             // MainForm
             // 
@@ -487,9 +486,9 @@
         private MaterialSkin.Controls.MaterialButton btnOverview;
         private MaterialSkin.Controls.MaterialButton btnFoodStats;
         private MaterialSkin.Controls.MaterialLabel lblFoodDetails;
-        private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialSwitch swhTheme;
         private Label lblUserCalculatedCalorie;
         private MaterialSkin.Controls.MaterialButton btnLogout;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
     }
 }

@@ -47,7 +47,7 @@ namespace MyDietProgram.UI
             MaterialButton btnSave = new MaterialButton() { Text = "Kaydet" };
             MaterialButton btnDelete = new MaterialButton() { Text = "Sil" };
 
-            pnlContainer.Size = new Size(653, 80);
+            pnlContainer.Size = new Size(630, 80);
             pnlContainer.Tag = info;
 
             lblFoodName.Location = new Point(20, 29);
@@ -63,7 +63,7 @@ namespace MyDietProgram.UI
             btnSave.UseAccentColor = true;
             btnSave.Click += btnSave_Click;
 
-            btnDelete.Location = new Point(540, 19);
+            btnDelete.Location = new Point(510, 19);
             btnDelete.UseAccentColor = true;
             btnDelete.Click += BtnDelete_Click;
 

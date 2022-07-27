@@ -124,8 +124,10 @@ namespace MyDietProgram.UI
             MaterialButton btnEdit = new MaterialButton() { Text = "DÜZENLE" };
             MaterialButton btnDelete = new MaterialButton() { Text = "SİL" };
 
-            pnlContainer.Size = new Size(536, 95);
+            pnlContainer.Size = new Size(545, 95);
             pnlContainer.Tag = meal.MealId;
+            pnlContainer.BorderStyle = BorderStyle.FixedSingle;
+
 
             lblMealName.Location = new Point(14, 11);
             lblMealName.FontType = MaterialSkinManager.fontType.H6;
