@@ -76,18 +76,18 @@ namespace MyDietProgram
             if (!db.Foods.Any())
             {
                 db.Foods.AddRange(
+                        new Food()
+                     {
+                         Name = "Ýskender",
+                         Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
+                         Calorie = 320,
+                         AmountDescription = "porsiyon"
+                     },
                             new Food()
                             {
                                 Name = "Ali nazik",
                                 Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
                                 Calorie = 536,
-                                AmountDescription = "porsiyon"
-                            },
-                            new Food()
-                            {
-                                Name = "Ýskender",
-                                Category = categories.Where(c => c.Name == "Et").FirstOrDefault(),
-                                Calorie = 755,
                                 AmountDescription = "porsiyon"
                             },
                             new Food()

@@ -208,6 +208,9 @@ namespace MyDietProgram.UI
 
         private void btnAddMeal_Click(object sender, EventArgs e)
         {
+            if(txtAmount.Text.Trim() == "")
+                MessageBox.Show("Miktar alanı boş bırakılamaz.");
+
             MealName mealName = (MealName)cbMeals.SelectedIndex;
             Food food = (Food)cbFoods.SelectedItem;
             List<Info> userInfos = db.Infos.Include(i => i.Meal).Where(i => i.User == user && i.MealDate == dtpDate.Value.Date).ToList();
