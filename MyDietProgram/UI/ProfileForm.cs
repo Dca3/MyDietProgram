@@ -71,6 +71,7 @@ namespace MyDietProgram
                         height,
                         age
                     );
+                db.SaveChanges();
                 DialogResult dr = MessageBox.Show("Bilgileriniz güncellenmiştir.");
                 if (dr == DialogResult.OK)
                 {
@@ -80,6 +81,7 @@ namespace MyDietProgram
             catch (Exception ex)
             {
                 db.ChangeTracker.Clear();
+                user = db.Users.FirstOrDefault(x => x.UserId == user.UserId);
                 MessageBox.Show(ex.Message);
             }
         }
