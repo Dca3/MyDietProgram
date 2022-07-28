@@ -31,12 +31,12 @@ namespace MyDietProgram.UI
             "",
             "",
             "Anasayfa'da gerekli alanları doldurarak yediğiniz yiyecek için bir kayıt oluşturun.\nSağ üst kısımda, kayıt olurken girdiğiniz bilgilere göre hesaplanan günlük olarak tüketmeniz gereken kalori miktarını görebilirsiniz.", // Main1
-            "Eklediğiniz bilgiler öğünler bölümüne eklecektir.", //Main2
+            "Eklediğiniz bilgiler öğünler bölümüne eklenecektir.", //Main2
             "Öğünün yanında yer alan düzenle butonuna basarak öğününüzün içeriğini düzenleyebilirsiniz.", //MealEdit
             "Yiyecekler listesinin yanındaki \"+\" butonuna tıklayarak yeni bir yiyecek oluşturabilirsiniz", //NewFood
-            "Günlük Rapor geçerli tarihe ait kayıtlarınızı gösterir.", //DailyReport
-            "Kıyas Raporu diğer kullanınıcılar ile sizin kayıtlarınızı karşılaştırır", // Comparision
-            "Yemek İstatistikleri Raporu yiyeceklerin hangi öğünlerde ne kadar tüketildiğini gösterir." //FoodStats
+            "Günlük Rapor'da geçerli tarihe ait kayıtlarınızı görebilirsiniz.", //DailyReport
+            "Kıyas Raporu, diğer kullanınıcılar ile sizin kayıtlarınızı karşılaştırır.", // Comparision
+            "Yemek İstatistikleri, yiyeceklerin hangi öğünlerde ne kadar tüketildiğini gösterir." //FoodStats
         };
         public TutorialForm()
         {
