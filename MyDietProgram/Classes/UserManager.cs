@@ -68,7 +68,7 @@ namespace MyDietProgram.Classes
             if (height < 100)
                 throw new Exception("Boy değeri 100'den büyük olmalı");
 
-            
+
 
             user.FirstName = firstName;
             user.LastName = lastName;
@@ -218,9 +218,39 @@ namespace MyDietProgram.Classes
         }
         public string CheckedEmail(string email)
         {
-            string theEmailPattern = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"
-                                   + "@"
-                                   + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))\z";
+            const string theEmailPattern =
+                   @"^([0-9a-zA-Z]" + //Start with a digit or alphabetical
+                   @"([\+\-_\.][0-9a-zA-Z]+)*" + // No continuous or ending +-_. chars in email
+                   @")+" +
+                   @"@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,17})$";
+
+                    //var validEmails = new[] {
+                    //    "ma@hostname.com",
+                    //    "ma@hostname.comcom",
+                    //    "MA@hostname.coMCom",
+                    //    "m.a@hostname.co",
+                    //    "m_a1a@hostname.com",
+                    //    "ma-a@hostname.com",
+                    //    "ma-a@hostname.com.edu",
+                    //    "ma-a.aa@hostname.com.edu",
+                    //    "ma.h.saraf.onemore@hostname.com.edu",
+                    //    "ma12@hostname.com",
+                    //    "12@hostname.com",
+                    //};
+                    //var invalidEmails = new[] {
+                    //    "Abc.example.com",     // No `@`
+                    //    "A@b@c@example.com",   // multiple `@`
+                    //    "ma...ma@jjf.co",      // continuous multiple dots in name
+                    //    "ma@jjf.c",            // only 1 char in extension
+                    //    "ma@jjf..com",         // continuous multiple dots in domain
+                    //    "ma@@jjf.com",         // continuous multiple `@`
+                    //    "@majjf.com",          // nothing before `@`
+                    //    "ma.@jjf.com",         // nothing after `.`
+                    //    "ma_@jjf.com",         // nothing after `_`
+                    //    "ma_@jjf",             // no domain extension 
+                    //    "ma_@jjf.",            // nothing after `_` and .
+                    //    "ma@jjf.",             // nothing after `.`
+                    //};
 
             var isValid = Regex.IsMatch(email, theEmailPattern);
 
