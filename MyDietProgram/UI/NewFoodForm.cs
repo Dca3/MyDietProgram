@@ -47,6 +47,7 @@ namespace MyDietProgram.UI
 
                 db.Foods.Add(newFood);
                 db.SaveChanges();
+                MessageBox.Show("İşlem başarılı.");
             }
         }
 

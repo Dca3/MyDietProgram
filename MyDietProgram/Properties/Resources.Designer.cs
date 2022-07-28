@@ -63,26 +63,6 @@ namespace MyDietProgram.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Comparision {
-            get {
-                object obj = ResourceManager.GetObject("Comparision", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ComparisionCategory {
-            get {
-                object obj = ResourceManager.GetObject("ComparisionCategory", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap DailyReport {
             get {
                 object obj = ResourceManager.GetObject("DailyReport", resourceCulture);
@@ -96,16 +76,6 @@ namespace MyDietProgram.Properties {
         internal static System.Drawing.Bitmap FoodStats {
             get {
                 object obj = ResourceManager.GetObject("FoodStats", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Login {
-            get {
-                object obj = ResourceManager.GetObject("Login", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,19 +103,9 @@ namespace MyDietProgram.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Main3 {
+        internal static System.Drawing.Bitmap MealEdit {
             get {
-                object obj = ResourceManager.GetObject("Main3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MealEdit1 {
-            get {
-                object obj = ResourceManager.GetObject("MealEdit1", resourceCulture);
+                object obj = ResourceManager.GetObject("MealEdit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +123,9 @@ namespace MyDietProgram.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Register1 {
+        internal static System.Drawing.Bitmap Overview {
             get {
-                object obj = ResourceManager.GetObject("Register1", resourceCulture);
+                object obj = ResourceManager.GetObject("Overview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +133,9 @@ namespace MyDietProgram.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RegisterOK {
+        internal static System.Drawing.Bitmap Profile {
             get {
-                object obj = ResourceManager.GetObject("RegisterOK", resourceCulture);
+                object obj = ResourceManager.GetObject("Profile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

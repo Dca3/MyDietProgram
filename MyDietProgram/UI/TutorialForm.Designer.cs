@@ -90,7 +90,7 @@
             this.pbxSlide.Location = new System.Drawing.Point(30, 18);
             this.pbxSlide.Name = "pbxSlide";
             this.pbxSlide.Size = new System.Drawing.Size(1271, 677);
-            this.pbxSlide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbxSlide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxSlide.TabIndex = 2;
             this.pbxSlide.TabStop = false;
             // 
@@ -110,6 +110,7 @@
             // 
             // lblWelcome
             // 
+            this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
             this.lblWelcome.Depth = 0;
             this.lblWelcome.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.lblWelcome.FontType = MaterialSkin.MaterialSkinManager.fontType.H3;

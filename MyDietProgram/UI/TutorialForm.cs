@@ -20,18 +20,18 @@ namespace MyDietProgram.UI
                 Properties.Resources.Main1,
                 Properties.Resources.Main1,
                 Properties.Resources.Main2,
-                Properties.Resources.MealEdit1,
+                Properties.Resources.MealEdit,
                 Properties.Resources.NewFood,
                 Properties.Resources.DailyReport,
-                Properties.Resources.Comparision,
+                Properties.Resources.Overview,
                 Properties.Resources.FoodStats
             };
 
         string[] descArr = new string[] {
             "",
             "",
-            "Anasayfa'da gerekli alanları doldurarak yediğiniz yiyecek için bir kayıt oluşturun.\nSağ üst kısımda, kayıt olurken girdiğiniz bilgilere göre hesaplanan günlük olarak tüketmeniz gereken kalori miktarını görebilirsiniz.", // Main1
-            "Eklediğiniz bilgiler öğünler bölümüne eklenecektir.", //Main2
+            "Sağ üst kısımda, kayıt olurken girdiğiniz bilgilere göre hesaplanan günlük olarak tüketmeniz gereken kalori miktarını görebilirsiniz.",//Main1
+            "Anasayfa'da gerekli alanları doldurarak yediğiniz yiyeceklerin kaydını oluşturun. Eklediğiniz bilgiler öğünler bölümüne eklenir.", // Main2
             "Öğünün yanında yer alan düzenle butonuna basarak öğününüzün içeriğini düzenleyebilirsiniz.", //MealEdit
             "Yiyecekler listesinin yanındaki \"+\" butonuna tıklayarak yeni bir yiyecek oluşturabilirsiniz", //NewFood
             "Günlük Rapor'da geçerli tarihe ait kayıtlarınızı görebilirsiniz.", //DailyReport
