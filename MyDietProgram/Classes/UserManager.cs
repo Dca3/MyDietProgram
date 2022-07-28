@@ -86,6 +86,72 @@ namespace MyDietProgram.Classes
             db.SaveChanges();
         }
 
+        public void UpdateUser(User user, string firstName, string lastName, string email, string pwd, int activity, int goal, int gender, string _weight, string _height, string _age)
+        {
+            firstName = firstName.Trim();
+            lastName = lastName.Trim();
+            double weight;
+            double height;
+            int age;
+
+            if (firstName == "")
+                throw new Exception("Ad alanı boş olamaz");
+
+            if (lastName == "")
+                throw new Exception("Soyad alanı boş olamaz");
+
+            try
+            {
+                age = Convert.ToInt32(_age);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Yaş alanını kontrol ederek yeniden deneyin");
+            }
+
+            if (age < 10)
+                throw new Exception("Yaş değeri 10'dan büyük olmalı");
+            try
+            {
+                weight = Convert.ToDouble(_weight);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Ağırlık alanını kontrol ederek yeniden deneyin");
+            }
+
+            if (weight < 30)
+                throw new Exception("Kilo değeri 30'dan büyük olmalı");
+
+            try
+            {
+                height = Convert.ToDouble(_height);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Boy alanını kontrol ederek yeniden deneyin");
+            }
+
+            if (height < 100)
+                throw new Exception("Boy değeri 100'den büyük olmalı");
+
+
+
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.Email = CheckedEmail(email);
+            user.Password = sha256_hash(CheckedPassword(pwd));
+            user.Activity = (DailyActivity)activity;
+            user.Goal = (Goal)goal;
+            user.Gender = (Gender)gender;
+            user.Weight = weight;
+            user.Height = height;
+            user.Age = age;
+            user.CalculatedCalorie = CalculatedCalorie(weight, height, age, activity, gender, goal);
+
+            db.SaveChanges();
+        }
+
         public string CheckedPassword(string password)
         {
 

@@ -18,7 +18,7 @@ namespace MyDietProgram
 
             if (db.Users.Count() == 0)
                 CreateSeedData();
-            ShowTutorial();
+            //ShowTutorial();
         }
 
         private void ShowTutorial()

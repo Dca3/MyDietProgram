@@ -313,7 +313,6 @@ namespace MyDietProgram.UI
             DailyReportForm daily = new DailyReportForm(db, user, dtpDate.Value.Date);
             manager.AddFormToManage(daily);
             daily.ShowDialog();
-
         }
 
         private void btnFoodStats_Click(object sender, EventArgs e)
@@ -342,11 +341,6 @@ namespace MyDietProgram.UI
             return infos.Sum(i => i.Food.Calorie * i.Amount);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void swhTheme_CheckedChanged(object sender, EventArgs e)
         {
             MaterialSwitch sw = (MaterialSwitch)sender;
@@ -360,6 +354,40 @@ namespace MyDietProgram.UI
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void lblMouseEnter(object sender, EventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(105, 119, 197);
+        }
+
+        private void lblMouseLeave(object sender, EventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(61, 81, 181);
+        }
+
+        private void lblDailyReport_MouseEnter(object sender, EventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(105, 119, 197);
+        }
+
+        private void lblDailyReport_MouseLeave(object sender, EventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(61, 81, 181);
+        }
+
+        private void lblProfile_Click(object sender, EventArgs e)
+        {
+            ProfileForm profileForm = new ProfileForm(db, user);
+            DialogResult dr = profileForm.ShowDialog();
+            if (dr == DialogResult.Cancel)
+            {
+                ListMealsOfUser();
+            }
         }
     }
 }

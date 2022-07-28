@@ -89,13 +89,13 @@ namespace MyDietProgram.UI
                 pbxSlide.Visible = true;
                 lblWelcome.Visible = false;
             }
-            if (slideIndex != gallery.Count)
+            if (slideIndex != gallery.Length)
             {
                 pbxSlide.Image = gallery[slideIndex];
                 lblDescription.Text = descArr[slideIndex];
             }
 
-            if (slideIndex == gallery.Count - 1)
+            if (slideIndex == gallery.Length - 1)
             {
                 btnNext.Enabled = false;
             }
