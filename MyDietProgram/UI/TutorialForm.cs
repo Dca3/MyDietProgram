@@ -15,7 +15,7 @@ namespace MyDietProgram.UI
     public partial class TutorialForm : MaterialForm
     {
         byte slideIndex = 0;
-        List<Bitmap> gallery = new List<Bitmap>(){
+        Bitmap[] gallery = new Bitmap[]{
                 Properties.Resources.Main1,
                 Properties.Resources.Main1,
                 Properties.Resources.Main1,
