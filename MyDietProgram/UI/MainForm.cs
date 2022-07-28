@@ -182,6 +182,7 @@ namespace MyDietProgram.UI
             int mealId = (int)btn.Parent.Tag;
             DeleteMealComponent(mealId);
             DeleteMealFromDB(mealId);
+            ListMealsOfUser();
         }
 
         private void DeleteMealComponent(int mealId)
