@@ -98,7 +98,7 @@ namespace MyDietProgram.UI
                 Ad = x.Key.Ad,
                 Öğün = x.Key.Öğün,
                 Kalori = x.Sum(y => y.Food.Calorie * y.Amount),
-                SizinKaloriniz = userInfosGroupedByMeal.Where(y => y.Öğün == x.Key.Öğün).Select(y => y.Kalori).FirstOrDefault(),
+                Kaloriniz = userInfosGroupedByMeal.Where(y => y.Öğün == x.Key.Öğün).Select(y => y.Kalori).FirstOrDefault(),
                 Fark = x.Sum(y => y.Food.Calorie * y.Amount) - userInfosGroupedByMeal.Where(y => y.Öğün == x.Key.Öğün).Select(y => y.Kalori).FirstOrDefault()
             }).OrderBy(x => x.Ad);
 
