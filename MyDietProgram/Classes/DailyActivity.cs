@@ -12,7 +12,5 @@ namespace MyDietProgram.Classes
         Less_Active=1,
         Active=2,
         More_Active=3,
-
-
     }
 }

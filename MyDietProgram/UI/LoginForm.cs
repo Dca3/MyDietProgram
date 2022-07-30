@@ -70,7 +70,7 @@ namespace MyDietProgram
             string[] lastNames = { "Yew", "Bugg", "Biologist", "Dactyl", "Legge", "Grater", "Erd", "Mused", "Noring", "Di", "Van", "Ann", "Sin", "Ringing", "Sideways", "Book", "Turner", "Report", "Wind", "Teak" }; //20
 
             var categories = db.Categories.Select(c => c).ToList();
-
+            UserManager userManager = new UserManager(db);
 
             //Food Seed
             if (!db.Foods.Any())
@@ -239,22 +239,19 @@ namespace MyDietProgram
 
             for (int i = 0; i < firstNames.Length; i++)
             {
-                User user = new User()
-                {
-                    FirstName = firstNames[i],
-                    LastName = lastNames[i],
-                    Age = rnd.Next(15, 80),
-                    Email = firstNames[i].ToLower() + lastNames[i].ToLower() + "@mail.com",
-                    Gender = (Gender)rnd.Next(0, 1),
-                    Activity = (DailyActivity)rnd.Next(0, 3),
-                    Goal = (Goal)rnd.Next(0, 3),
-                    Height = rnd.Next(150, 200),
-                    Weight = rnd.Next(40, 200),
-                    Password = "Test123.",
-                };
 
-                db.Users.Add(user);
-                db.SaveChanges();
+                string firstName = firstNames[i];
+                string lastName = lastNames[i];
+                string age = rnd.Next(15, 80).ToString();
+                string email = firstNames[i].ToLowerInvariant() + lastNames[i].ToLowerInvariant() + "@mail.com";
+                string pwd = "Test123.";
+                int activity = rnd.Next(0, 3);
+                int gender = rnd.Next(0, 1);
+                int goal = rnd.Next(0, 3);
+                string height = rnd.Next(150, 200).ToString();
+                string weight = rnd.Next(40, 200).ToString();
+
+                userManager.CreateUser(firstName, lastName, email, pwd, activity, goal, gender, weight, height, age);
             }
 
             for (int i = 0; i < 50; i++)
